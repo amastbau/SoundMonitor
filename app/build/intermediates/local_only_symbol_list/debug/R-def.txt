@@ -1,0 +1,8 @@
+R_DEF: Internal format may change without notice
+local
+id startStopButton
+id statusText
+id thresholdSeekBar
+id thresholdText
+layout activity_main
+string app_name

@@ -1,0 +1,42 @@
+=== LEGAL TIMESTAMP VERIFICATION ===
+Video File: video_20250831_142234.mp4
+Recording Started: 2025-08-31 14:22:34 UTC
+Recording Stopped: 2025-08-31 14:23:45 UTC
+File Size: 15728640 bytes
+SHA-256 Hash: a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456
+
+=== AUTHORITATIVE TIMESTAMP VERIFICATION ===
+Time Authority: worldtimeapi.org
+UTC Time: 2025-08-31 14:22:34 UTC
+Authoritative Time: 2025-08-31T14:22:34.567890Z
+Status: VERIFIED
+
+=== GPS LOCATION VERIFICATION ===
+Latitude: 37.423021
+Longitude: -122.083740
+Location Provider: gps
+Google Maps Link: https://maps.google.com/maps?q=37.423021,-122.083740
+Plus Code: https://plus.codes/37.423021,-122.083740
+Location Accuracy: 3.2 meters
+Location Age: 2 seconds
+Location Status: GPS VERIFIED (Satellite)
+
+=== LEGAL NOTICE ===
+This timestamp is verified against authoritative time servers
+and provides cryptographic proof that this video existed
+at the specified time and location. The SHA-256 hash ensures file integrity.
+Any modification to the video will change the hash completely.
+
+=== VERIFICATION STEPS ===
+1. Calculate SHA-256 hash of video file and compare with above hash
+2. Verify file size matches the recorded size
+3. Visit Google Maps link to verify exact recording location
+4. Check Plus Code for additional location verification
+5. Contact worldtimeapi.org for timestamp verification
+6. Check that timestamps are consistent across systems
+7. Verify location accuracy is reasonable for the situation
+8. Check location age to ensure GPS reading was recent
+
+=== INTEGRITY GUARANTEE ===
+Any alteration to the video file will result in a completely different
+SHA-256 hash, making tampering immediately detectable.

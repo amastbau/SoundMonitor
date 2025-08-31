@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.0.2" type="incidents">
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Sound-Triggered Recorder&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="11"
+            column="9"
+            startOffset="368"
+            endLine="11"
+            endColumn="48"
+            endOffset="407"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Threshold: 50 dB&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="21"
+            column="9"
+            startOffset="711"
+            endLine="21"
+            endColumn="40"
+            endOffset="742"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Status: Stopped&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="35"
+            column="9"
+            startOffset="1162"
+            endLine="35"
+            endColumn="39"
+            endOffset="1192"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Start Monitoring&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="43"
+            column="9"
+            startOffset="1415"
+            endLine="43"
+            endColumn="40"
+            endOffset="1446"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Instructions:\n• Adjust threshold above ambient noise\n• Grant all permissions when prompted\n• Videos saved to Movies/SoundTrigger folder\n• Recording stops 1 minute after sound drops&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="55"
+            column="9"
+            startOffset="1817"
+            endLine="55"
+            endColumn="208"
+            endOffset="2016"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="42"
+            column="31"
+            startOffset="1413"
+            endLine="42"
+            endColumn="69"
+            endOffset="1451"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="42"
+            column="31"
+            startOffset="1413"
+            endLine="42"
+            endColumn="44"
+            endOffset="1426"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="42"
+            column="64"
+            startOffset="1446"
+            endLine="42"
+            endColumn="69"
+            endOffset="1451"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="52"
+            column="39"
+            startOffset="1864"
+            endLine="52"
+            endColumn="77"
+            endOffset="1902"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="52"
+            column="39"
+            startOffset="1864"
+            endLine="52"
+            endColumn="52"
+            endOffset="1877"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="52"
+            column="72"
+            startOffset="1897"
+            endLine="52"
+            endColumn="77"
+            endOffset="1902"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="82"
+            column="33"
+            startOffset="2807"
+            endLine="82"
+            endColumn="50"
+            endOffset="2824"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="83"
+            column="28"
+            startOffset="2854"
+            endLine="83"
+            endColumn="62"
+            endOffset="2888"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="90"
+            column="33"
+            startOffset="3123"
+            endLine="90"
+            endColumn="51"
+            endOffset="3141"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="91"
+            column="28"
+            startOffset="3171"
+            endLine="91"
+            endColumn="45"
+            endOffset="3188"/>
+    </incident>
+
+    <incident
+        id="DefaultLocale"
+        severity="warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"
+            line="140"
+            column="42"
+            startOffset="5162"
+            endLine="140"
+            endColumn="72"
+            endOffset="5192"/>
+    </incident>
+
+    <incident
+        id="OldTargetApi"
+        severity="warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.">
+        <fix-replace
+            description="Update targetSdkVersion to 36"
+            oldString="33"
+            replacement="36"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="12"
+            column="9"
+            startOffset="203"
+            endLine="12"
+            endColumn="21"
+            endOffset="215"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1">
+        <fix-replace
+            description="Change to 1.7.1"
+            family="Update versions"
+            oldString="1.6.1"
+            replacement="1.7.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="31"
+            column="20"
+            startOffset="631"
+            endLine="31"
+            endColumn="56"
+            endOffset="667"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.material:material than 1.8.0 is available: 1.12.0">
+        <fix-replace
+            description="Change to 1.12.0"
+            family="Update versions"
+            oldString="1.8.0"
+            replacement="1.12.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="32"
+            column="20"
+            startOffset="687"
+            endLine="32"
+            endColumn="64"
+            endOffset="731"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1">
+        <fix-replace
+            description="Change to 2.2.1"
+            family="Update versions"
+            oldString="2.1.4"
+            replacement="2.2.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="33"
+            column="20"
+            startOffset="751"
+            endLine="33"
+            endColumn="70"
+            endOffset="801"/>
+    </incident>
+
+</incidents>

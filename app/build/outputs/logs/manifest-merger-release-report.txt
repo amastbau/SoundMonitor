@@ -1,0 +1,287 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-37:12
+MERGED from [com.google.android.material:material:1.8.0] /home/amos/.gradle/caches/8.13/transforms/8387a082dcb333be3b07694772fbebd2/transformed/material-1.8.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/amos/.gradle/caches/8.13/transforms/33ade1d4177787c2d818e556d9b90a5d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/amos/.gradle/caches/8.13/transforms/c44d49b7a8038fbe5ebf4cc8551ac09e/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/amos/.gradle/caches/8.13/transforms/356e1739cf51abca1bbcd5fb6fee7395/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/amos/.gradle/caches/8.13/transforms/4058d21ef94f18fe0c7c75bc4eaee56e/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.3.6] /home/amos/.gradle/caches/8.13/transforms/451e332f1ece3ad5f3c646bd9762c88e/transformed/fragment-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.6.0] /home/amos/.gradle/caches/8.13/transforms/87f46631f50f1e90c2ca4f365c7c00ae/transformed/jetified-activity-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/amos/.gradle/caches/8.13/transforms/3ac65fd08b6df63d2834df3655e4691a/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/amos/.gradle/caches/8.13/transforms/f60a96c58db26b91a6f9425637cfdf0e/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/amos/.gradle/caches/8.13/transforms/5c2204383b04ea31590a4ccd96421231/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/amos/.gradle/caches/8.13/transforms/50a1c7681fb2db12cfed700b103cb16e/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] /home/amos/.gradle/caches/8.13/transforms/d5480b2db3c23046f48683743352726f/transformed/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/amos/.gradle/caches/8.13/transforms/0a4a34b3efbb843e32f6148ccb5d7226/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/amos/.gradle/caches/8.13/transforms/2d0facd9711dec27939d92234b3a4df8/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/amos/.gradle/caches/8.13/transforms/5b45e9116fe0a494722c4425f2c0b2f6/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/amos/.gradle/caches/8.13/transforms/7f06853c96c51c2500c17312334dc5c5/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /home/amos/.gradle/caches/8.13/transforms/feee1724ae992904ac744d6bdd932de4/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /home/amos/.gradle/caches/8.13/transforms/6478aac118ee64ccac7f82d7abe95db8/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.9.0] /home/amos/.gradle/caches/8.13/transforms/a1d8a00acdc5f133628d3760c8f28687/transformed/jetified-core-ktx-1.9.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/amos/.gradle/caches/8.13/transforms/553e2a52931783e87ea2264e9d7fe078/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/amos/.gradle/caches/8.13/transforms/b14c656acb5de1bfcbcf74de1a4d127c/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] /home/amos/.gradle/caches/8.13/transforms/356d39dfb783b1b29381c8eaa05ab2ac/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/amos/.gradle/caches/8.13/transforms/3c82b19ae07a73619935a12ed954562b/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /home/amos/.gradle/caches/8.13/transforms/650a03b172b2d85bc8b7d626c8cc020b/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.2.0] /home/amos/.gradle/caches/8.13/transforms/bc176f7b08f74bd7562f3dda1a395b6d/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] /home/amos/.gradle/caches/8.13/transforms/4791055d726c5ad9d20c9ff775d43b30/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/amos/.gradle/caches/8.13/transforms/3b8381d892ffc08754ff75c5442a26b0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /home/amos/.gradle/caches/8.13/transforms/480ff287d8b7979ebdba6fc62dd50db9/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/amos/.gradle/caches/8.13/transforms/44160c508a4a61af12d71c9ccfa46b7e/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/amos/.gradle/caches/8.13/transforms/e19803de5a76b1f528fb93290e0c3337/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /home/amos/.gradle/caches/8.13/transforms/f11ffef69677cc0583b1645d99b228ad/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/amos/.gradle/caches/8.13/transforms/dff3a8150ac05ee80c735aaa826186e8/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/amos/.gradle/caches/8.13/transforms/85f861bc7d06c6ad6b1bdb09d7e38ffb/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/amos/.gradle/caches/8.13/transforms/5cc3a746558585fc882d5877fdb097c4/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/amos/.gradle/caches/8.13/transforms/bd3645dcf73454eb3fdd5b76e42d2aba/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /home/amos/.gradle/caches/8.13/transforms/aa8b059bd4088a0d1a8a5d4f05ec034c/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/amos/.gradle/caches/8.13/transforms/cd2fffdaeee6089e45de54adff59525d/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:4:5-71
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:4:22-68
+uses-permission#android.permission.CAMERA
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:5:5-65
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:5:22-62
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:6:5-77
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:6:22-74
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:7:5-68
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:7:22-65
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:8:5-77
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:8:22-74
+uses-permission#android.permission.INTERNET
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:9:5-67
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:9:22-64
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:10:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:11:5-81
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:11:22-78
+uses-feature#android.hardware.camera
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:13:5-85
+	android:required
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:13:58-82
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:13:19-57
+uses-feature#android.hardware.microphone
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:14:5-89
+	android:required
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:14:62-86
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:14:19-61
+application
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:16:5-36:19
+INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:16:5-36:19
+MERGED from [com.google.android.material:material:1.8.0] /home/amos/.gradle/caches/8.13/transforms/8387a082dcb333be3b07694772fbebd2/transformed/material-1.8.0/AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.material:material:1.8.0] /home/amos/.gradle/caches/8.13/transforms/8387a082dcb333be3b07694772fbebd2/transformed/material-1.8.0/AndroidManifest.xml:24:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/amos/.gradle/caches/8.13/transforms/33ade1d4177787c2d818e556d9b90a5d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/amos/.gradle/caches/8.13/transforms/33ade1d4177787c2d818e556d9b90a5d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/amos/.gradle/caches/8.13/transforms/3b8381d892ffc08754ff75c5442a26b0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/amos/.gradle/caches/8.13/transforms/3b8381d892ffc08754ff75c5442a26b0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/amos/.gradle/caches/8.13/transforms/44160c508a4a61af12d71c9ccfa46b7e/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/amos/.gradle/caches/8.13/transforms/44160c508a4a61af12d71c9ccfa46b7e/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+	android:label
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:19:9-41
+	android:icon
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:18:9-55
+	android:allowBackup
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:17:9-35
+	android:theme
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:20:9-56
+	android:networkSecurityConfig
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:21:9-69
+activity#com.soundmonitor.app.MainActivity
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:23:9-30:20
+	android:exported
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:24:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:26:13-29:29
+action#android.intent.action.MAIN
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:27:17-69
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:27:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:28:17-77
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:28:27-74
+service#com.soundmonitor.app.SoundMonitorService
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:32:9-35:40
+	android:enabled
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:34:13-35
+	android:exported
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:33:13-48
+uses-sdk
+INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml
+INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml
+MERGED from [com.google.android.material:material:1.8.0] /home/amos/.gradle/caches/8.13/transforms/8387a082dcb333be3b07694772fbebd2/transformed/material-1.8.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.8.0] /home/amos/.gradle/caches/8.13/transforms/8387a082dcb333be3b07694772fbebd2/transformed/material-1.8.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/amos/.gradle/caches/8.13/transforms/33ade1d4177787c2d818e556d9b90a5d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/amos/.gradle/caches/8.13/transforms/33ade1d4177787c2d818e556d9b90a5d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/amos/.gradle/caches/8.13/transforms/c44d49b7a8038fbe5ebf4cc8551ac09e/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/amos/.gradle/caches/8.13/transforms/c44d49b7a8038fbe5ebf4cc8551ac09e/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/amos/.gradle/caches/8.13/transforms/356e1739cf51abca1bbcd5fb6fee7395/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/amos/.gradle/caches/8.13/transforms/356e1739cf51abca1bbcd5fb6fee7395/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/amos/.gradle/caches/8.13/transforms/4058d21ef94f18fe0c7c75bc4eaee56e/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/amos/.gradle/caches/8.13/transforms/4058d21ef94f18fe0c7c75bc4eaee56e/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] /home/amos/.gradle/caches/8.13/transforms/451e332f1ece3ad5f3c646bd9762c88e/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] /home/amos/.gradle/caches/8.13/transforms/451e332f1ece3ad5f3c646bd9762c88e/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.6.0] /home/amos/.gradle/caches/8.13/transforms/87f46631f50f1e90c2ca4f365c7c00ae/transformed/jetified-activity-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.6.0] /home/amos/.gradle/caches/8.13/transforms/87f46631f50f1e90c2ca4f365c7c00ae/transformed/jetified-activity-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/amos/.gradle/caches/8.13/transforms/3ac65fd08b6df63d2834df3655e4691a/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/amos/.gradle/caches/8.13/transforms/3ac65fd08b6df63d2834df3655e4691a/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/amos/.gradle/caches/8.13/transforms/f60a96c58db26b91a6f9425637cfdf0e/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/amos/.gradle/caches/8.13/transforms/f60a96c58db26b91a6f9425637cfdf0e/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/amos/.gradle/caches/8.13/transforms/5c2204383b04ea31590a4ccd96421231/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/amos/.gradle/caches/8.13/transforms/5c2204383b04ea31590a4ccd96421231/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/amos/.gradle/caches/8.13/transforms/50a1c7681fb2db12cfed700b103cb16e/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/amos/.gradle/caches/8.13/transforms/50a1c7681fb2db12cfed700b103cb16e/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] /home/amos/.gradle/caches/8.13/transforms/d5480b2db3c23046f48683743352726f/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /home/amos/.gradle/caches/8.13/transforms/d5480b2db3c23046f48683743352726f/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/amos/.gradle/caches/8.13/transforms/0a4a34b3efbb843e32f6148ccb5d7226/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/amos/.gradle/caches/8.13/transforms/0a4a34b3efbb843e32f6148ccb5d7226/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/amos/.gradle/caches/8.13/transforms/2d0facd9711dec27939d92234b3a4df8/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/amos/.gradle/caches/8.13/transforms/2d0facd9711dec27939d92234b3a4df8/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/amos/.gradle/caches/8.13/transforms/5b45e9116fe0a494722c4425f2c0b2f6/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/amos/.gradle/caches/8.13/transforms/5b45e9116fe0a494722c4425f2c0b2f6/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/amos/.gradle/caches/8.13/transforms/7f06853c96c51c2500c17312334dc5c5/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/amos/.gradle/caches/8.13/transforms/7f06853c96c51c2500c17312334dc5c5/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /home/amos/.gradle/caches/8.13/transforms/feee1724ae992904ac744d6bdd932de4/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /home/amos/.gradle/caches/8.13/transforms/feee1724ae992904ac744d6bdd932de4/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /home/amos/.gradle/caches/8.13/transforms/6478aac118ee64ccac7f82d7abe95db8/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /home/amos/.gradle/caches/8.13/transforms/6478aac118ee64ccac7f82d7abe95db8/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.9.0] /home/amos/.gradle/caches/8.13/transforms/a1d8a00acdc5f133628d3760c8f28687/transformed/jetified-core-ktx-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.9.0] /home/amos/.gradle/caches/8.13/transforms/a1d8a00acdc5f133628d3760c8f28687/transformed/jetified-core-ktx-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/amos/.gradle/caches/8.13/transforms/553e2a52931783e87ea2264e9d7fe078/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/amos/.gradle/caches/8.13/transforms/553e2a52931783e87ea2264e9d7fe078/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/amos/.gradle/caches/8.13/transforms/b14c656acb5de1bfcbcf74de1a4d127c/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/amos/.gradle/caches/8.13/transforms/b14c656acb5de1bfcbcf74de1a4d127c/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /home/amos/.gradle/caches/8.13/transforms/356d39dfb783b1b29381c8eaa05ab2ac/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /home/amos/.gradle/caches/8.13/transforms/356d39dfb783b1b29381c8eaa05ab2ac/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/amos/.gradle/caches/8.13/transforms/3c82b19ae07a73619935a12ed954562b/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/amos/.gradle/caches/8.13/transforms/3c82b19ae07a73619935a12ed954562b/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /home/amos/.gradle/caches/8.13/transforms/650a03b172b2d85bc8b7d626c8cc020b/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /home/amos/.gradle/caches/8.13/transforms/650a03b172b2d85bc8b7d626c8cc020b/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] /home/amos/.gradle/caches/8.13/transforms/bc176f7b08f74bd7562f3dda1a395b6d/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] /home/amos/.gradle/caches/8.13/transforms/bc176f7b08f74bd7562f3dda1a395b6d/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] /home/amos/.gradle/caches/8.13/transforms/4791055d726c5ad9d20c9ff775d43b30/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/amos/.gradle/caches/8.13/transforms/4791055d726c5ad9d20c9ff775d43b30/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/amos/.gradle/caches/8.13/transforms/3b8381d892ffc08754ff75c5442a26b0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/amos/.gradle/caches/8.13/transforms/3b8381d892ffc08754ff75c5442a26b0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/amos/.gradle/caches/8.13/transforms/480ff287d8b7979ebdba6fc62dd50db9/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/amos/.gradle/caches/8.13/transforms/480ff287d8b7979ebdba6fc62dd50db9/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/amos/.gradle/caches/8.13/transforms/44160c508a4a61af12d71c9ccfa46b7e/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/amos/.gradle/caches/8.13/transforms/44160c508a4a61af12d71c9ccfa46b7e/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/amos/.gradle/caches/8.13/transforms/e19803de5a76b1f528fb93290e0c3337/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/amos/.gradle/caches/8.13/transforms/e19803de5a76b1f528fb93290e0c3337/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /home/amos/.gradle/caches/8.13/transforms/f11ffef69677cc0583b1645d99b228ad/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /home/amos/.gradle/caches/8.13/transforms/f11ffef69677cc0583b1645d99b228ad/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/amos/.gradle/caches/8.13/transforms/dff3a8150ac05ee80c735aaa826186e8/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/amos/.gradle/caches/8.13/transforms/dff3a8150ac05ee80c735aaa826186e8/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/amos/.gradle/caches/8.13/transforms/85f861bc7d06c6ad6b1bdb09d7e38ffb/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/amos/.gradle/caches/8.13/transforms/85f861bc7d06c6ad6b1bdb09d7e38ffb/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/amos/.gradle/caches/8.13/transforms/5cc3a746558585fc882d5877fdb097c4/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/amos/.gradle/caches/8.13/transforms/5cc3a746558585fc882d5877fdb097c4/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/amos/.gradle/caches/8.13/transforms/bd3645dcf73454eb3fdd5b76e42d2aba/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/amos/.gradle/caches/8.13/transforms/bd3645dcf73454eb3fdd5b76e42d2aba/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/amos/.gradle/caches/8.13/transforms/aa8b059bd4088a0d1a8a5d4f05ec034c/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/amos/.gradle/caches/8.13/transforms/aa8b059bd4088a0d1a8a5d4f05ec034c/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/amos/.gradle/caches/8.13/transforms/cd2fffdaeee6089e45de54adff59525d/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/amos/.gradle/caches/8.13/transforms/cd2fffdaeee6089e45de54adff59525d/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/amos/.gradle/caches/8.13/transforms/3b8381d892ffc08754ff75c5442a26b0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/amos/.gradle/caches/8.13/transforms/3b8381d892ffc08754ff75c5442a26b0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+permission#com.soundmonitor.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+uses-permission#com.soundmonitor.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.9.0] /home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78

@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="/home/amos/AndroidStudioProjects/f/SoundMonitor/app"
+    name=":app"
+    type="APP"
+    maven="Sound Monitor:app:unspecified"
+    agpVersion="8.12.2"
+    buildFolder="build"
+    bootClassPath="/home/amos/Android/Sdk/platforms/android-33/android.jar:/home/amos/Android/Sdk/build-tools/35.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-33"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>

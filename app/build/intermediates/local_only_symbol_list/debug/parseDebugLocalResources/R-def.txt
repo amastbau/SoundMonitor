@@ -1,0 +1,11 @@
+R_DEF: Internal format may change without notice
+local
+id currentDbText
+id startStopButton
+id statusText
+id testNetworkButton
+id thresholdSeekBar
+id thresholdText
+layout activity_main
+string app_name
+xml network_security_config

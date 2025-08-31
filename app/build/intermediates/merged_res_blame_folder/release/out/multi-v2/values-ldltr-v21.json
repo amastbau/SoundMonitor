@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.soundmonitor.app-mergeReleaseResources-26:/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/home/amos/.gradle/caches/8.13/transforms/40558ae7c513a9a730e805de6a9e5d80/transformed/appcompat-1.6.1/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}

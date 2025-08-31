@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.0.2" type="conditional_incidents">
+
+    <incident
+        id="ScopedStorage"
+        severity="warning"
+        message="">
+        <location
+            file="${:app*debug*sourceProvider*0*manifest*0}"
+            line="9"
+            column="36"
+            startOffset="503"
+            endLine="9"
+            endColumn="77"
+            endOffset="544"/>
+        <map>
+            <entry
+                name="maxSdkVersion"
+                int="2147483647"/>
+            <entry
+                name="read"
+                boolean="false"/>
+        </map>
+    </incident>
+
+    <incident
+        id="PermissionImpliesUnsupportedChromeOsHardware"
+        severity="error"
+        message="Permission exists without corresponding hardware `&lt;uses-feature android:name=&quot;android.hardware.camera&quot; required=&quot;false&quot;>` tag">
+        <fix-data featureName="android.hardware.camera"/>
+        <location
+            file="${:app*debug*sourceProvider*0*manifest*0}"
+            line="5"
+            column="6"
+            startOffset="186"
+            endLine="5"
+            endColumn="21"
+            endOffset="201"/>
+        <map>
+            <condition library="false"/>
+        </map>
+    </incident>
+
+    <incident
+        id="NotificationPermission"
+        severity="error"
+        message="When targeting Android 13 or higher, posting a permission requires holding the `POST_NOTIFICATIONS` permission">
+        <fix-data missing="android.permission.POST_NOTIFICATIONS"/>
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"
+            line="409"
+            column="9"
+            startOffset="15904"
+            endLine="409"
+            endColumn="54"
+            endOffset="15949"/>
+    </incident>
+
+</incidents>
