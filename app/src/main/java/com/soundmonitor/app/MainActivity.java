@@ -810,24 +810,19 @@ public class MainActivity extends AppCompatActivity {
             statusText.setTextSize(24); // Larger text
         } else {
             statusText.setTextSize(18); // Normal size
-            if (dbLevel > soundThreshold) {
-                if (isAudioOnlyMode) {
-                    statusText.setText("🎵 READY TO RECORD AUDIO");
-                    statusText.setTextColor(0xFF9C27B0); // Purple
-                    currentDbText.setTextColor(0xFF9C27B0); // Purple dB text
-                } else {
-                    statusText.setText("🔊 READY TO RECORD");
-                    statusText.setTextColor(0xFFFF5722); // Orange
-                    currentDbText.setTextColor(0xFFFF5722); // Orange dB text
-                }
+            // Always show monitoring status, but highlight dB if above threshold
+            if (isAudioOnlyMode) {
+                statusText.setText("🎵 Audio Monitoring");
             } else {
-                if (isAudioOnlyMode) {
-                    statusText.setText("🎵 Audio Monitoring");
-                } else {
-                    statusText.setText("👂 Monitoring");
-                }
-                statusText.setTextColor(0xFF4CAF50); // Green
-                currentDbText.setTextColor(0xFF4CAF50); // Green dB text
+                statusText.setText("👂 Monitoring");
+            }
+            statusText.setTextColor(0xFF4CAF50); // Green for monitoring
+            
+            // Color dB text red if above threshold, green otherwise
+            if (dbLevel > soundThreshold) {
+                currentDbText.setTextColor(0xFFFF0000); // Red when above threshold
+            } else {
+                currentDbText.setTextColor(0xFF4CAF50); // Green when normal
             }
         }
     }
@@ -923,24 +918,19 @@ public class MainActivity extends AppCompatActivity {
             String dbText = String.format("%.1f dB", dbLevel);
             currentDbText.setText(dbText);
             
-            if (dbLevel > soundThreshold) {
-                if (isAudioOnlyMode) {
-                    currentDbText.setTextColor(0xFF9C27B0); // Purple for audio mode
-                    statusText.setText("🎵 READY TO RECORD AUDIO");
-                    statusText.setTextColor(0xFF9C27B0);
-                } else {
-                    currentDbText.setTextColor(0xFFFF5722); // Red/orange for video mode
-                    statusText.setText("🔊 READY TO RECORD");
-                    statusText.setTextColor(0xFFFF5722);
-                }
+            // Always show stopped status, but color dB red if above threshold
+            if (isAudioOnlyMode) {
+                statusText.setText("🎵 Audio Stopped");
             } else {
-                currentDbText.setTextColor(0xFF4CAF50); // Green for normal
-                if (isAudioOnlyMode) {
-                    statusText.setText("🎵 Audio Stopped");
-                } else {
-                    statusText.setText("👂 Stopped");
-                }
-                statusText.setTextColor(0xFF4CAF50);
+                statusText.setText("👂 Stopped");
+            }
+            statusText.setTextColor(0xFF4CAF50); // Green for stopped
+            
+            // Color dB text red if above threshold, green otherwise
+            if (dbLevel > soundThreshold) {
+                currentDbText.setTextColor(0xFFFF0000); // Red when above threshold
+            } else {
+                currentDbText.setTextColor(0xFF4CAF50); // Green when normal
             }
         }
     }

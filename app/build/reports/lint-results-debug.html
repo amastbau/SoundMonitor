@@ -177,9 +177,9 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 121 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 117 warnings</span>
       <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Tue Sep 02 15:43:19 IDT 2025 by AGP (8.12.2)</nav>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Tue Sep 02 15:48:38 IDT 2025 by AGP (8.12.2)</nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -200,7 +200,7 @@ document.getElementById(id).style.display = 'none';
       <a class="mdl-navigation__link" href="#Overdraw"><i class="material-icons warning-icon">warning</i>Overdraw: Painting regions more than once (1)</a>
       <a class="mdl-navigation__link" href="#ButtonStyle"><i class="material-icons warning-icon">warning</i>Button should be borderless (2)</a>
       <a class="mdl-navigation__link" href="#UseTomlInstead"><i class="material-icons warning-icon">warning</i>Use TOML Version Catalog Instead (4)</a>
-      <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (50)</a>
+      <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (46)</a>
       <a class="mdl-navigation__link" href="#HardcodedText"><i class="material-icons warning-icon">warning</i>Hardcoded text (22)</a>
       <a class="mdl-navigation__link" href="#RtlSymmetry"><i class="material-icons warning-icon">warning</i>Padding and margin symmetry (2)</a>
     </nav>
@@ -270,7 +270,7 @@ document.getElementById(id).style.display = 'none';
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Internationalization">Internationalization</a>
 </td></tr>
 <tr>
-<td class="countColumn">50</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">46</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#SetTextI18n">SetTextI18n</a>: TextView Internationalization</td></tr>
 <tr>
 <td class="countColumn">22</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
@@ -391,15 +391,14 @@ Dismiss</button>            </div>
 <span class="lineno"> 798 </span>        
 <span class="lineno"> 799 </span>        <span class="comment">// Very clear recording status</span></pre>
 
-<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:923</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>String.format(Locale, ...)</code> instead</span><br /><pre class="errorlines">
-<span class="lineno"> 920 </span>    <span class="keyword">private</span> <span class="keyword">void</span> updateLocalDecibelDisplay(<span class="keyword">double</span> dbLevel) {
-<span class="lineno"> 921 </span>        <span class="comment">// Only update if service is not running (to avoid conflicts)</span>
-<span class="lineno"> 922 </span>        <span class="keyword">if</span> (!isServiceRunning) {
-<span class="caretline"><span class="lineno"> 923 </span>            String dbText = <span class="warning">String.format(<span class="string">"%.1f dB"</span>, dbLevel)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 924 </span>            currentDbText.setText(dbText);
-<span class="lineno"> 925 </span>            
-<span class="lineno"> 926 </span>            <span class="keyword">if</span> (dbLevel > soundThreshold) {
-</pre>
+<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:918</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>String.format(Locale, ...)</code> instead</span><br /><pre class="errorlines">
+<span class="lineno"> 915 </span>    <span class="keyword">private</span> <span class="keyword">void</span> updateLocalDecibelDisplay(<span class="keyword">double</span> dbLevel) {
+<span class="lineno"> 916 </span>        <span class="comment">// Only update if service is not running (to avoid conflicts)</span>
+<span class="lineno"> 917 </span>        <span class="keyword">if</span> (!isServiceRunning) {
+<span class="caretline"><span class="lineno"> 918 </span>            String dbText = <span class="warning">String.format(<span class="string">"%.1f dB"</span>, dbLevel)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 919 </span>            currentDbText.setText(dbText);
+<span class="lineno"> 920 </span>            
+<span class="lineno"> 921 </span>            <span class="comment">// Always show stopped status, but color dB red if above threshold</span></pre>
 
 <span class="location"><a href="../../src/main/java/com/soundmonitor/app/SoundMonitorService.java">../../src/main/java/com/soundmonitor/app/SoundMonitorService.java</a>:413</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>String.format(Locale, ...)</code> instead</span><br /><pre class="errorlines">
 <span class="lineno">  410 </span>        LocalBroadcastManager.getInstance(<span class="keyword">this</span>).sendBroadcast(intent);
@@ -1340,7 +1339,7 @@ Dismiss</button>            </div>
 <span class="lineno"> 200 </span>            recordingStatus.setText(<span class="string">"👂 MONITORING"</span>);
 </pre>
 
-<button class="mdl-button mdl-js-button mdl-button--primary" id="SetTextI18nDivLink" onclick="reveal('SetTextI18nDiv');" />+ 45 More Occurrences...</button>
+<button class="mdl-button mdl-js-button mdl-button--primary" id="SetTextI18nDivLink" onclick="reveal('SetTextI18nDiv');" />+ 41 More Occurrences...</button>
 <div id="SetTextI18nDiv" style="display: none">
 <span class="location"><a href="../../src/main/java/com/soundmonitor/app/CameraPreviewActivity.java">../../src/main/java/com/soundmonitor/app/CameraPreviewActivity.java</a>:200</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
 <span class="lineno"> 197 </span>            recordingStatus.setText(<span class="string">"⏸️ STOPPED (Timeout)"</span>);
@@ -1701,80 +1700,42 @@ Dismiss</button>            </div>
 
 <span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:815</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
 <span class="lineno"> 812 </span>            statusText.setTextSize(<span class="number">18</span>); <span class="comment">// Normal size</span>
-<span class="lineno"> 813 </span>            <span class="keyword">if</span> (dbLevel > soundThreshold) {
-<span class="lineno"> 814 </span>                <span class="keyword">if</span> (isAudioOnlyMode) {
-<span class="caretline"><span class="lineno"> 815 </span>                    statusText.setText(<span class="warning"><span class="string">"🎵 READY TO RECORD AUDIO"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 816 </span>                    statusText.setTextColor(<span class="number">0xFF9C27B0</span>); <span class="comment">// Purple</span>
-<span class="lineno"> 817 </span>                    currentDbText.setTextColor(<span class="number">0xFF9C27B0</span>); <span class="comment">// Purple dB text</span>
-<span class="lineno"> 818 </span>                } <span class="keyword">else</span> {
+<span class="lineno"> 813 </span>            <span class="comment">// Always show monitoring status, but highlight dB if above threshold</span>
+<span class="lineno"> 814 </span>            <span class="keyword">if</span> (isAudioOnlyMode) {
+<span class="caretline"><span class="lineno"> 815 </span>                statusText.setText(<span class="warning"><span class="string">"🎵 Audio Monitoring"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 816 </span>            } <span class="keyword">else</span> {
+<span class="lineno"> 817 </span>                statusText.setText(<span class="string">"👂 Monitoring"</span>);
+<span class="lineno"> 818 </span>            }
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:819</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 816 </span>                    statusText.setTextColor(<span class="number">0xFF9C27B0</span>); <span class="comment">// Purple</span>
-<span class="lineno"> 817 </span>                    currentDbText.setTextColor(<span class="number">0xFF9C27B0</span>); <span class="comment">// Purple dB text</span>
-<span class="lineno"> 818 </span>                } <span class="keyword">else</span> {
-<span class="caretline"><span class="lineno"> 819 </span>                    statusText.setText(<span class="warning"><span class="string">"🔊 READY TO RECORD"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 820 </span>                    statusText.setTextColor(<span class="number">0xFFFF5722</span>); <span class="comment">// Orange</span>
-<span class="lineno"> 821 </span>                    currentDbText.setTextColor(<span class="number">0xFFFF5722</span>); <span class="comment">// Orange dB text</span>
-<span class="lineno"> 822 </span>                }
+<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:817</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 814 </span>            <span class="keyword">if</span> (isAudioOnlyMode) {
+<span class="lineno"> 815 </span>                statusText.setText(<span class="string">"🎵 Audio Monitoring"</span>);
+<span class="lineno"> 816 </span>            } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 817 </span>                statusText.setText(<span class="warning"><span class="string">"👂 Monitoring"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 818 </span>            }
+<span class="lineno"> 819 </span>            statusText.setTextColor(<span class="number">0xFF4CAF50</span>); <span class="comment">// Green for monitoring</span>
+<span class="lineno"> 820 </span>            
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:825</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 822 </span>                }
-<span class="lineno"> 823 </span>            } <span class="keyword">else</span> {
-<span class="lineno"> 824 </span>                <span class="keyword">if</span> (isAudioOnlyMode) {
-<span class="caretline"><span class="lineno"> 825 </span>                    statusText.setText(<span class="warning"><span class="string">"🎵 Audio Monitoring"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 826 </span>                } <span class="keyword">else</span> {
-<span class="lineno"> 827 </span>                    statusText.setText(<span class="string">"👂 Monitoring"</span>);
-<span class="lineno"> 828 </span>                }
+<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:923</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 920 </span>            
+<span class="lineno"> 921 </span>            <span class="comment">// Always show stopped status, but color dB red if above threshold</span>
+<span class="lineno"> 922 </span>            <span class="keyword">if</span> (isAudioOnlyMode) {
+<span class="caretline"><span class="lineno"> 923 </span>                statusText.setText(<span class="warning"><span class="string">"🎵 Audio Stopped"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 924 </span>            } <span class="keyword">else</span> {
+<span class="lineno"> 925 </span>                statusText.setText(<span class="string">"👂 Stopped"</span>);
+<span class="lineno"> 926 </span>            }
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:827</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 824 </span>                <span class="keyword">if</span> (isAudioOnlyMode) {
-<span class="lineno"> 825 </span>                    statusText.setText(<span class="string">"🎵 Audio Monitoring"</span>);
-<span class="lineno"> 826 </span>                } <span class="keyword">else</span> {
-<span class="caretline"><span class="lineno"> 827 </span>                    statusText.setText(<span class="warning"><span class="string">"👂 Monitoring"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 828 </span>                }
-<span class="lineno"> 829 </span>                statusText.setTextColor(<span class="number">0xFF4CAF50</span>); <span class="comment">// Green</span>
-<span class="lineno"> 830 </span>                currentDbText.setTextColor(<span class="number">0xFF4CAF50</span>); <span class="comment">// Green dB text</span></pre>
-
-<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:929</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 926 </span>          <span class="keyword">if</span> (dbLevel > soundThreshold) {
-<span class="lineno"> 927 </span>              <span class="keyword">if</span> (isAudioOnlyMode) {
-<span class="lineno"> 928 </span>                  currentDbText.setTextColor(<span class="number">0xFF9C27B0</span>); <span class="comment">// Purple for audio mode</span>
-<span class="caretline"><span class="lineno"> 929 </span>                  statusText.setText(<span class="warning"><span class="string">"🎵 READY TO RECORD AUDIO"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 930 </span>                  statusText.setTextColor(<span class="number">0xFF9C27B0</span>);
-<span class="lineno"> 931 </span>              } <span class="keyword">else</span> {
-<span class="lineno"> 932 </span>                  currentDbText.setTextColor(<span class="number">0xFFFF5722</span>); <span class="comment">// Red/orange for video mode</span></pre>
-
-<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:933</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 930 </span>                  statusText.setTextColor(<span class="number">0xFF9C27B0</span>);
-<span class="lineno"> 931 </span>              } <span class="keyword">else</span> {
-<span class="lineno"> 932 </span>                  currentDbText.setTextColor(<span class="number">0xFFFF5722</span>); <span class="comment">// Red/orange for video mode</span>
-<span class="caretline"><span class="lineno"> 933 </span>                  statusText.setText(<span class="warning"><span class="string">"🔊 READY TO RECORD"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 934 </span>                  statusText.setTextColor(<span class="number">0xFFFF5722</span>);
-<span class="lineno"> 935 </span>              }
-<span class="lineno"> 936 </span>          } <span class="keyword">else</span> {
-</pre>
-
-<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:939</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 936 </span>            } <span class="keyword">else</span> {
-<span class="lineno"> 937 </span>                currentDbText.setTextColor(<span class="number">0xFF4CAF50</span>); <span class="comment">// Green for normal</span>
-<span class="lineno"> 938 </span>                <span class="keyword">if</span> (isAudioOnlyMode) {
-<span class="caretline"><span class="lineno"> 939 </span>                    statusText.setText(<span class="warning"><span class="string">"🎵 Audio Stopped"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 940 </span>                } <span class="keyword">else</span> {
-<span class="lineno"> 941 </span>                    statusText.setText(<span class="string">"👂 Stopped"</span>);
-<span class="lineno"> 942 </span>                }
-</pre>
-
-<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:941</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 938 </span>                <span class="keyword">if</span> (isAudioOnlyMode) {
-<span class="lineno"> 939 </span>                    statusText.setText(<span class="string">"🎵 Audio Stopped"</span>);
-<span class="lineno"> 940 </span>                } <span class="keyword">else</span> {
-<span class="caretline"><span class="lineno"> 941 </span>                    statusText.setText(<span class="warning"><span class="string">"👂 Stopped"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 942 </span>                }
-<span class="lineno"> 943 </span>                statusText.setTextColor(<span class="number">0xFF4CAF50</span>);
-<span class="lineno"> 944 </span>            }
+<span class="location"><a href="../../src/main/java/com/soundmonitor/app/MainActivity.java">../../src/main/java/com/soundmonitor/app/MainActivity.java</a>:925</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 922 </span>            <span class="keyword">if</span> (isAudioOnlyMode) {
+<span class="lineno"> 923 </span>                statusText.setText(<span class="string">"🎵 Audio Stopped"</span>);
+<span class="lineno"> 924 </span>            } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 925 </span>                statusText.setText(<span class="warning"><span class="string">"👂 Stopped"</span></span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 926 </span>            }
+<span class="lineno"> 927 </span>            statusText.setTextColor(<span class="number">0xFF4CAF50</span>); <span class="comment">// Green for stopped</span>
+<span class="lineno"> 928 </span>            
 </pre>
 
 </div>
