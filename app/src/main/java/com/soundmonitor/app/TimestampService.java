@@ -139,9 +139,9 @@ public class TimestampService {
             String authorativeTime = utcTime; // Default to local time
             
             try {
-                Log.i(TAG, "Attempting to get authoritative time (3 second timeout)...");
-                // Use a shorter timeout to prevent hanging
-                AuthoritativeTimeResult networkTimeResult = getHttpTimeWithTimeoutAndAuthority(3000); // 3 seconds max
+                Log.i(TAG, "Attempting to get authoritative time (10 second timeout)...");
+                // Use a reasonable timeout for network requests
+                AuthoritativeTimeResult networkTimeResult = getHttpTimeWithTimeoutAndAuthority(10000); // 10 seconds max
                 if (networkTimeResult != null && networkTimeResult.time != null) {
                     timeAuthority = networkTimeResult.authority;
                     authorativeTime = networkTimeResult.time;
@@ -177,9 +177,11 @@ public class TimestampService {
     private static AuthoritativeTimeResult getHttpTimeWithTimeoutAndAuthority(int timeoutMs) {
         // Quick timeout version with reliable providers - using most reliable APIs first
         TimeProvider[] quickProviders = {
-            new TimeProvider("https://worldtimeapi.org/api/timezone/UTC", "WorldTimeAPI", TimestampService::parseWorldTimeApi),
+            new TimeProvider("http://worldtimeapi.org/api/timezone/UTC", "WorldTimeAPI", TimestampService::parseWorldTimeApi),
             new TimeProvider("https://timeapi.io/api/Time/current/zone?timeZone=UTC", "TimeAPI.io", TimestampService::parseTimeApiIo),
-            new TimeProvider("http://worldclockapi.com/api/json/utc/now", "WorldClockAPI", TimestampService::parseWorldClockApi)
+            new TimeProvider("http://worldclockapi.com/api/json/utc/now", "WorldClockAPI", TimestampService::parseWorldClockApi),
+            new TimeProvider("http://date.jsontest.com/", "JSONTest", TimestampService::parseJsonTest),
+            new TimeProvider("http://api.timezonedb.com/v2.1/get-time-zone?key=demo&format=json&by=zone&zone=UTC", "TimezoneDB", TimestampService::parseTimezoneDb)
         };
         
         for (TimeProvider provider : quickProviders) {
@@ -196,6 +198,8 @@ public class TimestampService {
                     connection.setRequestProperty("User-Agent", "SoundMonitor/1.0");
                     
                     int responseCode = connection.getResponseCode();
+                    Log.i(TAG, provider.name + " response code: " + responseCode);
+                    
                     if (responseCode == HttpURLConnection.HTTP_OK) {
                         StringBuilder response = new StringBuilder();
                         try (InputStream is = connection.getInputStream()) {
@@ -208,11 +212,17 @@ public class TimestampService {
                         }
                         
                         String responseStr = response.toString();
+                        Log.i(TAG, provider.name + " response preview: " + responseStr.substring(0, Math.min(100, responseStr.length())));
+                        
                         String extractedTime = provider.parser.parse(responseStr);
                         if (extractedTime != null) {
                             Log.i(TAG, "✅ Quick time from " + provider.name + ": " + extractedTime);
                             return new AuthoritativeTimeResult(extractedTime, provider.name);
+                        } else {
+                            Log.w(TAG, "Failed to parse time from " + provider.name + " response");
                         }
+                    } else {
+                        Log.w(TAG, provider.name + " returned error code: " + responseCode);
                     }
                     
                 } finally {
@@ -220,7 +230,8 @@ public class TimestampService {
                 }
                 
             } catch (Exception e) {
-                Log.w(TAG, "Quick time from " + provider.name + " failed: " + e.getMessage());
+                Log.w(TAG, "Quick time from " + provider.name + " failed: " + e.getClass().getSimpleName() + " - " + e.getMessage());
+                e.printStackTrace();
                 // Continue to next provider
             }
         }
@@ -275,7 +286,8 @@ public class TimestampService {
                 }
                 
             } catch (Exception e) {
-                Log.w(TAG, "Quick time from " + provider.name + " failed: " + e.getMessage());
+                Log.w(TAG, "Quick time from " + provider.name + " failed: " + e.getClass().getSimpleName() + " - " + e.getMessage());
+                e.printStackTrace();
                 // Continue to next provider
             }
         }
@@ -483,6 +495,51 @@ public class TimestampService {
             }
         }
         return null;
+    }
+    
+    // Parser for JSONTest format
+    private static String parseJsonTest(String response) {
+        // JSONTest returns {"time":"01:14:15 PM","milliseconds_since_epoch":1630329255271,"date":"08-30-2021"}
+        // We need to convert this to ISO format
+        int timeIndex = response.indexOf("\"time\":\"");
+        int dateIndex = response.indexOf("\"date\":\"");
+        if (timeIndex != -1 && dateIndex != -1) {
+            try {
+                int timeStart = timeIndex + 8;
+                int timeEnd = response.indexOf("\"", timeStart);
+                int dateStart = dateIndex + 8;
+                int dateEnd = response.indexOf("\"", dateStart);
+                
+                if (timeEnd != -1 && dateEnd != -1) {
+                    String time = response.substring(timeStart, timeEnd);
+                    String date = response.substring(dateStart, dateEnd);
+                    
+                    // Convert MM-DD-YYYY to YYYY-MM-DD and combine with time
+                    String[] dateParts = date.split("-");
+                    if (dateParts.length == 3) {
+                        String isoDate = dateParts[2] + "-" + dateParts[0] + "-" + dateParts[1];
+                        // Convert 12-hour to 24-hour time format  
+                        String convertedTime = convertTo24Hour(time);
+                        return isoDate + "T" + convertedTime + "Z";
+                    }
+                }
+            } catch (Exception e) {
+                // Fall back to null if parsing fails
+            }
+        }
+        return null;
+    }
+    
+    private static String convertTo24Hour(String time12h) {
+        // Convert "01:14:15 PM" to "13:14:15"
+        try {
+            java.text.SimpleDateFormat displayFormat = new java.text.SimpleDateFormat("hh:mm:ss a", java.util.Locale.US);
+            java.text.SimpleDateFormat parseFormat = new java.text.SimpleDateFormat("HH:mm:ss");
+            java.util.Date date = displayFormat.parse(time12h);
+            return parseFormat.format(date);
+        } catch (Exception e) {
+            return time12h; // Return original if conversion fails
+        }
     }
     
     private static Location getLastKnownLocation(Context context) {
