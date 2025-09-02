@@ -94,17 +94,27 @@ This is an Android application called "Sound Monitor" that records video when so
 - Continuous 44.1kHz audio sampling at 100ms intervals
 - Uses MediaRecorder.AudioSource.MIC for reliable audio recording in videos
 
+### Video Recording Stability
+- **Fixed Video Freezing**: Resolved 1-minute freeze issues with proper MediaRecorder limits
+- **Automatic Segmentation**: 10-minute max duration, 100MB max file size per segment
+- **Enhanced Camera Optimization**: Recording hint, video stabilization, continuous focus
+- **Error Recovery**: Automatic restart on MediaRecorder errors
+- **Resource Management**: Proper cleanup and timeout handling
+- **Optimized Settings**: 1280x720@30fps, 2Mbps for stability and quality balance
+
 ### Hybrid Timestamp Verification System (Legal-Grade Evidence)
 - **Real-Time Verification**: Creates recording start proof BEFORE video recording begins
-- **Network Time Enforcement**: Requires independent time verification (no local device time fallback)
+- **Zero Local Time Policy**: COMPLETE elimination of local device time usage for legal compliance
+- **Network Time Enforcement**: Recording BLOCKED if network verification fails (no fallback)
 - **RFC 3161 Integration**: Industry-standard legal timestamp certification
 - **Cryptographic Binding**: 256-bit seed links timestamp proof to video file hash
-- **Multi-Provider Network Time**: TimeAPI.io, IPGeolocation, TimezoneDB (HTTPS only)
+- **Enhanced Network Reliability**: 30s timeout, 2 retry attempts, 5 reliable HTTPS providers
+- **Reliable Time Providers**: TimeAPI.io, IPGeolocation, TimezoneDB (WorldTimeAPI removed - unreliable)
 - **GPS Location Proof**: Captures precise coordinates with provider information and accuracy metrics
 - **Tamper-Proof Evidence**: Cryptographically impossible to forge timestamps post-recording
 - **Court-Ready Documentation**: Generates comprehensive verification files for legal proceedings
 - **Google Maps Integration**: Direct links to verify exact recording location
-- **Fail-Safe Design**: Recording blocked if network time verification unavailable
+- **Fail-Safe Design**: Recording blocked completely if network time verification unavailable
 
 ### Public Storage Access
 - Uses MediaStore API for Android 10+ compatibility
@@ -135,14 +145,48 @@ Each recording session generates court-admissible evidence files:
 ### Core Services Architecture
 
 **TimestampService** (`app/src/main/java/com/soundmonitor/app/TimestampService.java`)
-- Network time verification with multiple HTTPS providers
+- Network time verification with 5 reliable HTTPS providers (WorldTimeAPI removed)
+- Enhanced reliability: 30s timeout, 2 retry attempts with 2s delay
 - GPS location capture with accuracy and age metrics
+- Detailed error logging and exception tracking
 - Traditional timestamp generation for backward compatibility
-- Enhanced error handling and retry logic
 
 **HybridTimestampService** (`app/src/main/java/com/soundmonitor/app/HybridTimestampService.java`) 
-- Real-time recording start proof generation
-- RFC 3161 timestamp server integration
-- Cryptographic video verification against start proof
-- Legal evidence document formatting
-- Network time enforcement (no local fallback)
+- Real-time recording start proof generation BEFORE any video recording
+- RFC 3161 timestamp server integration for legal certification
+- Cryptographic video verification against start proof (256-bit seed)
+- Legal evidence document formatting with verification steps
+- CRITICAL: Network time enforcement - recording BLOCKED without verification
+- Zero tolerance for local device time (prevents legal challenges)
+
+**SoundMonitorService** (`app/src/main/java/com/soundmonitor/app/SoundMonitorService.java`)
+- Enhanced with hybrid verification integration and video stability fixes
+- Two-phase recording: verification → recording (prevents weak evidence)
+- Improved MediaRecorder configuration with limits and error handling
+- Camera optimization with recording hints and stabilization
+
+## Recent Critical Fixes (Latest Updates)
+
+### CRITICAL SECURITY FIXES
+- **Complete Local Time Elimination**: All local device time usage removed for legal compliance
+- **Network Time Enforcement**: Recording now BLOCKS completely if network verification fails
+- **WorldTimeAPI Removal**: Problematic WorldTimeAPI.org removed (unreliable service)
+- **Enhanced Provider List**: Now uses 5 reliable HTTPS-only time providers
+
+### VIDEO RECORDING STABILITY FIXES  
+- **Video Freezing Resolved**: Fixed 1-minute freeze issues with proper MediaRecorder limits
+- **Automatic Segmentation**: 10-minute duration and 100MB file size limits prevent resource exhaustion
+- **Enhanced Error Handling**: MediaRecorder error listeners with automatic recovery
+- **Camera Optimization**: Recording hints, video stabilization, and continuous focus mode
+
+### NETWORK RELIABILITY IMPROVEMENTS
+- **Increased Timeout**: 30-second timeout per provider (was 20s)
+- **Retry Logic**: 2 attempts with 2-second delay between retries  
+- **Better Error Logging**: Detailed exception tracking and response code logging
+- **Provider Diversity**: Multiple endpoint formats (JSON, XML) for maximum reliability
+
+### LEGAL EVIDENCE ENHANCEMENTS
+- **Two-Phase Recording**: Verification must succeed before any recording begins
+- **Cryptographic Binding**: 256-bit seed links timestamp proof to video hash
+- **Court-Ready Documentation**: Comprehensive legal verification files
+- **Zero Weak Evidence**: Better no evidence than challengeable evidence
