@@ -423,34 +423,55 @@ public class MainActivity extends AppCompatActivity {
     
     private void openLastRecordingFolder() {
         try {
-            // Try to open Downloads/SoundTrigger folder where recordings are saved
+            // Try to open Downloads/SoundTrigger folder using file manager
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setType("*/*");
+            intent.setDataAndType(android.net.Uri.parse("content://com.android.externalstorage.documents/document/primary%3ADownload%2FSoundTrigger"), "resource/folder");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             
-            // Create an intent to open the file manager at the SoundTrigger folder
-            // This will work with most file managers
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            intent.addCategory(Intent.CATEGORY_OPENABLE);
-            intent.putExtra("android.content.extra.SHOW_ADVANCED", true);
-            
-            // Try to start a file manager activity
             try {
-                startActivity(Intent.createChooser(intent, "Open Recording Folder"));
+                startActivity(intent);
+                return;
             } catch (Exception e) {
-                // If that fails, try to open the Downloads folder directly
-                Intent downloadIntent = new Intent(Intent.ACTION_VIEW);
-                downloadIntent.setType("*/*");
-                downloadIntent.setAction(Intent.ACTION_VIEW);
-                downloadIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                
-                try {
-                    startActivity(downloadIntent);
-                    Toast.makeText(this, "Look for SoundTrigger folder in Downloads", Toast.LENGTH_LONG).show();
-                } catch (Exception e2) {
-                    // Last resort - show instructions
-                    showRecordingLocationInfo();
-                }
+                Log.w("MainActivity", "Specific folder open failed, trying alternatives");
             }
+            
+            // Fallback 1: Try to open Downloads folder with DocumentsUI
+            try {
+                Intent downloadIntent = new Intent(Intent.ACTION_VIEW);
+                downloadIntent.setDataAndType(android.net.Uri.parse("content://com.android.externalstorage.documents/document/primary%3ADownload"), "resource/folder");
+                downloadIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(downloadIntent);
+                Toast.makeText(this, "Look for SoundTrigger folder in Downloads", Toast.LENGTH_LONG).show();
+                return;
+            } catch (Exception e) {
+                Log.w("MainActivity", "Downloads folder DocumentsUI failed");
+            }
+            
+            // Fallback 2: Try generic file manager intent
+            try {
+                Intent fileManagerIntent = new Intent(Intent.ACTION_VIEW);
+                fileManagerIntent.setType("resource/folder");
+                fileManagerIntent.putExtra("org.openintents.extra.ABSOLUTE_PATH", "/storage/emulated/0/Download/SoundTrigger");
+                startActivity(fileManagerIntent);
+                return;
+            } catch (Exception e) {
+                Log.w("MainActivity", "Generic file manager failed");
+            }
+            
+            // Fallback 3: Try to launch any file manager
+            try {
+                Intent fileManagerIntent = new Intent(Intent.ACTION_MAIN);
+                fileManagerIntent.addCategory(Intent.CATEGORY_APP_FILES);
+                fileManagerIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(fileManagerIntent);
+                Toast.makeText(this, "Navigate to Downloads/SoundTrigger folder", Toast.LENGTH_LONG).show();
+                return;
+            } catch (Exception e) {
+                Log.w("MainActivity", "File manager app launch failed");
+            }
+            
+            // Last resort - show instructions
+            showRecordingLocationInfo();
             
         } catch (Exception e) {
             Log.e("MainActivity", "Error opening recording folder", e);
@@ -462,20 +483,32 @@ public class MainActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
             .setTitle("Recording Location")
             .setMessage("Your recordings are saved to:\n\n" +
-                       "📁 Downloads/SoundTrigger/[session]/\n\n" +
-                       "Each recording session creates a separate folder with:\n" +
+                       "📁 Downloads/SoundTrigger/\n\n" +
+                       "Each recording session creates files:\n" +
                        "• Video files (.mp4)\n" +
-                       "• Legal timestamp files (.txt)\n" +
-                       "• Session information\n\n" +
-                       "You can access these files through your device's file manager or when connected to a computer.")
+                       "• Legal timestamp files (.txt)\n\n" +
+                       "To access recordings:\n" +
+                       "1. Open your device's file manager\n" +
+                       "2. Navigate to Downloads folder\n" +
+                       "3. Look for SoundTrigger folder\n\n" +
+                       "Or connect your device to a computer via USB.")
             .setPositiveButton("OK", null)
-            .setNeutralButton("Open Downloads", (dialog, which) -> {
+            .setNeutralButton("Open File Manager", (dialog, which) -> {
                 try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setType("*/*");
+                    // Try to open file manager app directly
+                    Intent intent = new Intent("android.intent.action.MAIN");
+                    intent.addCategory("android.intent.category.APP_FILES");
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 } catch (Exception e) {
-                    Toast.makeText(this, "Please open your file manager manually", Toast.LENGTH_SHORT).show();
+                    try {
+                        // Fallback: generic file manager intent
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setType("resource/folder");
+                        startActivity(intent);
+                    } catch (Exception e2) {
+                        Toast.makeText(this, "Please open your file manager manually and navigate to Downloads/SoundTrigger", Toast.LENGTH_LONG).show();
+                    }
                 }
             })
             .show();

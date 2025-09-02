@@ -5,6 +5,36 @@
         id="InlinedApi"
         severity="warning"
         message="">
+        <fix-data minSdk="21-∞" requiresApi="29-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="464"
+            column="47"
+            startOffset="19795"
+            endLine="464"
+            endColumn="72"
+            endOffset="19820"/>
+        <map>
+            <entry
+                name="message"
+                string="Field requires API level 29 (current min is %1$s): `android.content.Intent#CATEGORY_APP_FILES`"/>
+            <api-levels id="minSdk"
+                value="21-∞"/>
+            <entry
+                name="name"
+                string="CATEGORY_APP_FILES"/>
+            <entry
+                name="owner"
+                string="android.content.Intent"/>
+            <api-levels id="requiresApi"
+                value="29-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="InlinedApi"
+        severity="warning"
+        message="">
         <fix-data minSdk="21-∞" requiresApi="24-∞"/>
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"

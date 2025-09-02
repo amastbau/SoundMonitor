@@ -21,12 +21,12 @@
         message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="632"
+            line="665"
             column="52"
-            startOffset="27381"
-            endLine="632"
+            startOffset="29209"
+            endLine="665"
             endColumn="99"
-            endOffset="27428"/>
+            endOffset="29256"/>
     </incident>
 
     <incident
@@ -35,12 +35,12 @@
         message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="640"
+            line="673"
             column="42"
-            startOffset="27792"
-            endLine="640"
+            startOffset="29620"
+            endLine="673"
             endColumn="87"
-            endOffset="27837"/>
+            endOffset="29665"/>
     </incident>
 
     <incident
@@ -49,12 +49,12 @@
         message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="641"
+            line="674"
             column="43"
-            startOffset="27895"
-            endLine="641"
+            startOffset="29723"
+            endLine="674"
             endColumn="89"
-            endOffset="27941"/>
+            endOffset="29769"/>
     </incident>
 
     <incident
@@ -63,12 +63,12 @@
         message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="645"
+            line="678"
             column="47"
-            startOffset="28129"
-            endLine="645"
+            startOffset="29957"
+            endLine="678"
             endColumn="92"
-            endOffset="28174"/>
+            endOffset="30002"/>
     </incident>
 
     <incident
@@ -77,12 +77,12 @@
         message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="649"
+            line="682"
             column="46"
-            startOffset="28299"
-            endLine="649"
+            startOffset="30127"
+            endLine="682"
             endColumn="91"
-            endOffset="28344"/>
+            endOffset="30172"/>
     </incident>
 
     <incident
@@ -91,12 +91,12 @@
         message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="653"
+            line="686"
             column="43"
-            startOffset="28463"
-            endLine="653"
+            startOffset="30291"
+            endLine="686"
             endColumn="85"
-            endOffset="28505"/>
+            endOffset="30333"/>
     </incident>
 
     <incident
@@ -105,12 +105,12 @@
         message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="657"
+            line="690"
             column="45"
-            startOffset="28625"
-            endLine="657"
+            startOffset="30453"
+            endLine="690"
             endColumn="89"
-            endOffset="28669"/>
+            endOffset="30497"/>
     </incident>
 
     <incident
@@ -119,12 +119,12 @@
         message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="763"
+            line="796"
             column="25"
-            startOffset="33756"
-            endLine="763"
+            startOffset="35584"
+            endLine="796"
             endColumn="58"
-            endOffset="33789"/>
+            endOffset="35617"/>
     </incident>
 
     <incident
@@ -133,12 +133,12 @@
         message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="890"
+            line="923"
             column="29"
-            startOffset="38719"
-            endLine="890"
+            startOffset="40547"
+            endLine="923"
             endColumn="62"
-            endOffset="38752"/>
+            endOffset="40580"/>
     </incident>
 
     <incident
@@ -699,15 +699,15 @@
         message="Use version catalog instead (androidx.appcompat:appcompat is already available as `androidx-appcompat`, but using version 1.7.1 instead)">
         <fix-alternatives>
             <fix-composite
-                description="Replace with new library catalog declaration for androidx-appcompat-appcompat-v161-x20"
+                description="Replace with new library catalog declaration for androidx-appcompat-appcompat-v161-x22"
                 robot="true"
                 independent="true">
                 <fix-replace
-                    description="Replace with androidxAppcompatAppcompat19 = &quot;1.6.1&quot;..."
+                    description="Replace with androidxAppcompatAppcompat21 = &quot;1.6.1&quot;..."
                     robot="true"
                     independent="true"
                     oldString="_lint_insert_begin_"
-                    replacement="androidxAppcompatAppcompat19 = &quot;1.6.1&quot;&#xA;"
+                    replacement="androidxAppcompatAppcompat21 = &quot;1.6.1&quot;&#xA;"
                     priority="0">
                     <range
                         file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -715,11 +715,11 @@
                         endOffset="25"/>
                 </fix-replace>
                 <fix-replace
-                    description="Replace with androidx-appcompat-appcompat-v161-x20 = { module = &quot;androidx.appcompat:appcompat&quot;, version.ref = &quot;androidxAppcompatAppcompat19&quot; }..."
+                    description="Replace with androidx-appcompat-appcompat-v161-x22 = { module = &quot;androidx.appcompat:appcompat&quot;, version.ref = &quot;androidxAppcompatAppcompat21&quot; }..."
                     robot="true"
                     independent="true"
                     oldString="_lint_insert_begin_"
-                    replacement="androidx-appcompat-appcompat-v161-x20 = { module = &quot;androidx.appcompat:appcompat&quot;, version.ref = &quot;androidxAppcompatAppcompat19&quot; }&#xA;"
+                    replacement="androidx-appcompat-appcompat-v161-x22 = { module = &quot;androidx.appcompat:appcompat&quot;, version.ref = &quot;androidxAppcompatAppcompat21&quot; }&#xA;"
                     priority="0">
                     <range
                         file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -727,10 +727,10 @@
                         endOffset="240"/>
                 </fix-replace>
                 <fix-replace
-                    description="Replace with libs.androidx.appcompat.appcompat.v161.x20"
+                    description="Replace with libs.androidx.appcompat.appcompat.v161.x22"
                     robot="true"
                     independent="true"
-                    replacement="libs.androidx.appcompat.appcompat.v161.x20"
+                    replacement="libs.androidx.appcompat.appcompat.v161.x22"
                     priority="0">
                     <range
                         file="${:app*projectDir}/build.gradle"
@@ -763,13 +763,13 @@
         severity="warning"
         message="Use version catalog instead">
         <fix-composite
-            description="Replace with new library catalog declaration for com-google-android-material-material20"
+            description="Replace with new library catalog declaration for com-google-android-material-material22"
             robot="true">
             <fix-replace
-                description="Replace with comGoogleAndroidMaterialMaterial18 = &quot;1.8.0&quot;..."
+                description="Replace with comGoogleAndroidMaterialMaterial20 = &quot;1.8.0&quot;..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="comGoogleAndroidMaterialMaterial18 = &quot;1.8.0&quot;&#xA;"
+                replacement="comGoogleAndroidMaterialMaterial20 = &quot;1.8.0&quot;&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -777,10 +777,10 @@
                     endOffset="25"/>
             </fix-replace>
             <fix-replace
-                description="Replace with com-google-android-material-material20 = { module = &quot;com.google.android.material:material&quot;, version.ref = &quot;comGoogleAndroidMaterialMaterial18&quot; }..."
+                description="Replace with com-google-android-material-material22 = { module = &quot;com.google.android.material:material&quot;, version.ref = &quot;comGoogleAndroidMaterialMaterial20&quot; }..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="com-google-android-material-material20 = { module = &quot;com.google.android.material:material&quot;, version.ref = &quot;comGoogleAndroidMaterialMaterial18&quot; }&#xA;"
+                replacement="com-google-android-material-material22 = { module = &quot;com.google.android.material:material&quot;, version.ref = &quot;comGoogleAndroidMaterialMaterial20&quot; }&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -788,9 +788,9 @@
                     endOffset="332"/>
             </fix-replace>
             <fix-replace
-                description="Replace with libs.com.google.android.material.material20"
+                description="Replace with libs.com.google.android.material.material22"
                 robot="true"
-                replacement="libs.com.google.android.material.material20"
+                replacement="libs.com.google.android.material.material22"
                 priority="0">
                 <range
                     file="${:app*projectDir}/build.gradle"
@@ -813,13 +813,13 @@
         severity="warning"
         message="Use version catalog instead">
         <fix-composite
-            description="Replace with new library catalog declaration for androidx-constraintlayout-constraintlayout20"
+            description="Replace with new library catalog declaration for androidx-constraintlayout-constraintlayout22"
             robot="true">
             <fix-replace
-                description="Replace with androidxConstraintlayoutConstraintlayout18 = &quot;2.1.4&quot;..."
+                description="Replace with androidxConstraintlayoutConstraintlayout20 = &quot;2.1.4&quot;..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="androidxConstraintlayoutConstraintlayout18 = &quot;2.1.4&quot;&#xA;"
+                replacement="androidxConstraintlayoutConstraintlayout20 = &quot;2.1.4&quot;&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -827,10 +827,10 @@
                     endOffset="25"/>
             </fix-replace>
             <fix-replace
-                description="Replace with androidx-constraintlayout-constraintlayout20 = { module = &quot;androidx.constraintlayout:constraintlayout&quot;, version.ref = &quot;androidxConstraintlayoutConstraintlayout18&quot; }..."
+                description="Replace with androidx-constraintlayout-constraintlayout22 = { module = &quot;androidx.constraintlayout:constraintlayout&quot;, version.ref = &quot;androidxConstraintlayoutConstraintlayout20&quot; }..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="androidx-constraintlayout-constraintlayout20 = { module = &quot;androidx.constraintlayout:constraintlayout&quot;, version.ref = &quot;androidxConstraintlayoutConstraintlayout18&quot; }&#xA;"
+                replacement="androidx-constraintlayout-constraintlayout22 = { module = &quot;androidx.constraintlayout:constraintlayout&quot;, version.ref = &quot;androidxConstraintlayoutConstraintlayout20&quot; }&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -838,9 +838,9 @@
                     endOffset="240"/>
             </fix-replace>
             <fix-replace
-                description="Replace with libs.androidx.constraintlayout.constraintlayout20"
+                description="Replace with libs.androidx.constraintlayout.constraintlayout22"
                 robot="true"
-                replacement="libs.androidx.constraintlayout.constraintlayout20"
+                replacement="libs.androidx.constraintlayout.constraintlayout22"
                 priority="0">
                 <range
                     file="${:app*projectDir}/build.gradle"
@@ -863,13 +863,13 @@
         severity="warning"
         message="Use version catalog instead">
         <fix-composite
-            description="Replace with new library catalog declaration for androidx-localbroadcastmanager-localbroadcastmanager20"
+            description="Replace with new library catalog declaration for androidx-localbroadcastmanager-localbroadcastmanager22"
             robot="true">
             <fix-replace
-                description="Replace with androidxLocalbroadcastmanagerLocalbroadcastmanager18 = &quot;1.1.0&quot;..."
+                description="Replace with androidxLocalbroadcastmanagerLocalbroadcastmanager20 = &quot;1.1.0&quot;..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="androidxLocalbroadcastmanagerLocalbroadcastmanager18 = &quot;1.1.0&quot;&#xA;"
+                replacement="androidxLocalbroadcastmanagerLocalbroadcastmanager20 = &quot;1.1.0&quot;&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -877,10 +877,10 @@
                     endOffset="25"/>
             </fix-replace>
             <fix-replace
-                description="Replace with androidx-localbroadcastmanager-localbroadcastmanager20 = { module = &quot;androidx.localbroadcastmanager:localbroadcastmanager&quot;, version.ref = &quot;androidxLocalbroadcastmanagerLocalbroadcastmanager18&quot; }..."
+                description="Replace with androidx-localbroadcastmanager-localbroadcastmanager22 = { module = &quot;androidx.localbroadcastmanager:localbroadcastmanager&quot;, version.ref = &quot;androidxLocalbroadcastmanagerLocalbroadcastmanager20&quot; }..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="androidx-localbroadcastmanager-localbroadcastmanager20 = { module = &quot;androidx.localbroadcastmanager:localbroadcastmanager&quot;, version.ref = &quot;androidxLocalbroadcastmanagerLocalbroadcastmanager18&quot; }&#xA;"
+                replacement="androidx-localbroadcastmanager-localbroadcastmanager22 = { module = &quot;androidx.localbroadcastmanager:localbroadcastmanager&quot;, version.ref = &quot;androidxLocalbroadcastmanagerLocalbroadcastmanager20&quot; }&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -888,9 +888,9 @@
                     endOffset="332"/>
             </fix-replace>
             <fix-replace
-                description="Replace with libs.androidx.localbroadcastmanager.localbroadcastmanager20"
+                description="Replace with libs.androidx.localbroadcastmanager.localbroadcastmanager22"
                 robot="true"
-                replacement="libs.androidx.localbroadcastmanager.localbroadcastmanager20"
+                replacement="libs.androidx.localbroadcastmanager.localbroadcastmanager22"
                 priority="0">
                 <range
                     file="${:app*projectDir}/build.gradle"
@@ -1362,12 +1362,12 @@
         message="String literal in `setText` can not be translated. Use Android resources instead.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="722"
+            line="755"
             column="36"
-            startOffset="31646"
-            endLine="722"
+            startOffset="33474"
+            endLine="755"
             endColumn="56"
-            endOffset="31666"/>
+            endOffset="33494"/>
     </incident>
 
     <incident
@@ -1376,12 +1376,12 @@
         message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="725"
+            line="758"
             column="36"
-            startOffset="31798"
-            endLine="725"
+            startOffset="33626"
+            endLine="758"
             endColumn="68"
-            endOffset="31830"/>
+            endOffset="33658"/>
     </incident>
 
     <incident
@@ -1390,12 +1390,12 @@
         message="String literal in `setText` can not be translated. Use Android resources instead.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="725"
+            line="758"
             column="36"
-            startOffset="31798"
-            endLine="725"
+            startOffset="33626"
+            endLine="758"
             endColumn="52"
-            endOffset="31814"/>
+            endOffset="33642"/>
     </incident>
 
     <incident
@@ -1404,12 +1404,12 @@
         message="String literal in `setText` can not be translated. Use Android resources instead.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="731"
+            line="764"
             column="32"
-            startOffset="32197"
-            endLine="731"
+            startOffset="34025"
+            endLine="764"
             endColumn="54"
-            endOffset="32219"/>
+            endOffset="34047"/>
     </incident>
 
     <incident
@@ -1418,68 +1418,12 @@
         message="String literal in `setText` can not be translated. Use Android resources instead.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="737"
+            line="770"
             column="36"
-            startOffset="32569"
-            endLine="737"
+            startOffset="34397"
+            endLine="770"
             endColumn="62"
-            endOffset="32595"/>
-    </incident>
-
-    <incident
-        id="SetTextI18n"
-        severity="warning"
-        message="String literal in `setText` can not be translated. Use Android resources instead.">
-        <location
-            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="740"
-            column="36"
-            startOffset="32717"
-            endLine="740"
-            endColumn="62"
-            endOffset="32743"/>
-    </incident>
-
-    <incident
-        id="SetTextI18n"
-        severity="warning"
-        message="String literal in `setText` can not be translated. Use Android resources instead.">
-        <location
-            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="747"
-            column="36"
-            startOffset="33103"
-            endLine="747"
-            endColumn="57"
-            endOffset="33124"/>
-    </incident>
-
-    <incident
-        id="SetTextI18n"
-        severity="warning"
-        message="String literal in `setText` can not be translated. Use Android resources instead.">
-        <location
-            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="749"
-            column="36"
-            startOffset="33183"
-            endLine="749"
-            endColumn="51"
-            endOffset="33198"/>
-    </incident>
-
-    <incident
-        id="SetTextI18n"
-        severity="warning"
-        message="String literal in `setText` can not be translated. Use Android resources instead.">
-        <location
-            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="769"
-            column="36"
-            startOffset="33975"
-            endLine="769"
-            endColumn="56"
-            endOffset="33995"/>
+            endOffset="34423"/>
     </incident>
 
     <incident
@@ -1490,10 +1434,24 @@
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
             line="773"
             column="36"
-            startOffset="34201"
+            startOffset="34545"
             endLine="773"
-            endColumn="50"
-            endOffset="34215"/>
+            endColumn="62"
+            endOffset="34571"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="780"
+            column="36"
+            startOffset="34931"
+            endLine="780"
+            endColumn="57"
+            endOffset="34952"/>
     </incident>
 
     <incident
@@ -1503,11 +1461,53 @@
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
             line="782"
-            column="40"
-            startOffset="34629"
+            column="36"
+            startOffset="35011"
             endLine="782"
+            endColumn="51"
+            endOffset="35026"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="802"
+            column="36"
+            startOffset="35803"
+            endLine="802"
+            endColumn="56"
+            endOffset="35823"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="806"
+            column="36"
+            startOffset="36029"
+            endLine="806"
+            endColumn="50"
+            endOffset="36043"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+            line="815"
+            column="40"
+            startOffset="36457"
+            endLine="815"
             endColumn="66"
-            endOffset="34655"/>
+            endOffset="36483"/>
     </incident>
 
     <incident
@@ -1516,12 +1516,12 @@
         message="String literal in `setText` can not be translated. Use Android resources instead.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="786"
+            line="819"
             column="40"
-            startOffset="34867"
-            endLine="786"
+            startOffset="36695"
+            endLine="819"
             endColumn="60"
-            endOffset="34887"/>
+            endOffset="36715"/>
     </incident>
 
     <incident
@@ -1530,12 +1530,12 @@
         message="String literal in `setText` can not be translated. Use Android resources instead.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="792"
+            line="825"
             column="40"
-            startOffset="35152"
-            endLine="792"
+            startOffset="36980"
+            endLine="825"
             endColumn="61"
-            endOffset="35173"/>
+            endOffset="37001"/>
     </incident>
 
     <incident
@@ -1544,12 +1544,12 @@
         message="String literal in `setText` can not be translated. Use Android resources instead.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="794"
+            line="827"
             column="40"
-            startOffset="35240"
-            endLine="794"
+            startOffset="37068"
+            endLine="827"
             endColumn="55"
-            endOffset="35255"/>
+            endOffset="37083"/>
     </incident>
 
     <incident
@@ -1558,12 +1558,12 @@
         message="String literal in `setText` can not be translated. Use Android resources instead.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="896"
+            line="929"
             column="40"
-            startOffset="39017"
-            endLine="896"
+            startOffset="40845"
+            endLine="929"
             endColumn="66"
-            endOffset="39043"/>
+            endOffset="40871"/>
     </incident>
 
     <incident
@@ -1572,12 +1572,12 @@
         message="String literal in `setText` can not be translated. Use Android resources instead.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="900"
+            line="933"
             column="40"
-            startOffset="39256"
-            endLine="900"
+            startOffset="41084"
+            endLine="933"
             endColumn="60"
-            endOffset="39276"/>
+            endOffset="41104"/>
     </incident>
 
     <incident
@@ -1586,12 +1586,12 @@
         message="String literal in `setText` can not be translated. Use Android resources instead.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="906"
+            line="939"
             column="40"
-            startOffset="39529"
-            endLine="906"
+            startOffset="41357"
+            endLine="939"
             endColumn="58"
-            endOffset="39547"/>
+            endOffset="41375"/>
     </incident>
 
     <incident
@@ -1600,12 +1600,12 @@
         message="String literal in `setText` can not be translated. Use Android resources instead.">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
-            line="908"
+            line="941"
             column="40"
-            startOffset="39614"
-            endLine="908"
+            startOffset="41442"
+            endLine="941"
             endColumn="52"
-            endOffset="39626"/>
+            endOffset="41454"/>
     </incident>
 
     <incident
