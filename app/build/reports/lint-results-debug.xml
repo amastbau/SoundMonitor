@@ -33,7 +33,7 @@
         errorLine2="                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="570"
+            line="632"
             column="52"/>
     </issue>
 
@@ -51,7 +51,7 @@
         errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="578"
+            line="640"
             column="42"/>
     </issue>
 
@@ -69,7 +69,7 @@
         errorLine2="                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="579"
+            line="641"
             column="43"/>
     </issue>
 
@@ -87,7 +87,7 @@
         errorLine2="                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="583"
+            line="645"
             column="47"/>
     </issue>
 
@@ -105,7 +105,7 @@
         errorLine2="                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="587"
+            line="649"
             column="46"/>
     </issue>
 
@@ -123,7 +123,7 @@
         errorLine2="                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="591"
+            line="653"
             column="43"/>
     </issue>
 
@@ -141,7 +141,7 @@
         errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="595"
+            line="657"
             column="45"/>
     </issue>
 
@@ -159,7 +159,7 @@
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="701"
+            line="763"
             column="25"/>
     </issue>
 
@@ -177,7 +177,7 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="828"
+            line="890"
             column="29"/>
     </issue>
 
@@ -955,7 +955,7 @@
         errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="100"
+            line="101"
             column="31"/>
     </issue>
 
@@ -973,7 +973,7 @@
         errorLine2="                              ~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="100"
+            line="101"
             column="31"/>
     </issue>
 
@@ -991,7 +991,7 @@
         errorLine2="                                                               ~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="100"
+            line="101"
             column="64"/>
     </issue>
 
@@ -1009,7 +1009,7 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="105"
+            line="106"
             column="29"/>
     </issue>
 
@@ -1027,7 +1027,7 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="105"
+            line="106"
             column="29"/>
     </issue>
 
@@ -1045,7 +1045,7 @@
         errorLine2="                                                             ~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="105"
+            line="106"
             column="62"/>
     </issue>
 
@@ -1063,7 +1063,7 @@
         errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="118"
+            line="120"
             column="39"/>
     </issue>
 
@@ -1081,7 +1081,7 @@
         errorLine2="                                      ~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="118"
+            line="120"
             column="39"/>
     </issue>
 
@@ -1099,7 +1099,7 @@
         errorLine2="                                                                       ~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="118"
+            line="120"
             column="72"/>
     </issue>
 
@@ -1117,7 +1117,7 @@
         errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="137"
+            line="139"
             column="37"/>
     </issue>
 
@@ -1135,7 +1135,7 @@
         errorLine2="                                    ~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="137"
+            line="139"
             column="37"/>
     </issue>
 
@@ -1153,7 +1153,7 @@
         errorLine2="                                                                     ~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="137"
+            line="139"
             column="70"/>
     </issue>
 
@@ -1171,7 +1171,7 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="182"
+            line="184"
             column="29"/>
     </issue>
 
@@ -1189,7 +1189,7 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="187"
+            line="189"
             column="29"/>
     </issue>
 
@@ -1207,7 +1207,7 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="187"
+            line="189"
             column="29"/>
     </issue>
 
@@ -1225,7 +1225,7 @@
         errorLine2="                                                             ~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="187"
+            line="189"
             column="62"/>
     </issue>
 
@@ -1243,7 +1243,7 @@
         errorLine2="                                ~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="324"
+            line="326"
             column="33"/>
     </issue>
 
@@ -1261,7 +1261,7 @@
         errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="326"
+            line="328"
             column="32"/>
     </issue>
 
@@ -1279,7 +1279,7 @@
         errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="328"
+            line="330"
             column="32"/>
     </issue>
 
@@ -1297,7 +1297,7 @@
         errorLine2="                              ~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="330"
+            line="332"
             column="31"/>
     </issue>
 
@@ -1315,7 +1315,7 @@
         errorLine2="                                ~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="337"
+            line="339"
             column="33"/>
     </issue>
 
@@ -1333,7 +1333,7 @@
         errorLine2="                           ~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="338"
+            line="340"
             column="28"/>
     </issue>
 
@@ -1351,7 +1351,7 @@
         errorLine2="                              ~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="339"
+            line="341"
             column="31"/>
     </issue>
 
@@ -1369,7 +1369,7 @@
         errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="660"
+            line="722"
             column="36"/>
     </issue>
 
@@ -1387,7 +1387,7 @@
         errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="663"
+            line="725"
             column="36"/>
     </issue>
 
@@ -1405,7 +1405,7 @@
         errorLine2="                                   ~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="663"
+            line="725"
             column="36"/>
     </issue>
 
@@ -1423,7 +1423,7 @@
         errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="669"
+            line="731"
             column="32"/>
     </issue>
 
@@ -1441,7 +1441,7 @@
         errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="675"
+            line="737"
             column="36"/>
     </issue>
 
@@ -1459,7 +1459,7 @@
         errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="678"
+            line="740"
             column="36"/>
     </issue>
 
@@ -1477,7 +1477,7 @@
         errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="685"
+            line="747"
             column="36"/>
     </issue>
 
@@ -1495,7 +1495,7 @@
         errorLine2="                                   ~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="687"
+            line="749"
             column="36"/>
     </issue>
 
@@ -1513,7 +1513,7 @@
         errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="707"
+            line="769"
             column="36"/>
     </issue>
 
@@ -1531,7 +1531,7 @@
         errorLine2="                                   ~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="711"
+            line="773"
             column="36"/>
     </issue>
 
@@ -1549,7 +1549,7 @@
         errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="720"
+            line="782"
             column="40"/>
     </issue>
 
@@ -1567,7 +1567,7 @@
         errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="724"
+            line="786"
             column="40"/>
     </issue>
 
@@ -1585,7 +1585,7 @@
         errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="730"
+            line="792"
             column="40"/>
     </issue>
 
@@ -1603,7 +1603,7 @@
         errorLine2="                                       ~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="732"
+            line="794"
             column="40"/>
     </issue>
 
@@ -1621,7 +1621,7 @@
         errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="834"
+            line="896"
             column="40"/>
     </issue>
 
@@ -1639,7 +1639,7 @@
         errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="838"
+            line="900"
             column="40"/>
     </issue>
 
@@ -1657,7 +1657,7 @@
         errorLine2="                                       ~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="844"
+            line="906"
             column="40"/>
     </issue>
 
@@ -1675,7 +1675,7 @@
         errorLine2="                                       ~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java"
-            line="846"
+            line="908"
             column="40"/>
     </issue>
 
@@ -2002,6 +2002,22 @@
     <issue
         id="HardcodedText"
         severity="Warning"
+        message="Hardcoded string &quot;📁 Open Last Recording Folder&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="        android:text=&quot;📁 Open Last Recording Folder&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml"
+            line="201"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
         message="Hardcoded string &quot;Instructions:\n• Adjust threshold above ambient noise\n• Grant all permissions when prompted\n• Videos saved to Movies/SoundTrigger folder\n• Recording stops after timeout when sound drops\n• Select front/rear camera before recording&quot;, should use `@string` resource"
         category="Internationalization"
         priority="5"
@@ -2011,7 +2027,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml"
-            line="204"
+            line="212"
             column="9"/>
     </issue>
 

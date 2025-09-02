@@ -3120,6 +3120,7 @@ id notification_main_column_container
 id off
 id on
 id onInterceptTouchReturnSwipe
+id openRecordingsButton
 id outline
 id outward
 id overshoot

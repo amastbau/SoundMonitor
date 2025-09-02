@@ -32,7 +32,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 200;
-    private Button startStopButton, testNetworkButton, testGpsButton, cameraPreviewButton;
+    private Button startStopButton, testNetworkButton, testGpsButton, cameraPreviewButton, openRecordingsButton;
     private SeekBar thresholdSeekBar, timeoutSeekBar;
     private TextView thresholdText, timeoutText, statusText, currentDbText;
     private RadioGroup recordingModeGroup, cameraSelectionGroup;
@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         testNetworkButton = findViewById(R.id.testNetworkButton);
         testGpsButton = findViewById(R.id.testGpsButton);
         cameraPreviewButton = findViewById(R.id.cameraPreviewButton);
+        openRecordingsButton = findViewById(R.id.openRecordingsButton);
         thresholdSeekBar = findViewById(R.id.thresholdSeekBar);
         timeoutSeekBar = findViewById(R.id.timeoutSeekBar);
         thresholdText = findViewById(R.id.thresholdText);
@@ -110,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         testNetworkButton.setOnClickListener(v -> testNetworkConnection());
         testGpsButton.setOnClickListener(v -> testGpsLocation());
         cameraPreviewButton.setOnClickListener(v -> openCameraPreview());
+        openRecordingsButton.setOnClickListener(v -> openLastRecordingFolder());
         
         thresholdSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -417,6 +419,66 @@ public class MainActivity extends AppCompatActivity {
         cameraIntent.putExtra("timeout", stopTimeout);
         cameraIntent.putExtra("cameraId", selectedCameraId);
         startActivity(cameraIntent);
+    }
+    
+    private void openLastRecordingFolder() {
+        try {
+            // Try to open Downloads/SoundTrigger folder where recordings are saved
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setType("*/*");
+            
+            // Create an intent to open the file manager at the SoundTrigger folder
+            // This will work with most file managers
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.putExtra("android.content.extra.SHOW_ADVANCED", true);
+            
+            // Try to start a file manager activity
+            try {
+                startActivity(Intent.createChooser(intent, "Open Recording Folder"));
+            } catch (Exception e) {
+                // If that fails, try to open the Downloads folder directly
+                Intent downloadIntent = new Intent(Intent.ACTION_VIEW);
+                downloadIntent.setType("*/*");
+                downloadIntent.setAction(Intent.ACTION_VIEW);
+                downloadIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                
+                try {
+                    startActivity(downloadIntent);
+                    Toast.makeText(this, "Look for SoundTrigger folder in Downloads", Toast.LENGTH_LONG).show();
+                } catch (Exception e2) {
+                    // Last resort - show instructions
+                    showRecordingLocationInfo();
+                }
+            }
+            
+        } catch (Exception e) {
+            Log.e("MainActivity", "Error opening recording folder", e);
+            showRecordingLocationInfo();
+        }
+    }
+    
+    private void showRecordingLocationInfo() {
+        new AlertDialog.Builder(this)
+            .setTitle("Recording Location")
+            .setMessage("Your recordings are saved to:\n\n" +
+                       "📁 Downloads/SoundTrigger/[session]/\n\n" +
+                       "Each recording session creates a separate folder with:\n" +
+                       "• Video files (.mp4)\n" +
+                       "• Legal timestamp files (.txt)\n" +
+                       "• Session information\n\n" +
+                       "You can access these files through your device's file manager or when connected to a computer.")
+            .setPositiveButton("OK", null)
+            .setNeutralButton("Open Downloads", (dialog, which) -> {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setType("*/*");
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Toast.makeText(this, "Please open your file manager manually", Toast.LENGTH_SHORT).show();
+                }
+            })
+            .show();
     }
     
     private void testGpsLocation() {

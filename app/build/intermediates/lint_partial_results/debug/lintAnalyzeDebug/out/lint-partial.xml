@@ -7,6 +7,32 @@
     </map>
     <map id="UnsafeImplicitIntentLaunch">
             <map id="actionsSent">
+                    <map id="android.intent.action.VIEW (used to start an activity)">
+                        <location id="0"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+                            line="441"
+                            column="41"
+                            startOffset="18550"
+                            endLine="441"
+                            endColumn="71"
+                            endOffset="18580"/>
+                        <location id="1"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+                            line="443"
+                            column="17"
+                            startOffset="18645"
+                            endLine="443"
+                            endColumn="61"
+                            endOffset="18689"/>
+                        <location id="2"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/MainActivity.java"
+                            line="474"
+                            column="37"
+                            startOffset="20119"
+                            endLine="474"
+                            endColumn="67"
+                            endOffset="20149"/>
+                    </map>
                     <map id="com.soundmonitor.app.DECIBEL_UPDATE (used to send a broadcast)">
                         <location id="0"
                             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"
@@ -39,7 +65,7 @@
     <map id="UnusedResources">
         <entry
             name="model"
-            string="id[cameraPreview(U),recordingStatus(U),currentDbLevel(U),thresholdInfo(U),backButton(U),thresholdText(U),thresholdSeekBar(U),timeoutText(U),timeoutSeekBar(U),recordingModeGroup(U),videoModeRadio(U),audioModeRadio(U),cameraSelectionGroup(U),rearCameraRadio(U),frontCameraRadio(U),statusText(U),currentDbText(U),startStopButton(U),testNetworkButton(U),testGpsButton(U),cameraPreviewButton(U)],layout[activity_camera_preview(U),activity_main(U)],string[app_name(U)],style[Theme_AppCompat_DayNight(R)],xml[network_security_config(U)];;;;"/>
+            string="id[cameraPreview(U),recordingStatus(U),currentDbLevel(U),thresholdInfo(U),backButton(U),thresholdText(U),thresholdSeekBar(U),timeoutText(U),timeoutSeekBar(U),recordingModeGroup(U),videoModeRadio(U),audioModeRadio(U),cameraSelectionGroup(U),rearCameraRadio(U),frontCameraRadio(U),statusText(U),currentDbText(U),startStopButton(U),testNetworkButton(U),testGpsButton(U),cameraPreviewButton(U),openRecordingsButton(U)],layout[activity_camera_preview(U),activity_main(U)],string[app_name(U)],style[Theme_AppCompat_DayNight(R)],xml[network_security_config(U)];;;;"/>
     </map>
 
 </incidents>

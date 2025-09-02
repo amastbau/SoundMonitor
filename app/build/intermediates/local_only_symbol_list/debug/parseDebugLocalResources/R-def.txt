@@ -8,6 +8,7 @@ id cameraSelectionGroup
 id currentDbLevel
 id currentDbText
 id frontCameraRadio
+id openRecordingsButton
 id rearCameraRadio
 id recordingModeGroup
 id recordingStatus
