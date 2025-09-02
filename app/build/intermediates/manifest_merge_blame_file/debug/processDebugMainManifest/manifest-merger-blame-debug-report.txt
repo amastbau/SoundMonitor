@@ -71,71 +71,70 @@
 39-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:19:9-41
 40        android:networkSecurityConfig="@xml/network_security_config"
 40-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:21:9-69
-41        android:testOnly="true"
-42        android:theme="@style/Theme.AppCompat.DayNight" >
-42-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:20:9-56
-43        <activity
-43-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:23:9-30:20
-44            android:name="com.soundmonitor.app.MainActivity"
-44-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:24:13-41
-45            android:exported="true" >
-45-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:25:13-36
-46            <intent-filter>
-46-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:26:13-29:29
-47                <action android:name="android.intent.action.MAIN" />
-47-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:27:17-69
-47-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:27:25-66
-48
-49                <category android:name="android.intent.category.LAUNCHER" />
-49-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:28:17-77
-49-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:28:27-74
-50            </intent-filter>
-51        </activity>
-52        <activity
-52-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:32:9-34:40
-53            android:name="com.soundmonitor.app.NetworkTestActivity"
-53-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:33:13-48
-54            android:exported="false" />
-54-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:34:13-37
-55        <activity
-55-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:36:9-39:52
-56            android:name="com.soundmonitor.app.CameraPreviewActivity"
-56-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:37:13-50
-57            android:exported="false"
-57-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:38:13-37
-58            android:screenOrientation="portrait" />
-58-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:39:13-49
-59
-60        <service
-60-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:41:9-44:40
-61            android:name="com.soundmonitor.app.SoundMonitorService"
-61-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:42:13-48
-62            android:enabled="true"
-62-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:43:13-35
-63            android:exported="false" />
-63-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:44:13-37
-64
-65        <provider
-65-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-66            android:name="androidx.startup.InitializationProvider"
-66-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
-67            android:authorities="com.soundmonitor.app.androidx-startup"
-67-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
-68            android:exported="false" >
-68-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
-69            <meta-data
-69-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-70                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-70-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
-71                android:value="androidx.startup" />
-71-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
-72            <meta-data
-72-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
-73                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-73-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
-74                android:value="androidx.startup" />
-74-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
-75        </provider>
-76    </application>
-77
-78</manifest>
+41        android:theme="@style/Theme.AppCompat.DayNight" >
+41-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:20:9-56
+42        <activity
+42-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:23:9-30:20
+43            android:name="com.soundmonitor.app.MainActivity"
+43-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:24:13-41
+44            android:exported="true" >
+44-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:25:13-36
+45            <intent-filter>
+45-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:26:13-29:29
+46                <action android:name="android.intent.action.MAIN" />
+46-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:27:17-69
+46-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:27:25-66
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:28:17-77
+48-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:28:27-74
+49            </intent-filter>
+50        </activity>
+51        <activity
+51-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:32:9-34:40
+52            android:name="com.soundmonitor.app.NetworkTestActivity"
+52-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:33:13-48
+53            android:exported="false" />
+53-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:34:13-37
+54        <activity
+54-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:36:9-39:52
+55            android:name="com.soundmonitor.app.CameraPreviewActivity"
+55-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:37:13-50
+56            android:exported="false"
+56-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:38:13-37
+57            android:screenOrientation="portrait" />
+57-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:39:13-49
+58
+59        <service
+59-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:41:9-44:40
+60            android:name="com.soundmonitor.app.SoundMonitorService"
+60-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:42:13-48
+61            android:enabled="true"
+61-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:43:13-35
+62            android:exported="false" />
+62-->/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:44:13-37
+63
+64        <provider
+64-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+65            android:name="androidx.startup.InitializationProvider"
+65-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+66            android:authorities="com.soundmonitor.app.androidx-startup"
+66-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+67            android:exported="false" >
+67-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+68            <meta-data
+68-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+69                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+69-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+70                android:value="androidx.startup" />
+70-->[androidx.emoji2:emoji2:1.2.0] /home/amos/.gradle/caches/8.13/transforms/e9a7070cb66c8e32994df5d6423915c7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+71            <meta-data
+71-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+72                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+72-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+73                android:value="androidx.startup" />
+73-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/amos/.gradle/caches/8.13/transforms/79f8b87f6c85c7d1d7f7a30a9610b59a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+74        </provider>
+75    </application>
+76
+77</manifest>

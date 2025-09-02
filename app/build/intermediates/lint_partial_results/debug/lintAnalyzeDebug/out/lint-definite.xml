@@ -699,15 +699,15 @@
         message="Use version catalog instead (androidx.appcompat:appcompat is already available as `androidx-appcompat`, but using version 1.7.1 instead)">
         <fix-alternatives>
             <fix-composite
-                description="Replace with new library catalog declaration for androidx-appcompat-appcompat-v161-x14"
+                description="Replace with new library catalog declaration for androidx-appcompat-appcompat-v161-x16"
                 robot="true"
                 independent="true">
                 <fix-replace
-                    description="Replace with androidxAppcompatAppcompat13 = &quot;1.6.1&quot;..."
+                    description="Replace with androidxAppcompatAppcompat15 = &quot;1.6.1&quot;..."
                     robot="true"
                     independent="true"
                     oldString="_lint_insert_begin_"
-                    replacement="androidxAppcompatAppcompat13 = &quot;1.6.1&quot;&#xA;"
+                    replacement="androidxAppcompatAppcompat15 = &quot;1.6.1&quot;&#xA;"
                     priority="0">
                     <range
                         file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -715,11 +715,11 @@
                         endOffset="25"/>
                 </fix-replace>
                 <fix-replace
-                    description="Replace with androidx-appcompat-appcompat-v161-x14 = { module = &quot;androidx.appcompat:appcompat&quot;, version.ref = &quot;androidxAppcompatAppcompat13&quot; }..."
+                    description="Replace with androidx-appcompat-appcompat-v161-x16 = { module = &quot;androidx.appcompat:appcompat&quot;, version.ref = &quot;androidxAppcompatAppcompat15&quot; }..."
                     robot="true"
                     independent="true"
                     oldString="_lint_insert_begin_"
-                    replacement="androidx-appcompat-appcompat-v161-x14 = { module = &quot;androidx.appcompat:appcompat&quot;, version.ref = &quot;androidxAppcompatAppcompat13&quot; }&#xA;"
+                    replacement="androidx-appcompat-appcompat-v161-x16 = { module = &quot;androidx.appcompat:appcompat&quot;, version.ref = &quot;androidxAppcompatAppcompat15&quot; }&#xA;"
                     priority="0">
                     <range
                         file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -727,10 +727,10 @@
                         endOffset="240"/>
                 </fix-replace>
                 <fix-replace
-                    description="Replace with libs.androidx.appcompat.appcompat.v161.x14"
+                    description="Replace with libs.androidx.appcompat.appcompat.v161.x16"
                     robot="true"
                     independent="true"
-                    replacement="libs.androidx.appcompat.appcompat.v161.x14"
+                    replacement="libs.androidx.appcompat.appcompat.v161.x16"
                     priority="0">
                     <range
                         file="${:app*projectDir}/build.gradle"
@@ -763,13 +763,13 @@
         severity="warning"
         message="Use version catalog instead">
         <fix-composite
-            description="Replace with new library catalog declaration for com-google-android-material-material14"
+            description="Replace with new library catalog declaration for com-google-android-material-material16"
             robot="true">
             <fix-replace
-                description="Replace with comGoogleAndroidMaterialMaterial12 = &quot;1.8.0&quot;..."
+                description="Replace with comGoogleAndroidMaterialMaterial14 = &quot;1.8.0&quot;..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="comGoogleAndroidMaterialMaterial12 = &quot;1.8.0&quot;&#xA;"
+                replacement="comGoogleAndroidMaterialMaterial14 = &quot;1.8.0&quot;&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -777,10 +777,10 @@
                     endOffset="25"/>
             </fix-replace>
             <fix-replace
-                description="Replace with com-google-android-material-material14 = { module = &quot;com.google.android.material:material&quot;, version.ref = &quot;comGoogleAndroidMaterialMaterial12&quot; }..."
+                description="Replace with com-google-android-material-material16 = { module = &quot;com.google.android.material:material&quot;, version.ref = &quot;comGoogleAndroidMaterialMaterial14&quot; }..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="com-google-android-material-material14 = { module = &quot;com.google.android.material:material&quot;, version.ref = &quot;comGoogleAndroidMaterialMaterial12&quot; }&#xA;"
+                replacement="com-google-android-material-material16 = { module = &quot;com.google.android.material:material&quot;, version.ref = &quot;comGoogleAndroidMaterialMaterial14&quot; }&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -788,9 +788,9 @@
                     endOffset="332"/>
             </fix-replace>
             <fix-replace
-                description="Replace with libs.com.google.android.material.material14"
+                description="Replace with libs.com.google.android.material.material16"
                 robot="true"
-                replacement="libs.com.google.android.material.material14"
+                replacement="libs.com.google.android.material.material16"
                 priority="0">
                 <range
                     file="${:app*projectDir}/build.gradle"
@@ -813,13 +813,13 @@
         severity="warning"
         message="Use version catalog instead">
         <fix-composite
-            description="Replace with new library catalog declaration for androidx-constraintlayout-constraintlayout14"
+            description="Replace with new library catalog declaration for androidx-constraintlayout-constraintlayout16"
             robot="true">
             <fix-replace
-                description="Replace with androidxConstraintlayoutConstraintlayout12 = &quot;2.1.4&quot;..."
+                description="Replace with androidxConstraintlayoutConstraintlayout14 = &quot;2.1.4&quot;..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="androidxConstraintlayoutConstraintlayout12 = &quot;2.1.4&quot;&#xA;"
+                replacement="androidxConstraintlayoutConstraintlayout14 = &quot;2.1.4&quot;&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -827,10 +827,10 @@
                     endOffset="25"/>
             </fix-replace>
             <fix-replace
-                description="Replace with androidx-constraintlayout-constraintlayout14 = { module = &quot;androidx.constraintlayout:constraintlayout&quot;, version.ref = &quot;androidxConstraintlayoutConstraintlayout12&quot; }..."
+                description="Replace with androidx-constraintlayout-constraintlayout16 = { module = &quot;androidx.constraintlayout:constraintlayout&quot;, version.ref = &quot;androidxConstraintlayoutConstraintlayout14&quot; }..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="androidx-constraintlayout-constraintlayout14 = { module = &quot;androidx.constraintlayout:constraintlayout&quot;, version.ref = &quot;androidxConstraintlayoutConstraintlayout12&quot; }&#xA;"
+                replacement="androidx-constraintlayout-constraintlayout16 = { module = &quot;androidx.constraintlayout:constraintlayout&quot;, version.ref = &quot;androidxConstraintlayoutConstraintlayout14&quot; }&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -838,9 +838,9 @@
                     endOffset="240"/>
             </fix-replace>
             <fix-replace
-                description="Replace with libs.androidx.constraintlayout.constraintlayout14"
+                description="Replace with libs.androidx.constraintlayout.constraintlayout16"
                 robot="true"
-                replacement="libs.androidx.constraintlayout.constraintlayout14"
+                replacement="libs.androidx.constraintlayout.constraintlayout16"
                 priority="0">
                 <range
                     file="${:app*projectDir}/build.gradle"
@@ -863,13 +863,13 @@
         severity="warning"
         message="Use version catalog instead">
         <fix-composite
-            description="Replace with new library catalog declaration for androidx-localbroadcastmanager-localbroadcastmanager14"
+            description="Replace with new library catalog declaration for androidx-localbroadcastmanager-localbroadcastmanager16"
             robot="true">
             <fix-replace
-                description="Replace with androidxLocalbroadcastmanagerLocalbroadcastmanager12 = &quot;1.1.0&quot;..."
+                description="Replace with androidxLocalbroadcastmanagerLocalbroadcastmanager14 = &quot;1.1.0&quot;..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="androidxLocalbroadcastmanagerLocalbroadcastmanager12 = &quot;1.1.0&quot;&#xA;"
+                replacement="androidxLocalbroadcastmanagerLocalbroadcastmanager14 = &quot;1.1.0&quot;&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -877,10 +877,10 @@
                     endOffset="25"/>
             </fix-replace>
             <fix-replace
-                description="Replace with androidx-localbroadcastmanager-localbroadcastmanager14 = { module = &quot;androidx.localbroadcastmanager:localbroadcastmanager&quot;, version.ref = &quot;androidxLocalbroadcastmanagerLocalbroadcastmanager12&quot; }..."
+                description="Replace with androidx-localbroadcastmanager-localbroadcastmanager16 = { module = &quot;androidx.localbroadcastmanager:localbroadcastmanager&quot;, version.ref = &quot;androidxLocalbroadcastmanagerLocalbroadcastmanager14&quot; }..."
                 robot="true"
                 oldString="_lint_insert_begin_"
-                replacement="androidx-localbroadcastmanager-localbroadcastmanager14 = { module = &quot;androidx.localbroadcastmanager:localbroadcastmanager&quot;, version.ref = &quot;androidxLocalbroadcastmanagerLocalbroadcastmanager12&quot; }&#xA;"
+                replacement="androidx-localbroadcastmanager-localbroadcastmanager16 = { module = &quot;androidx.localbroadcastmanager:localbroadcastmanager&quot;, version.ref = &quot;androidxLocalbroadcastmanagerLocalbroadcastmanager14&quot; }&#xA;"
                 priority="0">
                 <range
                     file="$HOME/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml"
@@ -888,9 +888,9 @@
                     endOffset="332"/>
             </fix-replace>
             <fix-replace
-                description="Replace with libs.androidx.localbroadcastmanager.localbroadcastmanager14"
+                description="Replace with libs.androidx.localbroadcastmanager.localbroadcastmanager16"
                 robot="true"
-                replacement="libs.androidx.localbroadcastmanager.localbroadcastmanager14"
+                replacement="libs.androidx.localbroadcastmanager.localbroadcastmanager16"
                 priority="0">
                 <range
                     file="${:app*projectDir}/build.gradle"
