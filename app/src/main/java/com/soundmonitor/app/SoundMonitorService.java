@@ -219,12 +219,23 @@ public class SoundMonitorService extends Service {
                 // for ActivityCompat#requestPermissions for more details.
                 return;
             }
-            audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE,
-                                        CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize);
-            
-            if (audioRecord.getState() != AudioRecord.STATE_INITIALIZED) {
-                Log.e(TAG, "AudioRecord initialization failed");
-                return;
+            // Try UNPROCESSED first for better low-frequency sensitivity, fallback to MIC
+            try {
+                audioRecord = new AudioRecord(MediaRecorder.AudioSource.UNPROCESSED, SAMPLE_RATE,
+                                            CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize);
+                if (audioRecord.getState() != AudioRecord.STATE_INITIALIZED) {
+                    audioRecord.release();
+                    throw new RuntimeException("UNPROCESSED failed");
+                }
+                Log.i(TAG, "Using UNPROCESSED audio source for better low-frequency sensitivity");
+            } catch (Exception e) {
+                Log.w(TAG, "UNPROCESSED audio source not available, falling back to MIC: " + e.getMessage());
+                audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE,
+                                            CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize);
+                if (audioRecord.getState() != AudioRecord.STATE_INITIALIZED) {
+                    Log.e(TAG, "AudioRecord initialization failed with MIC fallback");
+                    return;
+                }
             }
             
             isMonitoring = true;
@@ -308,13 +319,23 @@ public class SoundMonitorService extends Service {
                 return;
             }
             
-            // Use a different audio source for the dB monitor to avoid conflicts
-            dbMonitorRecord = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, SAMPLE_RATE,
-                                            CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize);
-            
-            if (dbMonitorRecord.getState() != AudioRecord.STATE_INITIALIZED) {
-                Log.e(TAG, "dB Monitor AudioRecord initialization failed");
-                return;
+            // Try UNPROCESSED first for better low-frequency sensitivity, fallback to VOICE_RECOGNITION
+            try {
+                dbMonitorRecord = new AudioRecord(MediaRecorder.AudioSource.UNPROCESSED, SAMPLE_RATE,
+                                                CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize);
+                if (dbMonitorRecord.getState() != AudioRecord.STATE_INITIALIZED) {
+                    dbMonitorRecord.release();
+                    throw new RuntimeException("UNPROCESSED failed");
+                }
+                Log.i(TAG, "Using UNPROCESSED audio source for dB monitoring");
+            } catch (Exception e) {
+                Log.w(TAG, "UNPROCESSED not available for dB monitor, falling back to VOICE_RECOGNITION: " + e.getMessage());
+                dbMonitorRecord = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, SAMPLE_RATE,
+                                                CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize);
+                if (dbMonitorRecord.getState() != AudioRecord.STATE_INITIALIZED) {
+                    Log.e(TAG, "dB Monitor AudioRecord initialization failed with fallback");
+                    return;
+                }
             }
             
             isDbMonitoring = true;
@@ -708,19 +729,47 @@ public class SoundMonitorService extends Service {
     // Removed old monitorSound method - using continuous dB monitoring instead
     
     private double calculateDecibelLevel(short[] buffer, int readSize) {
-        // Calculate RMS (Root Mean Square)
+        // Calculate RMS (Root Mean Square) with optimized footstep/floor vibration detection
         double sumSquares = 0;
+        double lowFreqSum = 0;
+        double veryLowFreqSum = 0;
+        
+        // Multi-stage filtering for footsteps and building vibrations
+        double lowPassPrev = 0;
+        double veryLowPassPrev = 0;
+        double alpha1 = 0.05; // Very low frequencies (10-100Hz) - footsteps, impacts
+        double alpha2 = 0.15; // Low frequencies (100-500Hz) - floor creaking, movement
+        
         for (int i = 0; i < readSize; i++) {
             double sample = buffer[i] / 32768.0; // Normalize to -1.0 to 1.0
+            
+            // First stage: Very low-pass filter for deep impacts and heavy footsteps
+            double veryLowPassCurrent = alpha1 * sample + (1 - alpha1) * veryLowPassPrev;
+            veryLowPassPrev = veryLowPassCurrent;
+            
+            // Second stage: Low-pass filter for general floor sounds and movement
+            double lowPassCurrent = alpha2 * sample + (1 - alpha2) * lowPassPrev;
+            lowPassPrev = lowPassCurrent;
+            
+            // Accumulate different frequency bands
             sumSquares += sample * sample;
+            veryLowFreqSum += veryLowPassCurrent * veryLowPassCurrent;
+            lowFreqSum += lowPassCurrent * lowPassCurrent;
         }
-        double rms = Math.sqrt(sumSquares / readSize);
         
-        // Convert RMS to dB
-        // 20 * log10(rms) gives us dB relative to full scale
-        // Add offset to get realistic dB levels (30-90 dB range)
-        if (rms > 0) {
-            double db = 20 * Math.log10(rms) + 90; // 90 dB offset for realistic range
+        double rms = Math.sqrt(sumSquares / readSize);
+        double veryLowFreqRms = Math.sqrt(veryLowFreqSum / readSize);
+        double lowFreqRms = Math.sqrt(lowFreqSum / readSize);
+        
+        // Heavily emphasize very low frequencies for footstep detection
+        // 50% regular, 30% very-low-freq (footsteps), 20% low-freq (movement)
+        double combinedRms = 0.5 * rms + 
+                           0.3 * veryLowFreqRms * 4.0 + // 4x boost for footstep frequencies
+                           0.2 * lowFreqRms * 2.5;       // 2.5x boost for movement frequencies
+        
+        // Convert RMS to dB with enhanced building vibration sensitivity
+        if (combinedRms > 0) {
+            double db = 20 * Math.log10(combinedRms) + 90; // 90 dB offset for realistic range
             return Math.max(db, 30.0); // Minimum 30 dB (silence)
         } else {
             return 30.0; // Silence = 30 dB
@@ -967,11 +1016,21 @@ public class SoundMonitorService extends Service {
         }
         
         int bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT);
-        audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE,
-                                    CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize);
-        
-        if (audioRecord.getState() != AudioRecord.STATE_INITIALIZED) {
-            throw new RuntimeException("AudioRecord initialization failed");
+        // Try UNPROCESSED first for better low-frequency sensitivity, fallback to MIC
+        try {
+            audioRecord = new AudioRecord(MediaRecorder.AudioSource.UNPROCESSED, SAMPLE_RATE,
+                                        CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize);
+            if (audioRecord.getState() != AudioRecord.STATE_INITIALIZED) {
+                audioRecord.release();
+                throw new RuntimeException("UNPROCESSED failed");
+            }
+        } catch (Exception e) {
+            Log.w(TAG, "UNPROCESSED audio source not available for restart, falling back to MIC: " + e.getMessage());
+            audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE,
+                                        CHANNEL_CONFIG, AUDIO_FORMAT, bufferSize);
+            if (audioRecord.getState() != AudioRecord.STATE_INITIALIZED) {
+                throw new RuntimeException("AudioRecord initialization failed with MIC fallback");
+            }
         }
         
         audioRecord.startRecording();
