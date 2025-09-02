@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-41:12
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:2:1-46:12
 MERGED from [com.google.android.material:material:1.8.0] /home/amos/.gradle/caches/8.13/transforms/8387a082dcb333be3b07694772fbebd2/transformed/material-1.8.0/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/amos/.gradle/caches/8.13/transforms/33ade1d4177787c2d818e556d9b90a5d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/amos/.gradle/caches/8.13/transforms/c44d49b7a8038fbe5ebf4cc8551ac09e/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
@@ -97,8 +97,8 @@ ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidM
 	android:name
 		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:14:19-61
 application
-ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:16:5-40:19
-INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:16:5-40:19
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:16:5-45:19
+INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:16:5-45:19
 MERGED from [com.google.android.material:material:1.8.0] /home/amos/.gradle/caches/8.13/transforms/8387a082dcb333be3b07694772fbebd2/transformed/material-1.8.0/AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.8.0] /home/amos/.gradle/caches/8.13/transforms/8387a082dcb333be3b07694772fbebd2/transformed/material-1.8.0/AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/amos/.gradle/caches/8.13/transforms/33ade1d4177787c2d818e556d9b90a5d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -149,14 +149,22 @@ ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidM
 		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:34:13-37
 	android:name
 		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:33:13-48
-service#com.soundmonitor.app.SoundMonitorService
-ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:36:9-39:40
-	android:enabled
-		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:38:13-35
+activity#com.soundmonitor.app.CameraPreviewActivity
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:36:9-39:52
+	android:screenOrientation
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:39:13-49
 	android:exported
-		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:39:13-37
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:38:13-37
 	android:name
-		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:37:13-48
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:37:13-50
+service#com.soundmonitor.app.SoundMonitorService
+ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:41:9-44:40
+	android:enabled
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:43:13-35
+	android:exported
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:44:13-37
+	android:name
+		ADDED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:42:13-48
 uses-sdk
 INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml

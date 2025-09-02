@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.soundmonitor.app-mergeReleaseResources-26:/values-be/values-be.xml",
+            "outputFile": "com.soundmonitor.app-mergeReleaseResources-27:/values-be/values-be.xml",
             "map": [
                 {
                     "source": "/home/amos/.gradle/caches/8.13/transforms/6026a2e338a7c58e81c72fdc46adfea7/transformed/core-1.9.0/res/values-be/values-be.xml",

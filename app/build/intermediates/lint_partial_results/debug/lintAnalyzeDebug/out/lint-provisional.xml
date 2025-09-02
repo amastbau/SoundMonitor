@@ -2,18 +2,132 @@
 <incidents format="6" by="lint 8.12.2" type="conditional_incidents">
 
     <incident
+        id="InlinedApi"
+        severity="warning"
+        message="">
+        <fix-data minSdk="21-∞" requiresApi="24-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"
+            line="245"
+            column="47"
+            startOffset="11570"
+            endLine="245"
+            endColumn="84"
+            endOffset="11607"/>
+        <map>
+            <entry
+                name="message"
+                string="Field requires API level 24 (current min is %1$s): `android.media.MediaRecorder.AudioSource#UNPROCESSED`"/>
+            <api-levels id="minSdk"
+                value="21-∞"/>
+            <entry
+                name="name"
+                string="UNPROCESSED"/>
+            <entry
+                name="owner"
+                string="android.media.MediaRecorder.AudioSource"/>
+            <api-levels id="requiresApi"
+                value="24-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="InlinedApi"
+        severity="warning"
+        message="">
+        <fix-data minSdk="21-∞" requiresApi="24-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"
+            line="358"
+            column="51"
+            startOffset="16295"
+            endLine="358"
+            endColumn="88"
+            endOffset="16332"/>
+        <map>
+            <entry
+                name="message"
+                string="Field requires API level 24 (current min is %1$s): `android.media.MediaRecorder.AudioSource#UNPROCESSED`"/>
+            <api-levels id="minSdk"
+                value="21-∞"/>
+            <entry
+                name="name"
+                string="UNPROCESSED"/>
+            <entry
+                name="owner"
+                string="android.media.MediaRecorder.AudioSource"/>
+            <api-levels id="requiresApi"
+                value="24-∞"/>
+        </map>
+    </incident>
+
+    <incident
+        id="InlinedApi"
+        severity="warning"
+        message="">
+        <fix-data minSdk="21-∞" requiresApi="24-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"
+            line="1126"
+            column="43"
+            startOffset="53895"
+            endLine="1126"
+            endColumn="80"
+            endOffset="53932"/>
+        <map>
+            <entry
+                name="message"
+                string="Field requires API level 24 (current min is %1$s): `android.media.MediaRecorder.AudioSource#UNPROCESSED`"/>
+            <api-levels id="minSdk"
+                value="21-∞"/>
+            <entry
+                name="name"
+                string="UNPROCESSED"/>
+            <entry
+                name="owner"
+                string="android.media.MediaRecorder.AudioSource"/>
+            <api-levels id="requiresApi"
+                value="24-∞"/>
+        </map>
+    </incident>
+
+    <incident
         id="NotificationPermission"
         severity="error"
         message="When targeting Android 13 or higher, posting a permission requires holding the `POST_NOTIFICATIONS` permission">
         <fix-data missing="android.permission.POST_NOTIFICATIONS"/>
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"
-            line="655"
+            line="1988"
             column="9"
-            startOffset="30324"
-            endLine="655"
+            startOffset="97556"
+            endLine="1988"
             endColumn="54"
-            endOffset="30369"/>
+            endOffset="97601"/>
+    </incident>
+
+    <incident
+        id="UnusedAttribute"
+        severity="warning"
+        message="">
+        <fix-data minSdk="21-∞" requiresApi="24-∞"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="21"
+            column="9"
+            startOffset="1087"
+            endLine="21"
+            endColumn="69"
+            endOffset="1147"/>
+        <map>
+            <entry
+                name="message"
+                string="Attribute `networkSecurityConfig` is only used in API level 24 and higher (current min is %1$s)"/>
+            <api-levels id="minSdk"
+                value="21-∞"/>
+            <api-levels id="requiresApi"
+                value="24-∞"/>
+        </map>
     </incident>
 
     <incident
@@ -22,14 +136,76 @@
         message="To call `Service.startForeground()`, the `&lt;service>` element of manifest file must have the `foregroundServiceType` attribute specified">
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"
-            line="80"
-            column="9"
-            startOffset="2684"
-            endLine="80"
-            endColumn="24"
-            endOffset="2699"/>
+            line="221"
+            column="17"
+            startOffset="10349"
+            endLine="221"
+            endColumn="32"
+            endOffset="10364"/>
         <map>
             <condition targetGE="34"/>
+        </map>
+    </incident>
+
+    <incident
+        id="LockedOrientationActivity"
+        severity="warning"
+        message="Expecting `android:screenOrientation=&quot;unspecified&quot;` or `&quot;fullSensor&quot;` for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices">
+        <fix-attribute
+            description="Set screenOrientation=&quot;fullSensor&quot;"
+            robot="true"
+            independent="true"
+            namespace="http://schemas.android.com/apk/res/android"
+            attribute="screenOrientation"
+            value="fullSensor"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="39"
+            column="13"
+            startOffset="1718"
+            endLine="39"
+            endColumn="49"
+            endOffset="1754"/>
+        <map>
+            <condition library="false"/>
+        </map>
+    </incident>
+
+    <incident
+        id="RtlSymmetry"
+        severity="warning"
+        message="When you define `paddingEnd` you should probably also define `paddingStart` for right-to-left symmetry">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="61"
+            column="13"
+            startOffset="2019"
+            endLine="61"
+            endColumn="31"
+            endOffset="2037"/>
+        <map>
+            <entry
+                name="applies"
+                int="2"/>
+        </map>
+    </incident>
+
+    <incident
+        id="RtlSymmetry"
+        severity="warning"
+        message="When you define `paddingStart` you should probably also define `paddingEnd` for right-to-left symmetry">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="100"
+            column="13"
+            startOffset="3430"
+            endLine="100"
+            endColumn="33"
+            endOffset="3450"/>
+        <map>
+            <entry
+                name="applies"
+                int="2"/>
         </map>
     </incident>
 

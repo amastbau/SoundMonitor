@@ -5,6 +5,30 @@
             name="source"
             boolean="true"/>
     </map>
+    <map id="UnsafeImplicitIntentLaunch">
+            <map id="actionsSent">
+                    <map id="com.soundmonitor.app.DECIBEL_UPDATE (used to send a broadcast)">
+                        <location id="0"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"
+                            line="407"
+                            column="25"
+                            startOffset="18471"
+                            endLine="407"
+                            endColumn="58"
+                            endOffset="18504"/>
+                    </map>
+                    <map id="com.soundmonitor.app.RECORDING_STATE (used to send a broadcast)">
+                        <location id="0"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"
+                            line="499"
+                            column="25"
+                            startOffset="23878"
+                            endLine="499"
+                            endColumn="59"
+                            endOffset="23912"/>
+                    </map>
+            </map>
+    </map>
     <map id="UnsafeIntentLaunch">
             <map id="unprotected">
                 <entry
@@ -15,7 +39,7 @@
     <map id="UnusedResources">
         <entry
             name="model"
-            string="id[thresholdText(U),thresholdSeekBar(U),statusText(U),startStopButton(U)],layout[activity_main(U)],string[app_name(U)],style[Theme_AppCompat_DayNight(R)];;;;"/>
+            string="id[cameraPreview(U),recordingStatus(U),currentDbLevel(U),thresholdInfo(U),backButton(U),thresholdText(U),thresholdSeekBar(U),timeoutText(U),timeoutSeekBar(U),recordingModeGroup(U),videoModeRadio(U),audioModeRadio(U),cameraSelectionGroup(U),rearCameraRadio(U),frontCameraRadio(U),statusText(U),currentDbText(U),startStopButton(U),testNetworkButton(U),testGpsButton(U),cameraPreviewButton(U)],layout[activity_camera_preview(U),activity_main(U)],string[app_name(U)],style[Theme_AppCompat_DayNight(R)],xml[network_security_config(U)];;;;"/>
     </map>
 
 </incidents>

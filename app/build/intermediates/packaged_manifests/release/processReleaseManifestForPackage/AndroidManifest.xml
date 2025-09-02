@@ -47,6 +47,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.soundmonitor.app.NetworkTestActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.soundmonitor.app.CameraPreviewActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <service
             android:name="com.soundmonitor.app.SoundMonitorService"

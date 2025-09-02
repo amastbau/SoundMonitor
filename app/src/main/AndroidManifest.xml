@@ -33,6 +33,11 @@
             android:name=".NetworkTestActivity"
             android:exported="false" />
         
+        <activity
+            android:name=".CameraPreviewActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
         <service
             android:name=".SoundMonitorService"
             android:enabled="true"

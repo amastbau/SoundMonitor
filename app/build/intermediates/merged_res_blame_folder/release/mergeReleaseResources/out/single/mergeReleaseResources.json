@@ -1,10 +1,18 @@
 [
     {
-        "merged": "com.soundmonitor.app-release-28:/xml_network_security_config.xml.flat",
-        "source": "com.soundmonitor.app-main-29:/xml/network_security_config.xml"
+        "merged": "/home/amos/.gradle/daemon/8.13/com.soundmonitor.app-release-29:/layout_activity_main.xml.flat",
+        "source": "/home/amos/.gradle/daemon/8.13/com.soundmonitor.app-main-30:/layout/activity_main.xml"
     },
     {
-        "merged": "/home/amos/.gradle/daemon/8.13/com.soundmonitor.app-release-28:/layout_activity_main.xml.flat",
-        "source": "/home/amos/.gradle/daemon/8.13/com.soundmonitor.app-main-29:/layout/activity_main.xml"
+        "merged": "com.soundmonitor.app-release-29:/layout_activity_main.xml.flat",
+        "source": "com.soundmonitor.app-main-30:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/amos/.gradle/daemon/8.13/com.soundmonitor.app-release-29:/layout_activity_camera_preview.xml.flat",
+        "source": "/home/amos/.gradle/daemon/8.13/com.soundmonitor.app-main-30:/layout/activity_camera_preview.xml"
+    },
+    {
+        "merged": "/home/amos/.gradle/daemon/8.13/com.soundmonitor.app-release-29:/xml_network_security_config.xml.flat",
+        "source": "/home/amos/.gradle/daemon/8.13/com.soundmonitor.app-main-30:/xml/network_security_config.xml"
     }
 ]

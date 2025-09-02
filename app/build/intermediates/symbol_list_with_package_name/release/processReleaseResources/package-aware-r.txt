@@ -2877,10 +2877,12 @@ id anticipate
 id arc
 id asConfigured
 id async
+id audioModeRadio
 id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id backButton
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -2895,6 +2897,9 @@ id bounceStart
 id buttonPanel
 id cache_measures
 id callMeasure
+id cameraPreview
+id cameraPreviewButton
+id cameraSelectionGroup
 id cancel_button
 id carryVelocity
 id center
@@ -2927,6 +2932,8 @@ id coordinator
 id cos
 id counterclockwise
 id cradle
+id currentDbLevel
+id currentDbText
 id currentState
 id custom
 id customPanel
@@ -2989,6 +2996,7 @@ id flip
 id floating
 id forever
 id fragment_container_view_tag
+id frontCameraRadio
 id frost
 id fullscreen_header
 id ghost_view
@@ -3134,6 +3142,9 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id rearCameraRadio
+id recordingModeGroup
+id recordingStatus
 id rectangles
 id reverseSawtooth
 id right
@@ -3233,6 +3244,8 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id testGpsButton
+id testNetworkButton
 id text
 id text2
 id textEnd
@@ -3249,9 +3262,12 @@ id textinput_helper_text
 id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
+id thresholdInfo
 id thresholdSeekBar
 id thresholdText
 id time
+id timeoutSeekBar
+id timeoutText
 id title
 id titleDividerNoCustom
 id title_template
@@ -3273,6 +3289,7 @@ id unlabeled
 id up
 id useLogo
 id vertical_only
+id videoModeRadio
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -3396,6 +3413,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_camera_preview
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item

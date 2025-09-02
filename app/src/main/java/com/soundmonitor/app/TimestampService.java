@@ -93,24 +93,22 @@ public class TimestampService {
     
     private static TimestampResult getTimestampResult(byte[] data, Context context) {
         try {
+            Log.i(TAG, "Starting timestamp verification process...");
+            
             // Calculate SHA-256 hash of the data
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(data);
             String hashHex = bytesToHex(hash);
             
-            Log.i(TAG, "Calculated hash: " + hashHex);
+            Log.i(TAG, "Calculated SHA-256 hash: " + hashHex.substring(0, 16) + "...");
             
-            // Get authoritative time from HTTP time service
-            String timeAuthority = "worldtimeapi.org";
-            String authorativeTime = getHttpTime();
-            
-            // Get GPS location
+            // Get GPS location first (most reliable)
             Location location = getLastKnownLocation(context);
-            String latitude = "Unknown";
-            String longitude = "Unknown";
+            String latitude = null;
+            String longitude = null;
             String locationProvider = "GPS unavailable";
-            String locationAccuracy = "Unknown";
-            String locationAge = "Unknown";
+            String locationAccuracy = null;
+            String locationAge = null;
             
             if (location != null) {
                 latitude = String.format(Locale.getDefault(), "%.6f", location.getLatitude());
@@ -127,82 +125,319 @@ public class TimestampService {
                 long ageSeconds = (currentTime - locationTime) / 1000;
                 locationAge = String.valueOf(ageSeconds);
                 
-                Log.i(TAG, "GPS location captured: " + latitude + "," + longitude + " via " + locationProvider + " (accuracy: " + locationAccuracy + "m, age: " + locationAge + "s)");
+                Log.i(TAG, "✅ GPS location captured: " + latitude + "," + longitude + " via " + locationProvider + " (accuracy: " + locationAccuracy + "m, age: " + locationAge + "s)");
             } else {
-                Log.w(TAG, "GPS location unavailable");
+                Log.w(TAG, "⚠️ GPS location unavailable - will use local timestamp only");
             }
             
-            if (authorativeTime != null) {
-                String utcTime = TimestampUtils.getCurrentUtcTimestamp();
-                Log.i(TAG, "Successfully got authoritative time");
-                return new TimestampResult(utcTime, timeAuthority, hashHex, authorativeTime, latitude, longitude, locationProvider, locationAccuracy, locationAge);
-            } else {
-                return new TimestampResult("Time authority unavailable");
+            // Always get local UTC time as primary timestamp
+            String utcTime = TimestampUtils.getCurrentUtcTimestamp();
+            Log.i(TAG, "Local UTC timestamp: " + utcTime);
+            
+            // Try to get authoritative time as bonus feature (don't fail if it doesn't work)
+            String timeAuthority = "Local device time";
+            String authorativeTime = utcTime; // Default to local time
+            
+            try {
+                Log.i(TAG, "Attempting to get authoritative time (3 second timeout)...");
+                // Use a shorter timeout to prevent hanging
+                AuthoritativeTimeResult networkTimeResult = getHttpTimeWithTimeoutAndAuthority(3000); // 3 seconds max
+                if (networkTimeResult != null && networkTimeResult.time != null) {
+                    timeAuthority = networkTimeResult.authority;
+                    authorativeTime = networkTimeResult.time;
+                    Log.i(TAG, "✅ Got authoritative time from " + timeAuthority + ": " + networkTimeResult.time);
+                } else {
+                    Log.w(TAG, "⚠️ Network time unavailable, using local time");
+                }
+            } catch (Exception timeException) {
+                Log.w(TAG, "⚠️ Network time failed: " + timeException.getMessage() + ", using local time");
             }
+            
+            // Always return success - GPS and local time are sufficient for legal evidence
+            Log.i(TAG, "✅ Timestamp verification completed successfully");
+            return new TimestampResult(utcTime, timeAuthority, hashHex, authorativeTime, latitude, longitude, locationProvider, locationAccuracy, locationAge);
             
         } catch (Exception e) {
-            Log.e(TAG, "Error getting timestamp", e);
-            return new TimestampResult("Error: " + e.getMessage());
+            Log.e(TAG, "❌ Critical error in timestamp service: " + e.getMessage(), e);
+            return new TimestampResult("Critical error: " + e.getMessage());
         }
     }
     
-    private static String getHttpTime() {
-        URL url = null;
-        try {
-            // Use WorldTimeAPI for authoritative time (HTTPS required)
-            url = new URL("https://worldtimeapi.org/api/timezone/UTC");
-            Log.i(TAG, "Attempting to connect to: " + url.toString());
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            
+    // Helper class to track which authority provided the time
+    private static class AuthoritativeTimeResult {
+        final String time;
+        final String authority;
+        
+        AuthoritativeTimeResult(String time, String authority) {
+            this.time = time;
+            this.authority = authority;
+        }
+    }
+    
+    private static AuthoritativeTimeResult getHttpTimeWithTimeoutAndAuthority(int timeoutMs) {
+        // Quick timeout version with fallback providers for use during recording
+        TimeProvider[] quickProviders = {
+            new TimeProvider("https://worldtimeapi.org/api/timezone/UTC", "WorldTimeAPI", TimestampService::parseWorldTimeApi),
+            new TimeProvider("https://timeapi.io/api/Time/current/zone?timeZone=UTC", "TimeAPI.io", TimestampService::parseTimeApiIo),
+            new TimeProvider("https://api.ipgeolocation.io/timezone?apiKey=free&tz=UTC", "IPGeolocation", TimestampService::parseIpGeolocation)
+        };
+        
+        for (TimeProvider provider : quickProviders) {
             try {
-                connection.setRequestMethod("GET");
-                connection.setConnectTimeout(5000); // 5 seconds
-                connection.setReadTimeout(5000); // 5 seconds
+                Log.i(TAG, "Quick time check from " + provider.name + " with " + timeoutMs + "ms timeout");
+                URL url = new URL(provider.url);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 
-                int responseCode = connection.getResponseCode();
-                Log.i(TAG, "Time API response code: " + responseCode);
-                
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-                    try (InputStream is = connection.getInputStream()) {
-                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                        byte[] buffer = new byte[1024];
-                        int bytesRead;
-                        
-                        while ((bytesRead = is.read(buffer)) != -1) {
-                            baos.write(buffer, 0, bytesRead);
-                        }
-                        
-                        String response = baos.toString();
-                        Log.i(TAG, "Time API response: " + response);
-                        
-                        // Extract datetime from JSON response
-                        // Simple parsing - look for "datetime":"2024-03-15T14:32:15.123456Z"
-                        int datetimeIndex = response.indexOf("\"datetime\":\"");
-                        if (datetimeIndex != -1) {
-                            int start = datetimeIndex + 12; // Skip "datetime":"
-                            int end = response.indexOf("\"", start);
-                            if (end != -1) {
-                                return response.substring(start, end);
+                try {
+                    connection.setRequestMethod("GET");
+                    connection.setConnectTimeout(timeoutMs);
+                    connection.setReadTimeout(timeoutMs);
+                    connection.setUseCaches(false);
+                    connection.setRequestProperty("User-Agent", "SoundMonitor/1.0");
+                    
+                    int responseCode = connection.getResponseCode();
+                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                        StringBuilder response = new StringBuilder();
+                        try (InputStream is = connection.getInputStream()) {
+                            byte[] buffer = new byte[512]; // Smaller buffer for speed
+                            int bytesRead;
+                            
+                            while ((bytesRead = is.read(buffer)) != -1) {
+                                response.append(new String(buffer, 0, bytesRead));
                             }
                         }
                         
-                        return "Time extracted: " + new Date().toString();
+                        String responseStr = response.toString();
+                        String extractedTime = provider.parser.parse(responseStr);
+                        if (extractedTime != null) {
+                            Log.i(TAG, "✅ Quick time from " + provider.name + ": " + extractedTime);
+                            return new AuthoritativeTimeResult(extractedTime, provider.name);
+                        }
                     }
-                } else {
-                    Log.w(TAG, "Time API returned error code: " + responseCode);
-                    return null;
+                    
+                } finally {
+                    connection.disconnect();
                 }
                 
-            } finally {
-                connection.disconnect();
+            } catch (Exception e) {
+                Log.w(TAG, "Quick time from " + provider.name + " failed: " + e.getMessage());
+                // Continue to next provider
             }
-            
-        } catch (Exception e) {
-            String urlStr = (url != null) ? url.toString() : "unknown URL";
-            Log.e(TAG, "Error getting authoritative time from " + urlStr, e);
-            Log.e(TAG, "Exception type: " + e.getClass().getSimpleName() + ", Message: " + e.getMessage());
-            return null;
         }
+        
+        Log.w(TAG, "All quick time providers failed");
+        return null;
+    }
+
+    private static String getHttpTimeWithTimeout(int timeoutMs) {
+        // Quick timeout version with fallback providers for use during recording
+        TimeProvider[] quickProviders = {
+            new TimeProvider("https://worldtimeapi.org/api/timezone/UTC", "WorldTimeAPI", TimestampService::parseWorldTimeApi),
+            new TimeProvider("https://timeapi.io/api/Time/current/zone?timeZone=UTC", "TimeAPI.io", TimestampService::parseTimeApiIo),
+            new TimeProvider("https://api.ipgeolocation.io/timezone?apiKey=free&tz=UTC", "IPGeolocation", TimestampService::parseIpGeolocation)
+        };
+        
+        for (TimeProvider provider : quickProviders) {
+            try {
+                Log.i(TAG, "Quick time check from " + provider.name + " with " + timeoutMs + "ms timeout");
+                URL url = new URL(provider.url);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                
+                try {
+                    connection.setRequestMethod("GET");
+                    connection.setConnectTimeout(timeoutMs);
+                    connection.setReadTimeout(timeoutMs);
+                    connection.setUseCaches(false);
+                    connection.setRequestProperty("User-Agent", "SoundMonitor/1.0");
+                    
+                    int responseCode = connection.getResponseCode();
+                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                        StringBuilder response = new StringBuilder();
+                        try (InputStream is = connection.getInputStream()) {
+                            byte[] buffer = new byte[512]; // Smaller buffer for speed
+                            int bytesRead;
+                            
+                            while ((bytesRead = is.read(buffer)) != -1) {
+                                response.append(new String(buffer, 0, bytesRead));
+                            }
+                        }
+                        
+                        String responseStr = response.toString();
+                        String extractedTime = provider.parser.parse(responseStr);
+                        if (extractedTime != null) {
+                            Log.i(TAG, "✅ Quick time from " + provider.name + ": " + extractedTime);
+                            return extractedTime;
+                        }
+                    }
+                    
+                } finally {
+                    connection.disconnect();
+                }
+                
+            } catch (Exception e) {
+                Log.w(TAG, "Quick time from " + provider.name + " failed: " + e.getMessage());
+                // Continue to next provider
+            }
+        }
+        
+        Log.w(TAG, "All quick time providers failed");
+        return null;
+    }
+    
+    private static String getHttpTime() {
+        // Comprehensive fallback system with multiple reliable time APIs
+        TimeProvider[] timeProviders = {
+            // Primary: WorldTimeAPI (original)
+            new TimeProvider("https://worldtimeapi.org/api/timezone/UTC", "WorldTimeAPI", TimestampService::parseWorldTimeApi),
+            new TimeProvider("http://worldtimeapi.org/api/timezone/UTC", "WorldTimeAPI (HTTP)", TimestampService::parseWorldTimeApi),
+            
+            // Fallback 1: NIST (US Government - highly trusted for legal evidence)
+            new TimeProvider("https://time.nist.gov/api/timezone/America/New_York", "NIST Time Server", TimestampService::parseNistTime),
+            
+            // Fallback 2: TimeAPI.io (reliable service)
+            new TimeProvider("https://timeapi.io/api/Time/current/zone?timeZone=UTC", "TimeAPI.io", TimestampService::parseTimeApiIo),
+            
+            // Fallback 3: IP Geolocation Time API
+            new TimeProvider("https://api.ipgeolocation.io/timezone?apiKey=free&tz=UTC", "IPGeolocation", TimestampService::parseIpGeolocation)
+        };
+        
+        for (TimeProvider provider : timeProviders) {
+            try {
+                Log.i(TAG, "Attempting to connect to: " + provider.name + " (" + provider.url + ")");
+                URL url = new URL(provider.url);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                
+                try {
+                    connection.setRequestMethod("GET");
+                    connection.setConnectTimeout(6000); // 6 seconds per attempt
+                    connection.setReadTimeout(6000);
+                    connection.setInstanceFollowRedirects(true);
+                    connection.setUseCaches(false);
+                    connection.setDoInput(true);
+                    
+                    // Add headers to help with network compatibility
+                    connection.setRequestProperty("User-Agent", "SoundMonitor/1.0");
+                    connection.setRequestProperty("Accept", "application/json");
+                    
+                    int responseCode = connection.getResponseCode();
+                    Log.i(TAG, provider.name + " response code: " + responseCode);
+                    
+                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                        StringBuilder response = new StringBuilder();
+                        try (InputStream is = connection.getInputStream()) {
+                            byte[] buffer = new byte[1024];
+                            int bytesRead;
+                            
+                            while ((bytesRead = is.read(buffer)) != -1) {
+                                response.append(new String(buffer, 0, bytesRead));
+                            }
+                        }
+                        
+                        String responseStr = response.toString();
+                        Log.i(TAG, provider.name + " response: " + responseStr.substring(0, Math.min(200, responseStr.length())));
+                        
+                        // Try to parse the response using provider-specific parser
+                        String extractedTime = provider.parser.parse(responseStr);
+                        if (extractedTime != null) {
+                            Log.i(TAG, "✅ Successfully got time from " + provider.name + ": " + extractedTime);
+                            return extractedTime;
+                        }
+                        
+                    } else {
+                        Log.w(TAG, provider.name + " returned error code: " + responseCode);
+                    }
+                    
+                } finally {
+                    connection.disconnect();
+                }
+                
+            } catch (Exception e) {
+                Log.e(TAG, "Error getting time from " + provider.name + ": " + e.getClass().getSimpleName() + " - " + e.getMessage());
+                // Continue to next provider
+            }
+        }
+        
+        // All time services failed - return null to indicate failure
+        Log.e(TAG, "❌ All authoritative time services failed");
+        return null;
+    }
+    
+    // Helper class for time providers
+    private static class TimeProvider {
+        final String url;
+        final String name;
+        final TimeParser parser;
+        
+        TimeProvider(String url, String name, TimeParser parser) {
+            this.url = url;
+            this.name = name;
+            this.parser = parser;
+        }
+    }
+    
+    // Interface for parsing different time API responses
+    private interface TimeParser {
+        String parse(String response);
+    }
+    
+    // Parser for WorldTimeAPI format
+    private static String parseWorldTimeApi(String response) {
+        int datetimeIndex = response.indexOf("\"datetime\":\"");
+        if (datetimeIndex != -1) {
+            int start = datetimeIndex + 12;
+            int end = response.indexOf("\"", start);
+            if (end != -1) {
+                return response.substring(start, end);
+            }
+        }
+        return null;
+    }
+    
+    // Parser for NIST format
+    private static String parseNistTime(String response) {
+        // NIST may have different format, try common patterns
+        if (response.contains("\"datetime\"")) {
+            return parseWorldTimeApi(response); // Same format as WorldTime
+        }
+        // Look for ISO timestamp pattern
+        if (response.contains("T") && response.contains("Z")) {
+            int start = response.indexOf("20"); // Find year starting with 20xx
+            if (start != -1) {
+                int end = response.indexOf("Z", start) + 1;
+                if (end > start) {
+                    return response.substring(start, end);
+                }
+            }
+        }
+        return null;
+    }
+    
+    // Parser for TimeAPI.io format
+    private static String parseTimeApiIo(String response) {
+        // Look for "dateTime" field
+        int datetimeIndex = response.indexOf("\"dateTime\":\"");
+        if (datetimeIndex != -1) {
+            int start = datetimeIndex + 12;
+            int end = response.indexOf("\"", start);
+            if (end != -1) {
+                return response.substring(start, end);
+            }
+        }
+        return null;
+    }
+    
+    // Parser for IPGeolocation format
+    private static String parseIpGeolocation(String response) {
+        // Look for "datetime" field
+        int datetimeIndex = response.indexOf("\"datetime\":\"");
+        if (datetimeIndex != -1) {
+            int start = datetimeIndex + 12;
+            int end = response.indexOf("\"", start);
+            if (end != -1) {
+                return response.substring(start, end);
+            }
+        }
+        return null;
     }
     
     private static Location getLastKnownLocation(Context context) {

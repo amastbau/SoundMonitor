@@ -86,6 +86,7 @@ public class SoundMonitorService extends Service {
     private boolean isAudioOnlyMode = false;
     private int soundThreshold = 50;
     private int stopTimeoutSeconds = 5; // Default 5 seconds
+    private int selectedCameraId = 0; // Default to rear camera (0), front camera is usually 1
     private Handler handler;
     private Handler stopHandler;
     private String currentVideoFile = "";
@@ -150,11 +151,20 @@ public class SoundMonitorService extends Service {
                 // Update threshold without restarting service
                 int newThreshold = intent.getIntExtra("threshold", 0);
                 boolean newAudioOnlyMode = intent.getBooleanExtra("audioOnlyMode", false);
+                int newCameraId = intent.getIntExtra("cameraId", selectedCameraId);
                 
                 // Update audio-only mode
                 if (newAudioOnlyMode != isAudioOnlyMode) {
                     isAudioOnlyMode = newAudioOnlyMode;
                     Log.i(TAG, "🎵 Audio-only mode updated: " + isAudioOnlyMode);
+                }
+                
+                // Update camera selection
+                if (newCameraId != selectedCameraId) {
+                    int oldCameraId = selectedCameraId;
+                    selectedCameraId = newCameraId;
+                    Log.i(TAG, "📷 Camera updated: " + oldCameraId + " → " + selectedCameraId + " (" + (selectedCameraId == 0 ? "Rear" : "Front") + ")");
+                    updateNotification("Camera: " + (selectedCameraId == 0 ? "Rear" : "Front"));
                 }
                 
                 // Only update if threshold actually changed
@@ -171,11 +181,20 @@ public class SoundMonitorService extends Service {
                 // Update timeout without restarting service
                 int newTimeout = intent.getIntExtra("timeout", 5);
                 boolean newAudioOnlyMode = intent.getBooleanExtra("audioOnlyMode", false);
+                int newCameraId = intent.getIntExtra("cameraId", selectedCameraId);
                 
                 // Update audio-only mode
                 if (newAudioOnlyMode != isAudioOnlyMode) {
                     isAudioOnlyMode = newAudioOnlyMode;
                     Log.i(TAG, "🎵 Audio-only mode updated: " + isAudioOnlyMode);
+                }
+                
+                // Update camera selection
+                if (newCameraId != selectedCameraId) {
+                    int oldCameraId = selectedCameraId;
+                    selectedCameraId = newCameraId;
+                    Log.i(TAG, "📷 Camera updated: " + oldCameraId + " → " + selectedCameraId + " (" + (selectedCameraId == 0 ? "Rear" : "Front") + ")");
+                    updateNotification("Camera: " + (selectedCameraId == 0 ? "Rear" : "Front"));
                 }
                 
                 // Only update if timeout actually changed
@@ -193,9 +212,11 @@ public class SoundMonitorService extends Service {
                 soundThreshold = intent.getIntExtra("threshold", 50);
                 stopTimeoutSeconds = intent.getIntExtra("timeout", 5);
                 isAudioOnlyMode = intent.getBooleanExtra("audioOnlyMode", false);
+                selectedCameraId = intent.getIntExtra("cameraId", 0);
                 Log.i(TAG, "📊 Sound threshold set to: " + soundThreshold + " dB");
                 Log.i(TAG, "⏰ Stop timeout set to: " + stopTimeoutSeconds + " seconds");
                 Log.i(TAG, "🎵 Audio-only mode: " + isAudioOnlyMode);
+                Log.i(TAG, "📷 Camera selection: " + (selectedCameraId == 0 ? "Rear" : "Front") + " (" + selectedCameraId + ")");
                 String notificationText = isAudioOnlyMode ? "Audio-only monitoring..." : "Monitoring for sounds...";
                 startForeground(NOTIFICATION_ID, createNotification(notificationText));
                 startMonitoring();
@@ -262,11 +283,24 @@ public class SoundMonitorService extends Service {
             }
             
             Log.i(TAG, "Pre-initializing camera to reduce recording startup delay...");
-            camera = Camera.open();
+            // Try to open selected camera first, then fallback to default
+            try {
+                camera = Camera.open(selectedCameraId);
+                if (camera == null) {
+                    Log.w(TAG, "Failed to open camera " + selectedCameraId + ", trying default camera");
+                    camera = Camera.open();
+                }
+            } catch (RuntimeException e) {
+                Log.w(TAG, "Failed to open camera " + selectedCameraId + ": " + e.getMessage() + ", trying default camera");
+                camera = Camera.open();
+            }
+            
             if (camera == null) {
-                Log.w(TAG, "Failed to pre-initialize camera");
+                Log.w(TAG, "Failed to pre-initialize any camera");
                 return;
             }
+            
+            Log.i(TAG, "📷 Pre-initialized camera: " + (selectedCameraId == 0 ? "Rear" : "Front"));
             
             // Set up camera parameters
             Camera.Parameters params = camera.getParameters();
@@ -868,19 +902,35 @@ public class SoundMonitorService extends Service {
                 int numberOfCameras = Camera.getNumberOfCameras();
                 Log.i(TAG, "Found " + numberOfCameras + " cameras on device");
                 
-                camera = Camera.open(); // Try default camera first
+                // Try to open selected camera first
+                try {
+                    Log.i(TAG, "Trying to open camera " + selectedCameraId + " (" + (selectedCameraId == 0 ? "Rear" : "Front") + ")");
+                    camera = Camera.open(selectedCameraId);
+                    if (camera != null) {
+                        Log.i(TAG, "✅ Successfully opened selected camera " + selectedCameraId);
+                    }
+                } catch (RuntimeException ex) {
+                    Log.w(TAG, "❌ Selected camera " + selectedCameraId + " failed: " + ex.getMessage());
+                    camera = null;
+                }
+                
+                // Fallback to any available camera if selected camera fails
                 if (camera == null) {
-                    // Try specific camera IDs if default fails
-                    for (int i = 0; i < numberOfCameras; i++) {
-                        try {
-                            Log.i(TAG, "Trying camera " + i);
-                            camera = Camera.open(i);
-                            if (camera != null) {
-                                Log.i(TAG, "Successfully opened camera " + i);
-                                break;
+                    Log.i(TAG, "Falling back to default camera");
+                    camera = Camera.open(); // Try default camera first
+                    if (camera == null) {
+                        // Try specific camera IDs if default fails
+                        for (int i = 0; i < numberOfCameras; i++) {
+                            try {
+                                Log.i(TAG, "Trying camera " + i);
+                                camera = Camera.open(i);
+                                if (camera != null) {
+                                    Log.i(TAG, "Successfully opened camera " + i);
+                                    break;
+                                }
+                            } catch (RuntimeException ex) {
+                                Log.w(TAG, "Camera " + i + " failed: " + ex.getMessage());
                             }
-                        } catch (RuntimeException ex) {
-                            Log.w(TAG, "Camera " + i + " failed: " + ex.getMessage());
                         }
                     }
                 }
@@ -899,8 +949,57 @@ public class SoundMonitorService extends Service {
             }
             
             // Set up camera parameters
+            // Configure camera parameters for stable recording
             Camera.Parameters params = camera.getParameters();
             params.setRecordingHint(true);
+            
+            // Set compatible video and preview sizes
+            List<Camera.Size> videoSizes = params.getSupportedVideoSizes();
+            List<Camera.Size> previewSizes = params.getSupportedPreviewSizes();
+            
+            // Find best recording size (prefer 1280x720, fallback to supported)
+            Camera.Size recordingSize = null;
+            Camera.Size finalRecordingSize = null;
+            if (videoSizes != null) {
+                for (Camera.Size size : videoSizes) {
+                    if (size.width == 1280 && size.height == 720) {
+                        recordingSize = size;
+                        break;
+                    }
+                }
+                if (recordingSize == null && !videoSizes.isEmpty()) {
+                    recordingSize = videoSizes.get(0);
+                    Log.i(TAG, "Using fallback video size: " + recordingSize.width + "x" + recordingSize.height);
+                }
+                finalRecordingSize = recordingSize;
+            }
+            
+            // Set matching preview size
+            if (recordingSize != null && previewSizes != null) {
+                Camera.Size previewSize = null;
+                for (Camera.Size size : previewSizes) {
+                    if (size.width == recordingSize.width && size.height == recordingSize.height) {
+                        previewSize = size;
+                        break;
+                    }
+                }
+                if (previewSize == null && !previewSizes.isEmpty()) {
+                    previewSize = previewSizes.get(0);
+                }
+                
+                if (previewSize != null) {
+                    params.setPreviewSize(previewSize.width, previewSize.height);
+                    Log.i(TAG, "Set recording preview size: " + previewSize.width + "x" + previewSize.height);
+                }
+            }
+            
+            // Set continuous video focus for better recording quality
+            List<String> focusModes = params.getSupportedFocusModes();
+            if (focusModes.contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO)) {
+                params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
+                Log.i(TAG, "Set continuous video focus for recording");
+            }
+            
             camera.setParameters(params);
             
             // Create a surface texture for camera preview
@@ -928,10 +1027,16 @@ public class SoundMonitorService extends Service {
             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
             mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
             
-            // Set video settings
-            mediaRecorder.setVideoSize(1280, 720);
-            mediaRecorder.setVideoFrameRate(30);
-            mediaRecorder.setVideoEncodingBitRate(2000000); // 2Mbps
+            // Set video settings to match camera capabilities
+            if (finalRecordingSize != null) {
+                mediaRecorder.setVideoSize(finalRecordingSize.width, finalRecordingSize.height);
+                Log.i(TAG, "MediaRecorder video size: " + finalRecordingSize.width + "x" + finalRecordingSize.height);
+            } else {
+                mediaRecorder.setVideoSize(1280, 720); // Fallback
+                Log.i(TAG, "Using fallback MediaRecorder video size: 1280x720");
+            }
+            mediaRecorder.setVideoFrameRate(24); // Lower frame rate for more stability
+            mediaRecorder.setVideoEncodingBitRate(1500000); // 1.5Mbps - more stable
             
             // Set audio settings
             mediaRecorder.setAudioSamplingRate(44100);

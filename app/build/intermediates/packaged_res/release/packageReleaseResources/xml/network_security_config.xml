@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
     <domain-config>
         <domain includeSubdomains="true">worldtimeapi.org</domain>
+        <domain includeSubdomains="true">pool.ntp.org</domain>
+        <domain includeSubdomains="true">time.google.com</domain>
+        <domain includeSubdomains="true">time.cloudflare.com</domain>
         <trust-anchors>
             <certificates src="system"/>
         </trust-anchors>

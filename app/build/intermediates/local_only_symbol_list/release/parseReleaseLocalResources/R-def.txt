@@ -1,9 +1,27 @@
 R_DEF: Internal format may change without notice
 local
+id audioModeRadio
+id backButton
+id cameraPreview
+id cameraPreviewButton
+id cameraSelectionGroup
+id currentDbLevel
+id currentDbText
+id frontCameraRadio
+id rearCameraRadio
+id recordingModeGroup
+id recordingStatus
 id startStopButton
 id statusText
+id testGpsButton
+id testNetworkButton
+id thresholdInfo
 id thresholdSeekBar
 id thresholdText
+id timeoutSeekBar
+id timeoutText
+id videoModeRadio
+layout activity_camera_preview
 layout activity_main
 string app_name
 xml network_security_config

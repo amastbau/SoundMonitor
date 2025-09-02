@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.soundmonitor.app-mergeReleaseResources-26:/values-watch-v21/values-watch-v21.xml",
+            "outputFile": "com.soundmonitor.app-mergeReleaseResources-27:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
                     "source": "/home/amos/.gradle/caches/8.13/transforms/356e1739cf51abca1bbcd5fb6fee7395/transformed/appcompat-1.6.1/res/values-watch-v21/values-watch-v21.xml",

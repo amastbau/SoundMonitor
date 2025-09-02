@@ -646,10 +646,10 @@ library {
   maven_library {
     groupId: "androidx.localbroadcastmanager"
     artifactId: "localbroadcastmanager"
-    version: "1.0.0"
+    version: "1.1.0"
   }
   digests {
-    sha256: "\347\0342\214\356\365\304\247\327o-\206\337\033e\326_\342\254\370h\261\244\357\330J?43a\206\330"
+    sha256: "\242+\224\247w\211\363\263K\354\322@\202#\023\000R@\021\314\310?\002aB\304\232\326\00117\233"
   }
   repo_index {
   }
@@ -1049,6 +1049,7 @@ module_dependencies {
   dependency_index: 0
   dependency_index: 44
   dependency_index: 48
+  dependency_index: 53
 }
 repositories {
   maven_repo {

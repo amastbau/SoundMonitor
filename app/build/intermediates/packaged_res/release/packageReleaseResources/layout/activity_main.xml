@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sound-Triggered Recorder"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="20dp" />
 
     <TextView
         android:id="@+id/thresholdText"
@@ -26,7 +30,108 @@
         android:id="@+id/thresholdSeekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:id="@+id/timeoutText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop Timeout: 5 seconds"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp" />
+
+    <SeekBar
+        android:id="@+id/timeoutSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp" />
+
+    <!-- Mode and Camera Selection in compact layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingEnd="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recording Mode:"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <RadioGroup
+                android:id="@+id/recordingModeGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/videoModeRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📹 Video + Audio"
+                    android:textSize="14sp"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/audioModeRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎵 Audio Only"
+                    android:textSize="14sp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Camera Selection:"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <RadioGroup
+                android:id="@+id/cameraSelectionGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rearCameraRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📱 Rear Camera"
+                    android:textSize="14sp"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/frontCameraRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🤳 Front Camera"
+                    android:textSize="14sp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/statusText"
@@ -34,25 +139,71 @@
         android:layout_height="wrap_content"
         android:text="Status: Stopped"
         android:textSize="16sp"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/currentDbText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current: -- dB"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#FF5722"
         android:layout_marginBottom="20dp" />
 
     <Button
         android:id="@+id/startStopButton"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         android:text="Start Monitoring"
         android:textSize="18sp"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="12dp" />
+
+    <!-- Action buttons in a grid layout for better space usage -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <Button
+            android:id="@+id/testNetworkButton"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:text="🌐 Network Test"
+            android:textSize="12sp"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/testGpsButton"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:text="🛰️ GPS Test"
+            android:textSize="12sp"
+            android:layout_marginStart="4dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/cameraPreviewButton"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="📹 View Camera Stream"
+        android:textSize="14sp"
+        android:layout_marginBottom="15dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:background="#000000"
         android:backgroundTint="#993F3F"
-        android:padding="15dp"
-        android:rotationX="-3"
-        android:text="Instructions:\n• Adjust threshold above ambient noise\n• Grant all permissions when prompted\n• Videos saved to Movies/SoundTrigger folder\n• Recording stops 1 minute after sound drops"
-        android:textSize="14sp" />
+        android:padding="12dp"
+        android:text="Instructions:\n• Adjust threshold above ambient noise\n• Grant all permissions when prompted\n• Videos saved to Movies/SoundTrigger folder\n• Recording stops after timeout when sound drops\n• Select front/rear camera before recording"
+        android:textSize="13sp" />
 
 </LinearLayout>
+
+</ScrollView>

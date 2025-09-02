@@ -1,9 +1,51 @@
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:152: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
-        updateNotification("Current: " + String.format("%.1f", decibel) + " dB");
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/CameraPreviewActivity.java:181: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        currentDbLevel.setText(String.format("Current: %.1f dB", dbLevel));
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:570: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        String accuracy = location.hasAccuracy() ? String.format("±%.1fm", location.getAccuracy()) : "unknown accuracy";
+                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:578: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        info.append("Latitude: ").append(String.format("%.6f", location.getLatitude())).append("\n");
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:579: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        info.append("Longitude: ").append(String.format("%.6f", location.getLongitude())).append("\n");
+                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:583: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            info.append("Accuracy: ±").append(String.format("%.1f", location.getAccuracy())).append(" meters\n");
+                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:587: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            info.append("Altitude: ").append(String.format("%.1f", location.getAltitude())).append(" meters\n");
+                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:591: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            info.append("Speed: ").append(String.format("%.1f", location.getSpeed())).append(" m/s\n");
+                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:595: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            info.append("Bearing: ").append(String.format("%.1f", location.getBearing())).append("°\n");
+                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:691: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        String dbText = String.format("%.1f dB", dbLevel);
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:818: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            String dbText = String.format("%.1f dB", dbLevel);
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:413: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        updateNotification("Current: " + String.format("%.1f", dbLevel) + " dB");
                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:434: Warning: Implicitly using the default locale is a common source of bugs: Use toUpperCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:637: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+                    content.append(String.format("%d. %02d:%02d.%03d\n", 
+                                   ^
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:885: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            String segmentName = String.format("%02d.mp4", segmentCounter);
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:1370: Warning: Implicitly using the default locale is a common source of bugs: Use toUpperCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
                         locationStatus = "VERIFIED (" + provider.toUpperCase() + ")";
                                                                  ~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:1912: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+        String fileName = file.getName().toLowerCase();
+                                         ~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:2208: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        return String.format("%02d:%02d:%02d,%03d", hours, minutes, seconds, millis);
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    Explanation for issues of type "DefaultLocale":
    Calling String#toLowerCase() or #toUpperCase() without specifying an
@@ -19,6 +61,38 @@
    String#toUpperCase(Locale.getDefault()) instead.
 
    https://developer.android.com/reference/java/util/Locale.html#default_locale
+
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:245: Warning: Field requires API level 24 (current min is 21): android.media.MediaRecorder.AudioSource#UNPROCESSED [InlinedApi]
+                audioRecord = new AudioRecord(MediaRecorder.AudioSource.UNPROCESSED, SAMPLE_RATE,
+                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:358: Warning: Field requires API level 24 (current min is 21): android.media.MediaRecorder.AudioSource#UNPROCESSED [InlinedApi]
+                dbMonitorRecord = new AudioRecord(MediaRecorder.AudioSource.UNPROCESSED, SAMPLE_RATE,
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:1126: Warning: Field requires API level 24 (current min is 21): android.media.MediaRecorder.AudioSource#UNPROCESSED [InlinedApi]
+            audioRecord = new AudioRecord(MediaRecorder.AudioSource.UNPROCESSED, SAMPLE_RATE,
+                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "InlinedApi":
+   This check scans through all the Android API field references in the
+   application and flags certain constants, such as static final integers and
+   Strings, which were introduced in later versions. These will actually be
+   copied into the class files rather than being referenced, which means that
+   the value is available even when running on older devices. In some cases
+   that's fine, and in other cases it can result in a runtime crash or
+   incorrect behavior. It depends on the context, so consider the code
+   carefully and decide whether it's safe and can be suppressed or whether the
+   code needs to be guarded.
+
+   If you really want to use this API and don't need to support older devices
+   just set the minSdkVersion in your build.gradle or AndroidManifest.xml
+   files.
+
+   If your code is deliberately accessing newer APIs, and you have ensured
+   (e.g. with conditional execution) that this code will only ever be called
+   on a supported platform, then you can annotate your class or method with
+   the @TargetApi annotation specifying the local minimum SDK to apply, such
+   as @TargetApi(11), such that this check considers 11 rather than your
+   manifest file's minimum SDK as the required API level.
 
 /home/amos/AndroidStudioProjects/f/SoundMonitor/app/build.gradle:12: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
         targetSdk 33
@@ -42,6 +116,27 @@
    html
 
    https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:21: Warning: Attribute networkSecurityConfig is only used in API level 24 and higher (current min is 21) [UnusedAttribute]
+        android:networkSecurityConfig="@xml/network_security_config">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedAttribute":
+   This check finds attributes set in XML files that were introduced in a
+   version newer than the oldest version targeted by your application (with
+   the minSdkVersion attribute).
+
+   This is not an error; the application will simply ignore the attribute.
+   However, if the attribute is important to the appearance or functionality
+   of your application, you should consider finding an alternative way to
+   achieve the same result with only available attributes, and then you can
+   optionally create a copy of the layout in a layout-vNN folder which will be
+   used on API NN or higher where you can take advantage of the newer
+   attribute.
+
+   Note: This check does not only apply to attributes. For example, some tags
+   can be unused too, such as the new <tag> element in layouts introduced in
+   API 21.
 
 /home/amos/AndroidStudioProjects/f/SoundMonitor/gradle/wrapper/gradle-wrapper.properties:4: Warning: A newer version of Gradle than 8.13 is available: 8.14.3 [AndroidGradlePluginVersion]
 distributionUrl=https\://services.gradle.org/distributions/gradle-8.13-bin.zip
@@ -95,6 +190,19 @@ composeBom = "2024.09.00"
    However, you may simply not be aware that a more recent version is
    available, and that is what this lint check helps find.
 
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:39: Warning: Expecting android:screenOrientation="unspecified" or "fullSensor" for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices [LockedOrientationActivity]
+            android:screenOrientation="portrait" />
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "LockedOrientationActivity":
+   The <activity> element should not be locked to any orientation so that
+   users can take advantage of the multi-window environments and larger
+   screens available on Android. To fix the issue, consider declaring the
+   corresponding activity element with `screenOrientation="unspecified"`or
+   fullSensor attribute.
+
+   https://developer.android.com/topic/arc/window-management
+
 /home/amos/AndroidStudioProjects/f/SoundMonitor/gradle/libs.versions.toml:3: Warning: A newer version of org.jetbrains.kotlin.android than 2.0.21 is available: 2.2.10 [NewerVersionAvailable]
 kotlin = "2.0.21"
          ~~~~~~~~
@@ -110,6 +218,75 @@ kotlin = "2.0.21"
    MavenCentral dependency, and connects to the library every time, which
    makes it more flexible but also much slower.
 
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/AndroidManifest.xml:39: Warning: Fixed screen orientations will be ignored in most cases, starting from Android 16. Android is moving toward a model where apps are expected to adapt to various orientations, display sizes, and aspect ratios. [DiscouragedApi]
+            android:screenOrientation="portrait" />
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DiscouragedApi":
+   Discouraged APIs are allowed and are not deprecated, but they may be unfit
+   for common use (e.g. due to slow performance or subtle behavior).
+
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/xml/network_security_config.xml:3: Warning: Insecure Base Configuration [InsecureBaseConfiguration]
+    <base-config cleartextTrafficPermitted="true">
+                                            ~~~~
+
+   Explanation for issues of type "InsecureBaseConfiguration":
+   Permitting cleartext traffic could allow eavesdroppers to intercept data
+   sent by your app, which impacts the privacy of your users. Consider only
+   allowing encrypted traffic by setting the cleartextTrafficPermitted tag to
+   false.
+
+   https://goo.gle/InsecureBaseConfiguration
+   https://developer.android.com/preview/features/security-config.html
+
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:50: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+    <LinearLayout
+     ~~~~~~~~~~~~
+
+   Explanation for issues of type "DisableBaselineAlignment":
+   When a LinearLayout is used to distribute the space proportionally between
+   nested layouts, the baseline alignment property should be turned off to
+   make the layout computation faster.
+
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_camera_preview.xml:5: Warning: Possible overdraw: Root element paints background #000000 with a theme that also paints a background (inferred theme is @style/Theme.AppCompat.DayNight) [Overdraw]
+    android:background="#000000">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:169: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:178: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+
+   Explanation for issues of type "ButtonStyle":
+   Button bars typically use a borderless style for the buttons. Set the
+   style="?android:attr/buttonBarButtonStyle" attribute on each of the
+   buttons, and set style="?android:attr/buttonBarStyle" on the parent layout
+
+   https://d.android.com/r/studio-ui/designer/material/dialogs
+
 /home/amos/AndroidStudioProjects/f/SoundMonitor/app/build.gradle:31: Warning: Use version catalog instead (androidx.appcompat:appcompat is already available as androidx-appcompat, but using version 1.7.1 instead) [UseTomlInstead]
     implementation 'androidx.appcompat:appcompat:1.6.1'
                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -119,6 +296,9 @@ kotlin = "2.0.21"
 /home/amos/AndroidStudioProjects/f/SoundMonitor/app/build.gradle:33: Warning: Use version catalog instead [UseTomlInstead]
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/build.gradle:34: Warning: Use version catalog instead [UseTomlInstead]
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    Explanation for issues of type "UseTomlInstead":
    If your project is using a libs.versions.toml file, you should place all
@@ -126,36 +306,156 @@ kotlin = "2.0.21"
    declarations outside of the TOML file and suggests moving them (and in the
    IDE, provides a quickfix to performing the operation automatically).
 
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:42: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/CameraPreviewActivity.java:184: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            recordingStatus.setText("🔴 RECORDING");
+                                    ~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/CameraPreviewActivity.java:187: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            recordingStatus.setText("👂 MONITORING");
+                                    ~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/CameraPreviewActivity.java:194: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            recordingStatus.setText("🔴 RECORDING #" + segmentNumber);
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/CameraPreviewActivity.java:194: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            recordingStatus.setText("🔴 RECORDING #" + segmentNumber);
+                                    ~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/CameraPreviewActivity.java:197: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            recordingStatus.setText("⏸️ STOPPED (Timeout)");
+                                    ~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/CameraPreviewActivity.java:200: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            recordingStatus.setText("👂 MONITORING");
+                                    ~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/CameraPreviewActivity.java:279: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        thresholdInfo.setText("📷 " + cameraName + " Camera | Threshold: " + threshold + " dB | Timeout: " + timeout + "s");
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/CameraPreviewActivity.java:279: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        thresholdInfo.setText("📷 " + cameraName + " Camera | Threshold: " + threshold + " dB | Timeout: " + timeout + "s");
+                                                   ~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/CameraPreviewActivity.java:279: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        thresholdInfo.setText("📷 " + cameraName + " Camera | Threshold: " + threshold + " dB | Timeout: " + timeout + "s");
+                                                                                         ~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:100: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
         thresholdText.setText("Threshold: " + soundThreshold + " dB");
                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:42: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:100: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
         thresholdText.setText("Threshold: " + soundThreshold + " dB");
                               ~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:42: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:100: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
         thresholdText.setText("Threshold: " + soundThreshold + " dB");
                                                                ~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:52: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:105: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        timeoutText.setText("Stop Timeout: " + stopTimeout + " seconds");
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:105: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        timeoutText.setText("Stop Timeout: " + stopTimeout + " seconds");
+                            ~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:105: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        timeoutText.setText("Stop Timeout: " + stopTimeout + " seconds");
+                                                             ~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:118: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
                 thresholdText.setText("Threshold: " + soundThreshold + " dB");
                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:52: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:118: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 thresholdText.setText("Threshold: " + soundThreshold + " dB");
                                       ~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:52: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:118: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 thresholdText.setText("Threshold: " + soundThreshold + " dB");
                                                                        ~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:82: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:137: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                timeoutText.setText("Stop Timeout: " + stopTimeout + " seconds");
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:137: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                timeoutText.setText("Stop Timeout: " + stopTimeout + " seconds");
+                                    ~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:137: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                timeoutText.setText("Stop Timeout: " + stopTimeout + " seconds");
+                                                                     ~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:182: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        timeoutText.setText("Audio Mode: No auto-stop");
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:187: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        timeoutText.setText("Stop Timeout: " + stopTimeout + " seconds");
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:187: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        timeoutText.setText("Stop Timeout: " + stopTimeout + " seconds");
+                            ~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:187: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        timeoutText.setText("Stop Timeout: " + stopTimeout + " seconds");
+                                                             ~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:324: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
         startStopButton.setText("Stop Monitoring");
                                 ~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:83: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
-        statusText.setText("Status: Monitoring for sounds...");
-                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:90: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:326: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusText.setText("Status: Audio-only monitoring...");
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:328: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusText.setText("Status: Monitoring for sounds...");
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:330: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        currentDbText.setText("Current: -- dB");
+                              ~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:337: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
         startStopButton.setText("Start Monitoring");
                                 ~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:91: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:338: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
         statusText.setText("Status: Stopped");
                            ~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:339: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        currentDbText.setText("Current: -- dB");
+                              ~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:655: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                statusText.setText("🎵 RECORDING AUDIO");
+                                   ~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:658: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                statusText.setText("🔴 RECORDING #" + segmentNumber);
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:658: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                statusText.setText("🔴 RECORDING #" + segmentNumber);
+                                   ~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:664: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusText.setText("⏸️ STOPPED (Timeout)");
+                               ~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:670: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                statusText.setText("🎵 Audio Recording Saved");
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:673: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                statusText.setText("🎬 Video Recording Saved");
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:680: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                statusText.setText("🎵 Audio Monitoring");
+                                   ~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:682: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                statusText.setText("👂 Monitoring");
+                                   ~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:697: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                statusText.setText("🎵 RECORDING AUDIO");
+                                   ~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:701: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                statusText.setText("🔴 RECORDING");
+                                   ~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:710: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.setText("🎵 READY TO RECORD AUDIO");
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:714: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.setText("🔊 READY TO RECORD");
+                                       ~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:720: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.setText("🎵 Audio Monitoring");
+                                       ~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:722: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.setText("👂 Monitoring");
+                                       ~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:824: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.setText("🎵 READY TO RECORD AUDIO");
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:828: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.setText("🔊 READY TO RECORD");
+                                       ~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:834: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.setText("🎵 Audio Stopped");
+                                       ~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:836: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.setText("👂 Stopped");
+                                       ~~~~~~~~~~~~
 
    Explanation for issues of type "SetTextI18n":
    When calling TextView#setText
@@ -170,21 +470,69 @@ kotlin = "2.0.21"
 
    https://developer.android.com/guide/topics/resources/localization.html
 
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:11: Warning: Hardcoded string "Sound-Triggered Recorder", should use @string resource [HardcodedText]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_camera_preview.xml:25: Warning: Hardcoded string "Live Camera Feed", should use @string resource [HardcodedText]
+            android:text="Live Camera Feed"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_camera_preview.xml:35: Warning: Hardcoded string "● MONITORING", should use @string resource [HardcodedText]
+            android:text="● MONITORING"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_camera_preview.xml:56: Warning: Hardcoded string "Current: -- dB", should use @string resource [HardcodedText]
+            android:text="Current: -- dB"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_camera_preview.xml:66: Warning: Hardcoded string "Threshold: 50 dB | Timeout: 5s", should use @string resource [HardcodedText]
+            android:text="Threshold: 50 dB | Timeout: 5s"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_camera_preview.xml:76: Warning: Hardcoded string "Back to Main", should use @string resource [HardcodedText]
+            android:text="Back to Main"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:15: Warning: Hardcoded string "Sound-Triggered Recorder", should use @string resource [HardcodedText]
         android:text="Sound-Triggered Recorder"
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:21: Warning: Hardcoded string "Threshold: 50 dB", should use @string resource [HardcodedText]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:25: Warning: Hardcoded string "Threshold: 50 dB", should use @string resource [HardcodedText]
         android:text="Threshold: 50 dB"
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:35: Warning: Hardcoded string "Status: Stopped", should use @string resource [HardcodedText]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:39: Warning: Hardcoded string "Stop Timeout: 5 seconds", should use @string resource [HardcodedText]
+        android:text="Stop Timeout: 5 seconds"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:66: Warning: Hardcoded string "Recording Mode:", should use @string resource [HardcodedText]
+                android:text="Recording Mode:"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:80: Warning: Hardcoded string "📹 Video + Audio", should use @string resource [HardcodedText]
+                    android:text="📹 Video + Audio"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:88: Warning: Hardcoded string "🎵 Audio Only", should use @string resource [HardcodedText]
+                    android:text="🎵 Audio Only"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:105: Warning: Hardcoded string "Camera Selection:", should use @string resource [HardcodedText]
+                android:text="Camera Selection:"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:119: Warning: Hardcoded string "📱 Rear Camera", should use @string resource [HardcodedText]
+                    android:text="📱 Rear Camera"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:127: Warning: Hardcoded string "🤳 Front Camera", should use @string resource [HardcodedText]
+                    android:text="🤳 Front Camera"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:140: Warning: Hardcoded string "Status: Stopped", should use @string resource [HardcodedText]
         android:text="Status: Stopped"
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:43: Warning: Hardcoded string "Start Monitoring", should use @string resource [HardcodedText]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:148: Warning: Hardcoded string "Current: -- dB", should use @string resource [HardcodedText]
+        android:text="Current: -- dB"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:158: Warning: Hardcoded string "Start Monitoring", should use @string resource [HardcodedText]
         android:text="Start Monitoring"
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:55: Warning: Hardcoded string "Instructions:n• Adjust threshold above ambient noisen• Grant all permissions when promptedn• Videos saved to Movies/SoundTrigger foldern• Recording stops 1 minute after sound drops", should use @string resource [HardcodedText]
-        android:text="Instructions:\n• Adjust threshold above ambient noise\n• Grant all permissions when prompted\n• Videos saved to Movies/SoundTrigger folder\n• Recording stops 1 minute after sound drops"
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:174: Warning: Hardcoded string "🌐 Network Test", should use @string resource [HardcodedText]
+            android:text="🌐 Network Test"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:183: Warning: Hardcoded string "🛰️ GPS Test", should use @string resource [HardcodedText]
+            android:text="🛰️ GPS Test"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:193: Warning: Hardcoded string "📹 View Camera Stream", should use @string resource [HardcodedText]
+        android:text="📹 View Camera Stream"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:204: Warning: Hardcoded string "Instructions:n• Adjust threshold above ambient noisen• Grant all permissions when promptedn• Videos saved to Movies/SoundTrigger foldern• Recording stops after timeout when sound dropsn• Select front/rear camera before recording", should use @string resource [HardcodedText]
+        android:text="Instructions:\n• Adjust threshold above ambient noise\n• Grant all permissions when prompted\n• Videos saved to Movies/SoundTrigger folder\n• Recording stops after timeout when sound drops\n• Select front/rear camera before recording"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    Explanation for issues of type "HardcodedText":
    Hardcoding text attributes directly in layout files is bad for several
@@ -200,4 +548,16 @@ kotlin = "2.0.21"
    There are quickfixes to automatically extract this hardcoded string into a
    resource lookup.
 
-0 errors, 35 warnings
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:61: Warning: When you define paddingEnd you should probably also define paddingStart for right-to-left symmetry [RtlSymmetry]
+            android:paddingEnd="8dp">
+            ~~~~~~~~~~~~~~~~~~
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/res/layout/activity_main.xml:100: Warning: When you define paddingStart you should probably also define paddingEnd for right-to-left symmetry [RtlSymmetry]
+            android:paddingStart="8dp">
+            ~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "RtlSymmetry":
+   If you specify padding or margin on the left side of a layout, you should
+   probably also specify padding on the right side (and vice versa) for
+   right-to-left layout symmetry.
+
+0 errors, 119 warnings
