@@ -72,11 +72,14 @@ This is an Android application called "Sound Monitor" that records video when so
 - `android.hardware.microphone` (required="false") - Microphone access
 
 ### File Storage
-- **Private Storage**: `Android/data/com.soundmonitor.app/files/Movies/SoundTrigger/`
-- **Public Storage**: `Movies/SoundTrigger/video_[timestamp].mp4` (automatically copied via MediaStore API)
-- **Timestamp Files**: `Documents/SoundTrigger/video_[timestamp]_timestamp.txt` (legal verification)
+- **Private Storage**: `Android/data/com.soundmonitor.app/files/Movies/SoundTrigger/{session_id}/`
+- **Public Storage**: Session-organized folders using MediaStore API
+  - **Videos**: `Movies/SoundTrigger/{session_id}/` (MP4 files)
+  - **Timestamp Files**: `Documents/SoundTrigger/{session_id}/` (legal verification)
+  - **Session Naming**: `MMDD_HHMM` format (e.g., `0902_1430` for Sep 2nd at 2:30pm)
 - **File Format**: MP4 with H.264 video and AAC audio
 - **Typical File Size**: 12MB+ for 1-minute recordings
+- **Session Organization**: Each recording session creates its own folder for easy file management
 
 ### Camera Integration
 - Uses deprecated Camera API (legacy) for background recording compatibility
@@ -102,16 +105,22 @@ This is an Android application called "Sound Monitor" that records video when so
 ### Public Storage Access
 - Uses MediaStore API for Android 10+ compatibility
 - No WRITE_EXTERNAL_STORAGE permission required
+- **Session-Based Organization**: Each recording session gets its own folder
 - Videos automatically appear in device gallery/media apps
-- Timestamp files saved to Documents folder for easy access
+- Timestamp files saved to Documents folder organized by session
 - Easy access via file managers and USB/MTP connections
+- **Improved File Management**: Related files grouped together by recording session
 
 ### Legal Evidence Components
-Each recording generates two files for court use:
-1. **Video File**: `video_YYYYMMDD_HHMMSS.mp4` - The actual recording
-2. **Verification File**: `video_YYYYMMDD_HHMMSS_timestamp.txt` - Legal proof containing:
+Each recording session generates organized files for court use:
+1. **Session Folder**: `{session_id}/` containing all related files
+2. **Video Files**: `01.mp4`, `02.mp4`, etc. - Individual recording segments
+3. **Final Merged Video**: `FINAL.mp4` - Complete session recording
+4. **Verification Files**: `*_timestamp.txt` - Legal proof for each segment containing:
    - Authoritative timestamp from WorldTimeAPI
    - GPS coordinates with Google Maps link
    - SHA-256 hash for integrity verification
    - File size and recording metadata
    - Legal notice explaining verification process
+5. **Session Documentation**: `README.txt` - Complete explanation of all files
+6. **Metadata Files**: `*_META.txt` and `*_SUB.srt` - Technical details and subtitles
