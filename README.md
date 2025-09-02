@@ -21,12 +21,15 @@ A powerful Android application that automatically records video when ambient sou
 - **Camera Selection**: Switch between front and rear camera
 - **Recording Mode Toggle**: Quick switch between video and audio-only modes
 
-### 🔒 Legal & Security Features
-- **Cryptographic Timestamps**: SHA-256 hash verification for legal evidence
-- **GPS Location Proof**: Precise coordinates with Google Maps integration
-- **Authoritative Time Verification**: Network time synchronization with multiple fallback services
-- **Tamper Detection**: Any file modification changes the hash completely
-- **Court-Ready Documentation**: Detailed timestamp files for legal proceedings
+### 🔒 Hybrid Legal Verification System
+- **Real-Time Timestamp Proof**: Creates verification BEFORE recording begins
+- **RFC 3161 Certification**: Industry-standard legal timestamp certification
+- **Network Time Enforcement**: Requires independent time verification (no local fallback)
+- **Cryptographic Binding**: 256-bit seed links timestamp proof to video hash
+- **GPS Location Proof**: Precise coordinates with accuracy metrics and Google Maps integration
+- **Tamper-Proof Evidence**: Cryptographically impossible to forge timestamps post-recording
+- **Court-Ready Documentation**: Comprehensive legal evidence files for proceedings
+- **Fail-Safe Design**: Recording blocked if network time verification unavailable
 
 ### 📁 File Management
 - **Public Storage Access**: Recordings automatically saved to Downloads/SoundTrigger/
@@ -119,38 +122,53 @@ Downloads/SoundTrigger/
 └── audio_YYYYMMDD_HHMMSS_timestamp.txt # Audio verification
 ```
 
-### Timestamp Files
-Each recording includes a detailed verification file containing:
-- **File Hash**: SHA-256 for integrity verification
-- **Authoritative Time**: Network-verified timestamp
-- **GPS Coordinates**: Precise location with Google Maps link
-- **Recording Metadata**: Duration, file size, format details
-- **Legal Notice**: Court-ready documentation
+### Hybrid Verification Files
+Each recording includes comprehensive legal evidence documentation:
+- **Recording Start Proof**: Created BEFORE video recording begins
+- **Network Time Authority**: Independent time source verification (TimeAPI.io, etc.)
+- **RFC 3161 Certificate**: Industry-standard legal timestamp certification  
+- **Cryptographic Seed**: 256-bit hash binding timestamp to video
+- **GPS Coordinates**: Precise location with accuracy metrics and Google Maps links
+- **Video Verification**: Proof that video was recorded after timestamp creation
+- **Legal Explanation**: Step-by-step verification process for court presentation
+- **File Hash**: SHA-256 with cryptographic seed for tamper detection
+- **Backward Compatibility**: Legacy timestamp format included
 
 ## ⚖️ Legal Evidence Features
 
+### Hybrid Verification System
+- **Pre-Recording Proof**: Timestamp created BEFORE any video data exists
+- **Cryptographic Binding**: 256-bit seed mathematically links proof to video
+- **Network Time Enforcement**: Zero tolerance for manipulatable local device time
+- **RFC 3161 Certification**: Industry-standard legal timestamp servers
+- **Fail-Safe Operation**: Recording blocked without independent time verification
+
 ### Cryptographic Verification
-- **SHA-256 Hashing**: Unique fingerprint for each recording
-- **Tamper Detection**: Any modification changes the hash
-- **Integrity Guarantee**: Mathematical proof of authenticity
+- **Seeded SHA-256 Hashing**: Video hash includes cryptographic seed from start proof
+- **Tamper Detection**: Any modification changes the hash completely
+- **Integrity Guarantee**: Mathematical proof video matches original timestamp
+- **Post-Recording Verification**: Proves video was created after start proof
 
 ### Time Verification
-- **Multiple Time Sources**: WorldTimeAPI, TimeAPI.io, and fallbacks
-- **Network Synchronization**: UTC time from authoritative servers
-- **Local Fallback**: Device time when network unavailable
-- **Authority Documentation**: Records which time source was used
+- **HTTPS-Only Providers**: TimeAPI.io, IPGeolocation, TimezoneDB
+- **20-Second Mobile Timeout**: Optimized for cellular networks
+- **No Local Fallback**: Prevents "I changed my phone's clock" legal defense
+- **Authority Documentation**: Records exact time source and certificate
+- **Legal-Grade Standards**: Court-admissible timestamp certification
 
 ### Location Proof
-- **GPS Coordinates**: Latitude/longitude with accuracy info
-- **Provider Information**: GPS, Network, or Passive location
-- **Google Maps Links**: Direct navigation to recording location
+- **Multi-Provider GPS**: GPS → Network → Passive location fallback
+- **Accuracy Metrics**: Precision measurements with age verification
+- **Google Maps Integration**: Direct links for location verification
 - **Plus Codes**: Alternative location verification system
+- **Provider Documentation**: Records GPS source and quality metrics
 
 ### Court Readiness
-- **Legal Notices**: Explanation of verification process
-- **Verification Steps**: Instructions for technical validation
-- **Authority Contact**: Information for timestamp verification
-- **Standards Compliance**: Follows digital evidence best practices
+- **Expert Witness Support**: Technical documentation for testimony
+- **Verification Steps**: Complete instructions for legal validation
+- **Standards Compliance**: RFC 3161, SHA-256, GPS industry standards
+- **Unbreakable Chain**: Cryptographically impossible to forge evidence
+- **Clear Documentation**: Legal explanations for non-technical audiences
 
 ## 🔧 Technical Specifications
 
@@ -197,11 +215,12 @@ Each recording includes a detailed verification file containing:
 - Check microphone isn't blocked
 - Adjust threshold sensitivity
 
-#### Timestamp Verification Failed
-- Check internet connectivity
-- Use Network Test feature
-- Local time still provides valid timestamp
-- Manual verification still possible
+#### Network Time Verification Failed
+- Check internet connectivity (WiFi + mobile data)
+- Use Network Test feature to diagnose issues
+- Recording will be BLOCKED without network time
+- Ensure TimeAPI.io, IPGeolocation, or TimezoneDB are accessible
+- Check firewall/proxy settings blocking HTTPS requests
 
 ### Performance Tips
 - **Battery Optimization**: Disable for app in Android settings
@@ -222,15 +241,18 @@ Each recording includes a detailed verification file containing:
 ### Version 1.0 (Current)
 - ✅ Automatic sound-triggered recording
 - ✅ Dual recording modes (Video + Audio-only)
-- ✅ Legal timestamp verification system
-- ✅ GPS location proof integration
-- ✅ Real-time audio monitoring
+- ✅ **Hybrid Timestamp Verification System** (NEW!)
+- ✅ **RFC 3161 Legal Certification** (NEW!)
+- ✅ **Network Time Enforcement** - No local fallback (NEW!)
+- ✅ **Cryptographic Proof Binding** (NEW!)
+- ✅ GPS location proof with accuracy metrics
+- ✅ Real-time audio monitoring with color coding
 - ✅ Configurable sensitivity and timeout
 - ✅ Public storage with MediaStore API
 - ✅ Background service operation
 - ✅ Network and GPS testing tools
 - ✅ Camera preview and selection
-- ✅ Simplified UI with smart color coding
+- ✅ HTTPS-only time providers for security
 
 ## 🤝 Contributing
 
@@ -257,10 +279,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **WorldTimeAPI** for reliable timestamp services
+- **TimeAPI.io** for reliable HTTPS timestamp services
+- **RFC 3161** timestamp server protocol for legal certification
 - **Android MediaStore API** for modern storage access
 - **Google Location Services** for GPS verification
 - **SHA-256** cryptographic hashing for integrity
+- **IPGeolocation** and **TimezoneDB** for backup time verification
 
 ## 📞 Support
 

@@ -94,13 +94,17 @@ This is an Android application called "Sound Monitor" that records video when so
 - Continuous 44.1kHz audio sampling at 100ms intervals
 - Uses MediaRecorder.AudioSource.MIC for reliable audio recording in videos
 
-### Legal Verification System
-- **Authoritative Timestamps**: Uses WorldTimeAPI (worldtimeapi.org) for tamper-proof time verification
-- **GPS Location Proof**: Captures precise coordinates with provider information (GPS/Network/Passive)
-- **Cryptographic Integrity**: SHA-256 hash ensures video hasn't been modified
-- **Court-Ready Documentation**: Generates detailed timestamp files for legal evidence
+### Hybrid Timestamp Verification System (Legal-Grade Evidence)
+- **Real-Time Verification**: Creates recording start proof BEFORE video recording begins
+- **Network Time Enforcement**: Requires independent time verification (no local device time fallback)
+- **RFC 3161 Integration**: Industry-standard legal timestamp certification
+- **Cryptographic Binding**: 256-bit seed links timestamp proof to video file hash
+- **Multi-Provider Network Time**: TimeAPI.io, IPGeolocation, TimezoneDB (HTTPS only)
+- **GPS Location Proof**: Captures precise coordinates with provider information and accuracy metrics
+- **Tamper-Proof Evidence**: Cryptographically impossible to forge timestamps post-recording
+- **Court-Ready Documentation**: Generates comprehensive verification files for legal proceedings
 - **Google Maps Integration**: Direct links to verify exact recording location
-- **Multi-Provider Fallback**: Tries GPS → Network → Passive location providers
+- **Fail-Safe Design**: Recording blocked if network time verification unavailable
 
 ### Public Storage Access
 - Uses MediaStore API for Android 10+ compatibility
@@ -112,15 +116,33 @@ This is an Android application called "Sound Monitor" that records video when so
 - **Improved File Management**: Related files grouped together by recording session
 
 ### Legal Evidence Components
-Each recording session generates organized files for court use:
+Each recording session generates court-admissible evidence files:
 1. **Session Folder**: `{session_id}/` containing all related files
 2. **Video Files**: `01.mp4`, `02.mp4`, etc. - Individual recording segments
 3. **Final Merged Video**: `FINAL.mp4` - Complete session recording
-4. **Verification Files**: `*_timestamp.txt` - Legal proof for each segment containing:
-   - Authoritative timestamp from WorldTimeAPI
-   - GPS coordinates with Google Maps link
-   - SHA-256 hash for integrity verification
-   - File size and recording metadata
-   - Legal notice explaining verification process
-5. **Session Documentation**: `README.txt` - Complete explanation of all files
-6. **Metadata Files**: `*_META.txt` and `*_SUB.srt` - Technical details and subtitles
+4. **Hybrid Verification Files**: `*_timestamp.txt` - Comprehensive legal proof containing:
+   - **Recording Start Proof**: Created BEFORE video recording begins
+   - **Network Time Authority**: Independent time source verification (TimeAPI.io, etc.)
+   - **RFC 3161 Certificate**: Industry-standard legal timestamp certification
+   - **Cryptographic Seed**: 256-bit hash binding timestamp to video
+   - **GPS Coordinates**: Precise location with accuracy metrics and Google Maps links
+   - **Video Verification**: Proof that video was recorded after timestamp creation
+   - **Legal Explanation**: Step-by-step verification process for court presentation
+5. **Integrity Verification**: SHA-256 hash with cryptographic seed for tamper detection
+6. **Session Documentation**: Complete explanation of verification methodology
+7. **Backward Compatibility**: Legacy timestamp format included for existing systems
+
+### Core Services Architecture
+
+**TimestampService** (`app/src/main/java/com/soundmonitor/app/TimestampService.java`)
+- Network time verification with multiple HTTPS providers
+- GPS location capture with accuracy and age metrics
+- Traditional timestamp generation for backward compatibility
+- Enhanced error handling and retry logic
+
+**HybridTimestampService** (`app/src/main/java/com/soundmonitor/app/HybridTimestampService.java`) 
+- Real-time recording start proof generation
+- RFC 3161 timestamp server integration
+- Cryptographic video verification against start proof
+- Legal evidence document formatting
+- Network time enforcement (no local fallback)
