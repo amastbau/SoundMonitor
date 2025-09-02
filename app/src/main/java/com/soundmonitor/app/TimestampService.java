@@ -201,13 +201,13 @@ public class TimestampService {
     }
     
     private static AuthoritativeTimeResult getHttpTimeWithTimeoutAndAuthority(int timeoutMs) {
-        // Reliable HTTPS providers with multiple fallbacks
+        // Reliable HTTPS providers with multiple fallbacks (WorldTimeAPI removed - doesn't work!)
         TimeProvider[] quickProviders = {
             new TimeProvider("https://timeapi.io/api/Time/current/zone?timeZone=UTC", "TimeAPI.io", TimestampService::parseTimeApiIo),
-            new TimeProvider("https://worldtimeapi.org/api/timezone/UTC", "WorldTimeAPI", TimestampService::parseWorldTimeApi),
             new TimeProvider("https://api.ipgeolocation.io/timezone?apiKey=free&tz=UTC", "IPGeolocation", TimestampService::parseIpGeolocation),
             new TimeProvider("https://api.timezonedb.com/v2.1/get-time-zone?key=demo&format=json&by=zone&zone=UTC", "TimezoneDB", TimestampService::parseTimezoneDb),
-            new TimeProvider("https://timeapi.io/api/TimeZone/zone?timeZone=UTC", "TimeAPI.io-alt", TimestampService::parseTimeApiIoAlt)
+            new TimeProvider("https://timeapi.io/api/TimeZone/zone?timeZone=UTC", "TimeAPI.io-alt", TimestampService::parseTimeApiIoAlt),
+            new TimeProvider("https://api.timezonedb.com/v2.1/get-time-zone?key=demo&format=xml&by=zone&zone=UTC", "TimezoneDB-XML", TimestampService::parseTimezoneDbXml)
         };
         
         for (TimeProvider provider : quickProviders) {
@@ -428,23 +428,28 @@ public class TimestampService {
         String parse(String response);
     }
     
-    // Parser for WorldTimeAPI format
-    private static String parseWorldTimeApi(String response) {
-        int datetimeIndex = response.indexOf("\"datetime\":\"");
-        if (datetimeIndex != -1) {
-            int start = datetimeIndex + 12;
-            int end = response.indexOf("\"", start);
-            if (end != -1) {
-                return response.substring(start, end);
-            }
-        }
-        return null;
-    }
-    
     // Parser for TimeAPI.io alternative endpoint
     private static String parseTimeApiIoAlt(String response) {
         // Try the standard TimeAPI.io format first
         return parseTimeApiIo(response);
+    }
+    
+    // Parser for TimezoneDB XML format
+    private static String parseTimezoneDbXml(String response) {
+        // Look for <formatted>2025-09-02 16:45:23</formatted>
+        int formattedIndex = response.indexOf("<formatted>");
+        if (formattedIndex != -1) {
+            int start = formattedIndex + 11;
+            int end = response.indexOf("</formatted>", start);
+            if (end != -1) {
+                String timestamp = response.substring(start, end).trim();
+                // Convert to ISO format: 2025-09-02 16:45:23 → 2025-09-02T16:45:23Z
+                if (timestamp.length() >= 19) {
+                    return timestamp.replace(" ", "T") + "Z";
+                }
+            }
+        }
+        return null;
     }
     
     // Parser for NIST format
