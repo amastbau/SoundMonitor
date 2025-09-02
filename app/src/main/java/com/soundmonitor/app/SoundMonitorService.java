@@ -92,6 +92,7 @@ public class SoundMonitorService extends Service {
     private String currentVideoFile = "";
     private String currentRecordingStartTime = "";
     private TimestampService.TimestampResult currentTimestamp;
+    private HybridTimestampService.RecordingProof currentRecordingProof;
     private String sessionTimestamp = "";
     private File sessionFolder = null;
     private List<String> recordingSegments = new ArrayList<>();
@@ -867,15 +868,27 @@ public class SoundMonitorService extends Service {
             String timeStamp = "segment" + segmentCounter;
             byte[] timestampData = timeStamp.getBytes();
             
-            // Start timestamp fetch asynchronously (don't block recording start)
+            // HYBRID VERIFICATION: Create recording start proof BEFORE video recording begins
+            String recordingId = sessionTimestamp + "_" + segmentCounter;
+            HybridTimestampService.createRecordingStartProof(this, recordingId, recordingProof -> {
+                // Store the recording proof for later verification
+                currentRecordingProof = recordingProof;
+                if (recordingProof.verified) {
+                    Log.i(TAG, "🔐 Hybrid verification proof created: " + recordingProof.timeAuthority);
+                    updateNotification("Recording with verified timestamp: " + timeStamp);
+                } else {
+                    Log.w(TAG, "⚠️ Hybrid verification failed: " + recordingProof.error);
+                    updateNotification("Recording (verification limited): " + timeStamp);
+                }
+            });
+            
+            // Legacy timestamp service (for backward compatibility)
             TimestampService.getTimestamp(timestampData, this, result -> {
                 currentTimestamp = result;
                 if (result.success) {
-                    Log.i(TAG, "Timestamp obtained from: " + result.authority);
-                    updateNotification("Recording with timestamp: " + timeStamp);
+                    Log.i(TAG, "Legacy timestamp obtained from: " + result.authority);
                 } else {
-                    Log.w(TAG, "Timestamp failed: " + result.error);
-                    updateNotification("Recording (timestamp unavailable): " + timeStamp);
+                    Log.w(TAG, "Legacy timestamp failed: " + result.error);
                 }
             });
             
@@ -1315,12 +1328,31 @@ public class SoundMonitorService extends Service {
             File timestampFile = new File(videoFile.getParent(), timestampFileName);
             
             StringBuilder timestampInfo = new StringBuilder();
-            timestampInfo.append("=== LEGAL TIMESTAMP VERIFICATION ===\n");
-            timestampInfo.append("Video File: ").append(videoFile.getName()).append("\n");
-            timestampInfo.append("Recording Started: ").append(currentRecordingStartTime != null ? currentRecordingStartTime : "Unknown").append("\n");
-            timestampInfo.append("Recording Stopped: ").append(TimestampUtils.getCurrentUtcTimestamp()).append("\n");
-            timestampInfo.append("File Size: ").append(videoFile.length()).append(" bytes\n");
-            timestampInfo.append("SHA-256 Hash: ").append(videoFileHash).append("\n\n");
+            
+            // Use hybrid verification if available, fallback to legacy verification
+            if (currentRecordingProof != null && currentRecordingProof.verified) {
+                Log.i(TAG, "🔐 Using hybrid verification for timestamp file");
+                String hybridEvidence = HybridTimestampService.formatHybridEvidence(
+                    currentRecordingProof, videoFile, TimestampUtils.getCurrentUtcTimestamp()
+                );
+                timestampInfo.append(hybridEvidence);
+                
+                // Add legacy verification for backward compatibility
+                timestampInfo.append("\n\n=== LEGACY VERIFICATION (BACKWARD COMPATIBILITY) ===\n");
+                timestampInfo.append("Video File: ").append(videoFile.getName()).append("\n");
+                timestampInfo.append("Recording Started: ").append(currentRecordingStartTime != null ? currentRecordingStartTime : "Unknown").append("\n");
+                timestampInfo.append("Recording Stopped: ").append(TimestampUtils.getCurrentUtcTimestamp()).append("\n");
+                timestampInfo.append("File Size: ").append(videoFile.length()).append(" bytes\n");
+                timestampInfo.append("SHA-256 Hash: ").append(videoFileHash).append("\n\n");
+            } else {
+                Log.w(TAG, "⚠️ Hybrid verification unavailable, using legacy timestamp verification");
+                timestampInfo.append("=== LEGAL TIMESTAMP VERIFICATION ===\n");
+                timestampInfo.append("Video File: ").append(videoFile.getName()).append("\n");
+                timestampInfo.append("Recording Started: ").append(currentRecordingStartTime != null ? currentRecordingStartTime : "Unknown").append("\n");
+                timestampInfo.append("Recording Stopped: ").append(TimestampUtils.getCurrentUtcTimestamp()).append("\n");
+                timestampInfo.append("File Size: ").append(videoFile.length()).append(" bytes\n");
+                timestampInfo.append("SHA-256 Hash: ").append(videoFileHash).append("\n\n");
+            }
             
             if (currentTimestamp != null && currentTimestamp.success) {
                 timestampInfo.append("=== AUTHORITATIVE TIMESTAMP VERIFICATION ===\n");

@@ -168,11 +168,11 @@ public class TimestampService {
     }
     
     // Helper class to track which authority provided the time
-    private static class AuthoritativeTimeResult {
+    public static class AuthoritativeTimeResult {
         final String time;
         final String authority;
         
-        AuthoritativeTimeResult(String time, String authority) {
+        public AuthoritativeTimeResult(String time, String authority) {
             this.time = time;
             this.authority = authority;
         }
