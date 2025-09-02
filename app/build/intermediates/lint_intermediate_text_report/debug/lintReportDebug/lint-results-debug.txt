@@ -22,10 +22,10 @@
 /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:595: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
             info.append("Bearing: ").append(String.format("%.1f", location.getBearing())).append("°\n");
                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:691: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:701: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
         String dbText = String.format("%.1f dB", dbLevel);
                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:818: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:828: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
             String dbText = String.format("%.1f dB", dbLevel);
                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:413: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
@@ -402,58 +402,58 @@ kotlin = "2.0.21"
 /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:339: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
         currentDbText.setText("Current: -- dB");
                               ~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:655: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:660: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 statusText.setText("🎵 RECORDING AUDIO");
                                    ~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:658: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:663: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
                 statusText.setText("🔴 RECORDING #" + segmentNumber);
                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:658: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:663: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 statusText.setText("🔴 RECORDING #" + segmentNumber);
                                    ~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:664: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:669: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
             statusText.setText("⏸️ STOPPED (Timeout)");
                                ~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:670: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:675: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 statusText.setText("🎵 Audio Recording Saved");
                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:673: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:678: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 statusText.setText("🎬 Video Recording Saved");
                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:680: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:685: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 statusText.setText("🎵 Audio Monitoring");
                                    ~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:682: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:687: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 statusText.setText("👂 Monitoring");
                                    ~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:697: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:707: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 statusText.setText("🎵 RECORDING AUDIO");
                                    ~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:701: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:711: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 statusText.setText("🔴 RECORDING");
                                    ~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:710: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:720: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     statusText.setText("🎵 READY TO RECORD AUDIO");
                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:714: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:724: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     statusText.setText("🔊 READY TO RECORD");
                                        ~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:720: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:730: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     statusText.setText("🎵 Audio Monitoring");
                                        ~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:722: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:732: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     statusText.setText("👂 Monitoring");
                                        ~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:824: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:834: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     statusText.setText("🎵 READY TO RECORD AUDIO");
                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:828: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:838: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     statusText.setText("🔊 READY TO RECORD");
                                        ~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:834: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:844: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     statusText.setText("🎵 Audio Stopped");
                                        ~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:836: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/MainActivity.java:846: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     statusText.setText("👂 Stopped");
                                        ~~~~~~~~~~~~
 

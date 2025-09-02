@@ -650,6 +650,11 @@ public class MainActivity extends AppCompatActivity {
     }
     
     private void updateRecordingStateDisplay(String state, int segmentNumber) {
+        // Only update if service is actually running (avoid conflicts with local monitoring)
+        if (!isServiceRunning) {
+            return; // Ignore service broadcasts when service is stopped
+        }
+        
         if (SoundMonitorService.STATE_RECORDING_STARTED.equals(state)) {
             if (isAudioOnlyMode) {
                 statusText.setText("🎵 RECORDING AUDIO");
@@ -688,6 +693,11 @@ public class MainActivity extends AppCompatActivity {
     }
     
     private void updateDecibelDisplay(double dbLevel, boolean isRecording) {
+        // Only update if service is actually running (avoid conflicts with local monitoring)
+        if (!isServiceRunning) {
+            return; // Ignore service broadcasts when service is stopped
+        }
+        
         String dbText = String.format("%.1f dB", dbLevel);
         currentDbText.setText(dbText);
         
