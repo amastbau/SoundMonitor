@@ -128,12 +128,12 @@
         <fix-data missing="android.permission.POST_NOTIFICATIONS"/>
         <location
             file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/soundmonitor/app/SoundMonitorService.java"
-            line="1988"
+            line="1984"
             column="9"
-            startOffset="97556"
-            endLine="1988"
+            startOffset="97250"
+            endLine="1984"
             endColumn="54"
-            endOffset="97601"/>
+            endOffset="97295"/>
     </incident>
 
     <incident

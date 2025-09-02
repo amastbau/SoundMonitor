@@ -175,11 +175,11 @@ public class TimestampService {
     }
     
     private static AuthoritativeTimeResult getHttpTimeWithTimeoutAndAuthority(int timeoutMs) {
-        // Quick timeout version with reliable providers
+        // Quick timeout version with reliable providers - using most reliable APIs first
         TimeProvider[] quickProviders = {
+            new TimeProvider("https://worldtimeapi.org/api/timezone/UTC", "WorldTimeAPI", TimestampService::parseWorldTimeApi),
             new TimeProvider("https://timeapi.io/api/Time/current/zone?timeZone=UTC", "TimeAPI.io", TimestampService::parseTimeApiIo),
-            new TimeProvider("https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest", "Google API Time", TimestampService::parseGoogleApi),
-            new TimeProvider("https://api.ipgeolocation.io/timezone?apiKey=free&tz=UTC", "IPGeolocation", TimestampService::parseIpGeolocation)
+            new TimeProvider("http://worldclockapi.com/api/json/utc/now", "WorldClockAPI", TimestampService::parseWorldClockApi)
         };
         
         for (TimeProvider provider : quickProviders) {
@@ -463,6 +463,20 @@ public class TimestampService {
         int formattedIndex = response.indexOf("\"formatted\":\"");
         if (formattedIndex != -1) {
             int start = formattedIndex + 13;
+            int end = response.indexOf("\"", start);
+            if (end != -1) {
+                return response.substring(start, end);
+            }
+        }
+        return null;
+    }
+    
+    // Parser for WorldClockAPI format
+    private static String parseWorldClockApi(String response) {
+        // Look for "currentDateTime" field
+        int datetimeIndex = response.indexOf("\"currentDateTime\":\"");
+        if (datetimeIndex != -1) {
+            int start = datetimeIndex + 19;
             int end = response.indexOf("\"", start);
             if (end != -1) {
                 return response.substring(start, end);

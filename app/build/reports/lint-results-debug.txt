@@ -37,13 +37,13 @@
 /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:885: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
             String segmentName = String.format("%02d.mp4", segmentCounter);
                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:1370: Warning: Implicitly using the default locale is a common source of bugs: Use toUpperCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:1386: Warning: Implicitly using the default locale is a common source of bugs: Use toUpperCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
                         locationStatus = "VERIFIED (" + provider.toUpperCase() + ")";
                                                                  ~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:1912: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:1908: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
         String fileName = file.getName().toLowerCase();
                                          ~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:2208: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:2204: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
         return String.format("%02d:%02d:%02d,%03d", hours, minutes, seconds, millis);
                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

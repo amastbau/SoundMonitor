@@ -249,7 +249,7 @@
         errorLine2="                                                                 ~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java"
-            line="1370"
+            line="1386"
             column="66"/>
     </issue>
 
@@ -267,7 +267,7 @@
         errorLine2="                                         ~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java"
-            line="1912"
+            line="1908"
             column="42"/>
     </issue>
 
@@ -285,7 +285,7 @@
         errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java"
-            line="2208"
+            line="2204"
             column="16"/>
     </issue>
 

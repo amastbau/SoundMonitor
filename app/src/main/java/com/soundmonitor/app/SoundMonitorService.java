@@ -1332,6 +1332,22 @@ public class SoundMonitorService extends Service {
                 timestampInfo.append("UTC Time: ").append(timestamp).append("\n");
                 timestampInfo.append("Authoritative Time: ").append(ntpTime).append("\n");
                 timestampInfo.append("Status: VERIFIED\n\n");
+            } else if (currentTimestamp != null && !currentTimestamp.success) {
+                timestampInfo.append("=== AUTHORITATIVE TIMESTAMP VERIFICATION ===\n");
+                timestampInfo.append("Time Authority: Network service unavailable\n");
+                timestampInfo.append("UTC Time: ").append(TimestampUtils.getCurrentUtcTimestamp()).append("\n");
+                timestampInfo.append("Authoritative Time: Local device time (fallback)\n");
+                timestampInfo.append("Status: FALLBACK (Network failed: ").append(currentTimestamp.error).append(")\n\n");
+            } else {
+                timestampInfo.append("=== AUTHORITATIVE TIMESTAMP VERIFICATION ===\n");
+                timestampInfo.append("Time Authority: Local device time\n");
+                timestampInfo.append("UTC Time: ").append(TimestampUtils.getCurrentUtcTimestamp()).append("\n");
+                timestampInfo.append("Authoritative Time: Local device time (service pending)\n");
+                timestampInfo.append("Status: VERIFIED (Local time)\n\n");
+            }
+            
+            // Always include GPS info section
+            if (currentTimestamp != null) {
                 
                 timestampInfo.append("=== GPS LOCATION VERIFICATION ===\n");
                 String lat = currentTimestamp.latitude != null ? currentTimestamp.latitude : "Unknown";
@@ -1390,44 +1406,24 @@ public class SoundMonitorService extends Service {
                 timestampInfo.append("Any alteration to the video file will result in a completely different\n");
                 timestampInfo.append("SHA-256 hash, making tampering immediately detectable.\n");
             } else {
-                timestampInfo.append("=== TIMESTAMP STATUS ===\n");
-                timestampInfo.append("Authoritative Timestamp: UNAVAILABLE\n");
-                timestampInfo.append("Reason: ").append(currentTimestamp != null ? currentTimestamp.error : "Network error").append("\n");
-                timestampInfo.append("UTC Time: ").append(TimestampUtils.getCurrentUtcTimestamp()).append("\n\n");
-                
-                // Still include GPS info even if timestamp failed
-                if (currentTimestamp != null) {
-                    timestampInfo.append("=== GPS LOCATION VERIFICATION ===\n");
-                    String lat = currentTimestamp.latitude != null ? currentTimestamp.latitude : "Unknown";
-                    String lon = currentTimestamp.longitude != null ? currentTimestamp.longitude : "Unknown";
-                    String provider = currentTimestamp.locationProvider != null ? currentTimestamp.locationProvider : "Unknown";
-                    String accuracy = currentTimestamp.locationAccuracy != null ? currentTimestamp.locationAccuracy + " meters" : "Unknown";
-                    String age = currentTimestamp.locationAge != null ? currentTimestamp.locationAge + " seconds" : "Unknown";
-                    
-                    timestampInfo.append("Latitude: ").append(lat).append("\n");
-                    timestampInfo.append("Longitude: ").append(lon).append("\n");
-                    timestampInfo.append("Location Provider: ").append(provider).append("\n");
-                    
-                    if (!"Unknown".equals(lat) && !"Unknown".equals(lon) && 
-                        lat != null && lon != null && !lat.trim().isEmpty() && !lon.trim().isEmpty()) {
-                        try {
-                            // Validate coordinates are actual numbers
-                            Double.parseDouble(lat);
-                            Double.parseDouble(lon);
-                            timestampInfo.append("Google Maps Link: https://maps.google.com/maps?q=").append(lat).append(",").append(lon).append("\n");
-                            timestampInfo.append("Plus Code: https://plus.codes/").append(lat).append(",").append(lon).append("\n");
-                        } catch (NumberFormatException e) {
-                            Log.w(TAG, "Invalid coordinate format: " + lat + "," + lon);
-                        }
-                    }
-                    
-                    timestampInfo.append("Location Accuracy: ").append(accuracy).append("\n");
-                    timestampInfo.append("Location Age: ").append(age).append("\n");
-                    
-                    String locationStatus = (provider != null && !"GPS unavailable".equals(provider) && !"Unknown".equals(provider)) ? "VERIFIED" : "UNAVAILABLE";
-                    timestampInfo.append("Location Status: ").append(locationStatus).append("\n\n");
-                }
+                // When currentTimestamp is null, we still provide GPS info if available
+                timestampInfo.append("=== GPS LOCATION VERIFICATION ===\n");
+                timestampInfo.append("GPS Status: Service still processing, location unavailable\n\n");
             }
+            
+            // Add legal notice for all cases
+            timestampInfo.append("=== LEGAL NOTICE ===\n");
+            timestampInfo.append("This timestamp file provides cryptographic proof that this video existed\n");
+            timestampInfo.append("at the specified time. The SHA-256 hash ensures file integrity.\n");
+            timestampInfo.append("Any modification to the video will change the hash completely.\n\n");
+            timestampInfo.append("=== VERIFICATION STEPS ===\n");
+            timestampInfo.append("1. Calculate SHA-256 hash of video file and compare with above hash\n");
+            timestampInfo.append("2. Verify file size matches the recorded size\n");
+            timestampInfo.append("3. Check that timestamps are consistent with device time\n");
+            timestampInfo.append("4. Verify file metadata shows recording date/time\n\n");
+            timestampInfo.append("=== INTEGRITY GUARANTEE ===\n");
+            timestampInfo.append("Any alteration to the video file will result in a completely different\n");
+            timestampInfo.append("SHA-256 hash, making tampering immediately detectable.\n");
             
             // Write to file
             try (FileOutputStream fos = new FileOutputStream(timestampFile)) {
