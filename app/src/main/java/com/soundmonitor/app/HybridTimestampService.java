@@ -96,7 +96,7 @@ public class HybridTimestampService {
             String timeAuthority = null;
             
             try {
-                TimestampService.AuthoritativeTimeResult timeResult = getNetworkTimeSync(15000); // 15s timeout for mobile
+                TimestampService.AuthoritativeTimeResult timeResult = getNetworkTimeSync(30000); // 30s timeout for mobile
                 if (timeResult != null && timeResult.time != null) {
                     networkTimestamp = timeResult.time;
                     timeAuthority = timeResult.authority;

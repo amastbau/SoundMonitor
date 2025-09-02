@@ -140,9 +140,9 @@ public class TimestampService {
             String authorativeTime = localUtcTime; // Keep for legacy compatibility
             
             try {
-                Log.i(TAG, "Attempting to get authoritative network time (20 second timeout)...");
-                // Use longer timeout for mobile networks and retry if needed
-                AuthoritativeTimeResult networkTimeResult = getHttpTimeWithTimeoutAndAuthority(20000); // 20 seconds max
+                Log.i(TAG, "Attempting to get authoritative network time (30 second timeout with retry)...");
+                // Use longer timeout for mobile networks and multiple attempts
+                AuthoritativeTimeResult networkTimeResult = getHttpTimeWithTimeoutAndRetry(30000, 2); // 30s timeout, 2 attempts
                 if (networkTimeResult != null && networkTimeResult.time != null) {
                     // SUCCESS: Use network time as primary timestamp
                     primaryTimestamp = networkTimeResult.time;
@@ -178,12 +178,36 @@ public class TimestampService {
         }
     }
     
+    private static AuthoritativeTimeResult getHttpTimeWithTimeoutAndRetry(int timeoutMs, int maxAttempts) {
+        for (int attempt = 1; attempt <= maxAttempts; attempt++) {
+            Log.i(TAG, "Network time attempt " + attempt + "/" + maxAttempts);
+            AuthoritativeTimeResult result = getHttpTimeWithTimeoutAndAuthority(timeoutMs);
+            if (result != null) {
+                Log.i(TAG, "✅ Network time succeeded on attempt " + attempt);
+                return result;
+            }
+            if (attempt < maxAttempts) {
+                Log.w(TAG, "⚠️ Attempt " + attempt + " failed, retrying...");
+                try {
+                    Thread.sleep(2000); // 2-second delay between attempts
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
+        }
+        Log.e(TAG, "❌ All " + maxAttempts + " network time attempts failed");
+        return null;
+    }
+    
     private static AuthoritativeTimeResult getHttpTimeWithTimeoutAndAuthority(int timeoutMs) {
-        // Reliable HTTPS providers only (Android blocks HTTP by default)
+        // Reliable HTTPS providers with multiple fallbacks
         TimeProvider[] quickProviders = {
             new TimeProvider("https://timeapi.io/api/Time/current/zone?timeZone=UTC", "TimeAPI.io", TimestampService::parseTimeApiIo),
+            new TimeProvider("https://worldtimeapi.org/api/timezone/UTC", "WorldTimeAPI", TimestampService::parseWorldTimeApi),
             new TimeProvider("https://api.ipgeolocation.io/timezone?apiKey=free&tz=UTC", "IPGeolocation", TimestampService::parseIpGeolocation),
-            new TimeProvider("https://api.timezonedb.com/v2.1/get-time-zone?key=demo&format=json&by=zone&zone=UTC", "TimezoneDB", TimestampService::parseTimezoneDb)
+            new TimeProvider("https://api.timezonedb.com/v2.1/get-time-zone?key=demo&format=json&by=zone&zone=UTC", "TimezoneDB", TimestampService::parseTimezoneDb),
+            new TimeProvider("https://timeapi.io/api/TimeZone/zone?timeZone=UTC", "TimeAPI.io-alt", TimestampService::parseTimeApiIoAlt)
         };
         
         for (TimeProvider provider : quickProviders) {
@@ -402,6 +426,25 @@ public class TimestampService {
     // Interface for parsing different time API responses
     private interface TimeParser {
         String parse(String response);
+    }
+    
+    // Parser for WorldTimeAPI format
+    private static String parseWorldTimeApi(String response) {
+        int datetimeIndex = response.indexOf("\"datetime\":\"");
+        if (datetimeIndex != -1) {
+            int start = datetimeIndex + 12;
+            int end = response.indexOf("\"", start);
+            if (end != -1) {
+                return response.substring(start, end);
+            }
+        }
+        return null;
+    }
+    
+    // Parser for TimeAPI.io alternative endpoint
+    private static String parseTimeApiIoAlt(String response) {
+        // Try the standard TimeAPI.io format first
+        return parseTimeApiIo(response);
     }
     
     // Parser for NIST format
