@@ -136,7 +136,7 @@ public class TimestampService {
             
             // Prioritize authoritative network time over local time
             String primaryTimestamp = localUtcTime; // Start with local time as fallback
-            String timeAuthority = "Local device time";
+            String timeAuthority = "Local device time (fallback)";
             String authorativeTime = localUtcTime; // Keep for legacy compatibility
             
             try {
@@ -148,9 +148,10 @@ public class TimestampService {
                     primaryTimestamp = networkTimeResult.time;
                     timeAuthority = networkTimeResult.authority;
                     authorativeTime = networkTimeResult.time;
-                    Log.i(TAG, "✅ Using authoritative network time from " + timeAuthority + ": " + networkTimeResult.time);
+                    Log.i(TAG, "✅ SUCCESS: Using authoritative network time from " + timeAuthority + ": " + networkTimeResult.time);
+                    Log.i(TAG, "✅ DEBUG: Authority set to: '" + timeAuthority + "'");
                 } else {
-                    Log.w(TAG, "⚠️ Network time unavailable, falling back to local time");
+                    Log.w(TAG, "⚠️ Network time unavailable (result=" + networkTimeResult + "), falling back to local time");
                 }
             } catch (Exception timeException) {
                 Log.w(TAG, "⚠️ Network time failed: " + timeException.getMessage() + ", falling back to local time");
