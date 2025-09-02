@@ -285,7 +285,7 @@
         errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java"
-            line="2204"
+            line="2199"
             column="16"/>
     </issue>
 

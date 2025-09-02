@@ -43,7 +43,7 @@
 /home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:1908: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
         String fileName = file.getName().toLowerCase();
                                          ~~~~~~~~~~~
-/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:2204: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+/home/amos/AndroidStudioProjects/f/SoundMonitor/app/src/main/java/com/soundmonitor/app/SoundMonitorService.java:2199: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
         return String.format("%02d:%02d:%02d,%03d", hours, minutes, seconds, millis);
                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

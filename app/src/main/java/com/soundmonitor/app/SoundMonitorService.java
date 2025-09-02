@@ -2030,13 +2030,13 @@ public class SoundMonitorService extends Service {
         try {
             Log.i(TAG, "Processing final merged file: " + finalFile.getAbsolutePath() + " (size: " + finalFile.length() + " bytes)");
             
-            // Create combined metadata files for the final merged video
+            // Save timestamp verification file first
+            saveTimestampFile(finalFile);
+            
+            // Create combined metadata files for the final merged video (after timestamp file exists)
             createCombinedSrtFile(finalFile);
             createCombinedInfoFile(finalFile);
             createSessionReadme();
-            
-            // Save timestamp verification file
-            saveTimestampFile(finalFile);
             
             // Copy all session files to public storage once at the end
             copySessionToDownloads();
@@ -2126,22 +2126,17 @@ public class SoundMonitorService extends Service {
                 long segmentDuration = getVideoDurationMs(segmentFile);
                 combinedInfo.append("  Duration: ").append(segmentDuration / 1000.0).append(" seconds\n");
                 
-                // Add timestamp info if available
-                String segmentTimestampPath = segmentPath.replace(".mp4", "_timestamp.txt");
-                File segmentTimestampFile = new File(segmentTimestampPath);
-                if (segmentTimestampFile.exists()) {
-                    combinedInfo.append("  Has Legal Timestamp: Yes\n");
-                } else {
-                    combinedInfo.append("  Has Legal Timestamp: No\n");
-                }
+                // Individual segments don't have separate timestamp files
+                // Legal verification is provided in the final merged video timestamp file
+                combinedInfo.append("  Legal Verification: In final timestamp file\n");
                 
                 combinedInfo.append("\n");
             }
             
             combinedInfo.append("=== LEGAL NOTICE ===\n");
             combinedInfo.append("This recording was automatically triggered by sound detection.\n");
-            combinedInfo.append("Individual segment timestamp files provide legal verification.\n");
-            combinedInfo.append("All times in UTC. GPS location data available in timestamp files.\n");
+            combinedInfo.append("Legal verification provided in the final video timestamp file.\n");
+            combinedInfo.append("All times in UTC. GPS location and SHA-256 hash available in timestamp file.\n");
             
             // Write combined info
             try (FileOutputStream fos = new FileOutputStream(finalInfoFile)) {

@@ -179,7 +179,7 @@ document.getElementById(id).style.display = 'none';
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title">Lint Report: 117 warnings</span>
       <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Tue Sep 02 15:48:38 IDT 2025 by AGP (8.12.2)</nav>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Tue Sep 02 15:58:31 IDT 2025 by AGP (8.12.2)</nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -450,14 +450,14 @@ Dismiss</button>            </div>
 <span class="lineno"> 1911 </span>        } <span class="keyword">else</span> <span class="keyword">if</span> (fileName.endsWith(<span class="string">".srt"</span>)) {
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/soundmonitor/app/SoundMonitorService.java">../../src/main/java/com/soundmonitor/app/SoundMonitorService.java</a>:2204</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>String.format(Locale, ...)</code> instead</span><br /><pre class="errorlines">
-<span class="lineno"> 2201 </span>        <span class="keyword">long</span> seconds = (milliseconds % (<span class="number">1000</span> * <span class="number">60</span>)) / <span class="number">1000</span>;
-<span class="lineno"> 2202 </span>        <span class="keyword">long</span> millis = milliseconds % <span class="number">1000</span>;
-<span class="lineno"> 2203 </span>        
-<span class="caretline"><span class="lineno"> 2204 </span>        <span class="keyword">return</span> <span class="warning">String.format(<span class="string">"%02d:%02d:%02d,%03d"</span>, hours, minutes, seconds, millis)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 2205 </span>    }
-<span class="lineno"> 2206 </span>    
-<span class="lineno"> 2207 </span>    <span class="keyword">private</span> <span class="keyword">long</span> getVideoDurationMs(File videoFile) {
+<span class="location"><a href="../../src/main/java/com/soundmonitor/app/SoundMonitorService.java">../../src/main/java/com/soundmonitor/app/SoundMonitorService.java</a>:2199</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>String.format(Locale, ...)</code> instead</span><br /><pre class="errorlines">
+<span class="lineno"> 2196 </span>        <span class="keyword">long</span> seconds = (milliseconds % (<span class="number">1000</span> * <span class="number">60</span>)) / <span class="number">1000</span>;
+<span class="lineno"> 2197 </span>        <span class="keyword">long</span> millis = milliseconds % <span class="number">1000</span>;
+<span class="lineno"> 2198 </span>        
+<span class="caretline"><span class="lineno"> 2199 </span>        <span class="keyword">return</span> <span class="warning">String.format(<span class="string">"%02d:%02d:%02d,%03d"</span>, hours, minutes, seconds, millis)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 2200 </span>    }
+<span class="lineno"> 2201 </span>    
+<span class="lineno"> 2202 </span>    <span class="keyword">private</span> <span class="keyword">long</span> getVideoDurationMs(File videoFile) {
 </pre>
 
 </div>
