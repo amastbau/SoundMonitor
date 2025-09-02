@@ -140,9 +140,9 @@ public class TimestampService {
             String authorativeTime = localUtcTime; // Keep for legacy compatibility
             
             try {
-                Log.i(TAG, "Attempting to get authoritative network time (10 second timeout)...");
-                // Use a reasonable timeout for network requests
-                AuthoritativeTimeResult networkTimeResult = getHttpTimeWithTimeoutAndAuthority(10000); // 10 seconds max
+                Log.i(TAG, "Attempting to get authoritative network time (20 second timeout)...");
+                // Use longer timeout for mobile networks and retry if needed
+                AuthoritativeTimeResult networkTimeResult = getHttpTimeWithTimeoutAndAuthority(20000); // 20 seconds max
                 if (networkTimeResult != null && networkTimeResult.time != null) {
                     // SUCCESS: Use network time as primary timestamp
                     primaryTimestamp = networkTimeResult.time;
@@ -179,12 +179,11 @@ public class TimestampService {
     }
     
     private static AuthoritativeTimeResult getHttpTimeWithTimeoutAndAuthority(int timeoutMs) {
-        // Quick timeout version with reliable providers - using most reliable APIs first
+        // Reliable HTTPS providers only (Android blocks HTTP by default)
         TimeProvider[] quickProviders = {
             new TimeProvider("https://timeapi.io/api/Time/current/zone?timeZone=UTC", "TimeAPI.io", TimestampService::parseTimeApiIo),
-            new TimeProvider("http://worldclockapi.com/api/json/utc/now", "WorldClockAPI", TimestampService::parseWorldClockApi),
-            new TimeProvider("http://date.jsontest.com/", "JSONTest", TimestampService::parseJsonTest),
-            new TimeProvider("http://api.timezonedb.com/v2.1/get-time-zone?key=demo&format=json&by=zone&zone=UTC", "TimezoneDB", TimestampService::parseTimezoneDb)
+            new TimeProvider("https://api.ipgeolocation.io/timezone?apiKey=free&tz=UTC", "IPGeolocation", TimestampService::parseIpGeolocation),
+            new TimeProvider("https://api.timezonedb.com/v2.1/get-time-zone?key=demo&format=json&by=zone&zone=UTC", "TimezoneDB", TimestampService::parseTimezoneDb)
         };
         
         for (TimeProvider provider : quickProviders) {
@@ -198,7 +197,11 @@ public class TimestampService {
                     connection.setConnectTimeout(timeoutMs);
                     connection.setReadTimeout(timeoutMs);
                     connection.setUseCaches(false);
+                    connection.setInstanceFollowRedirects(true);
+                    connection.setDoInput(true);
                     connection.setRequestProperty("User-Agent", "SoundMonitor/1.0");
+                    connection.setRequestProperty("Accept", "application/json");
+                    connection.setRequestProperty("Connection", "close");
                     
                     int responseCode = connection.getResponseCode();
                     Log.i(TAG, provider.name + " response code: " + responseCode);
@@ -262,7 +265,11 @@ public class TimestampService {
                     connection.setConnectTimeout(timeoutMs);
                     connection.setReadTimeout(timeoutMs);
                     connection.setUseCaches(false);
+                    connection.setInstanceFollowRedirects(true);
+                    connection.setDoInput(true);
                     connection.setRequestProperty("User-Agent", "SoundMonitor/1.0");
+                    connection.setRequestProperty("Accept", "application/json");
+                    connection.setRequestProperty("Connection", "close");
                     
                     int responseCode = connection.getResponseCode();
                     if (responseCode == HttpURLConnection.HTTP_OK) {

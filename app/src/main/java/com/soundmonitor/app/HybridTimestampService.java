@@ -91,23 +91,23 @@ public class HybridTimestampService {
         try {
             Log.i(TAG, "🔐 Creating recording start proof for: " + recordingId);
             
-            // Step 1: Get network time immediately 
+            // Step 1: Get network time immediately - REQUIRED for legal evidence
             String networkTimestamp = null;
-            String timeAuthority = "Local device time (fallback)";
+            String timeAuthority = null;
             
             try {
-                TimestampService.AuthoritativeTimeResult timeResult = getNetworkTimeSync(5000); // Quick 5s timeout
+                TimestampService.AuthoritativeTimeResult timeResult = getNetworkTimeSync(15000); // 15s timeout for mobile
                 if (timeResult != null && timeResult.time != null) {
                     networkTimestamp = timeResult.time;
                     timeAuthority = timeResult.authority;
                     Log.i(TAG, "✅ Network time obtained: " + networkTimestamp + " from " + timeAuthority);
                 } else {
-                    networkTimestamp = TimestampUtils.getCurrentUtcTimestamp();
-                    Log.w(TAG, "⚠️ Using local time fallback");
+                    Log.e(TAG, "❌ Network time required for legal evidence - cannot proceed with local time");
+                    return RecordingProof.error("Network time verification failed - legal evidence requires independent time source. Check internet connection.");
                 }
             } catch (Exception e) {
-                networkTimestamp = TimestampUtils.getCurrentUtcTimestamp();
-                Log.w(TAG, "⚠️ Network time failed, using local: " + e.getMessage());
+                Log.e(TAG, "❌ Network time verification failed: " + e.getMessage());
+                return RecordingProof.error("Network time verification failed: " + e.getMessage() + ". Legal evidence requires independent time source.");
             }
             
             // Step 2: Get GPS location
