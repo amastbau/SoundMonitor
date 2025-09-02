@@ -876,13 +876,32 @@ public class SoundMonitorService extends Service {
                 if (recordingProof.verified) {
                     Log.i(TAG, "🔐 Hybrid verification proof created: " + recordingProof.timeAuthority);
                     updateNotification("Recording with verified timestamp: " + timeStamp);
+                    // Proceed with recording only after network time verification succeeds
+                    continueWithRecording(timeStamp);
                 } else {
-                    Log.w(TAG, "⚠️ Hybrid verification failed: " + recordingProof.error);
-                    updateNotification("Recording (verification limited): " + timeStamp);
+                    Log.e(TAG, "❌ BLOCKING RECORDING: Network time verification failed: " + recordingProof.error);
+                    updateNotification("Recording BLOCKED - Network time required");
+                    // Do NOT proceed with recording - abort completely
+                    restartMonitoring();
+                    return;
                 }
             });
             
+            // Note: Recording will continue in continueWithRecording() only if network time verification succeeds
+            
+        } catch (Exception e) {
+            Log.e(TAG, "❌ Critical error in startRecording: " + e.getMessage(), e);
+            cleanup();
+            restartMonitoring();
+        }
+    }
+    
+    private void continueWithRecording(String timeStamp) {
+        try {
+            Log.i(TAG, "🚀 continueWithRecording() - proceeding with network-verified recording");
+            
             // Legacy timestamp service (for backward compatibility)
+            byte[] timestampData = timeStamp.getBytes();
             TimestampService.getTimestamp(timestampData, this, result -> {
                 currentTimestamp = result;
                 if (result.success) {
@@ -1091,8 +1110,13 @@ public class SoundMonitorService extends Service {
                 }
             });
             
-            // Add timestamp metadata to the video file
-            String timestampMetadata = TimestampUtils.getCurrentUtcTimestamp() + " | " + timeStamp;
+            // Add timestamp metadata to the video file (use network time only)
+            String timestampMetadata = "NETWORK_TIME_VERIFIED | " + timeStamp;
+            if (currentRecordingProof != null && currentRecordingProof.verified) {
+                timestampMetadata = currentRecordingProof.networkTimestamp + " | " + currentRecordingProof.timeAuthority + " | " + timeStamp;
+            } else {
+                timestampMetadata = "ERROR_NO_NETWORK_TIME | " + timeStamp;
+            }
             Log.i(TAG, "Will add timestamp metadata: " + timestampMetadata);
             
             Log.i(TAG, "Preparing MediaRecorder...");
@@ -1366,26 +1390,35 @@ public class SoundMonitorService extends Service {
             // Use hybrid verification if available, fallback to legacy verification
             if (currentRecordingProof != null && currentRecordingProof.verified) {
                 Log.i(TAG, "🔐 Using hybrid verification for timestamp file");
+                // Use ONLY network-verified time from the recording proof
+                String stopTime = currentRecordingProof.networkTimestamp; // Use same authority as start
                 String hybridEvidence = HybridTimestampService.formatHybridEvidence(
-                    currentRecordingProof, videoFile, TimestampUtils.getCurrentUtcTimestamp()
+                    currentRecordingProof, videoFile, stopTime
                 );
                 timestampInfo.append(hybridEvidence);
                 
-                // Add legacy verification for backward compatibility
+                // Add legacy verification for backward compatibility  
                 timestampInfo.append("\n\n=== LEGACY VERIFICATION (BACKWARD COMPATIBILITY) ===\n");
                 timestampInfo.append("Video File: ").append(videoFile.getName()).append("\n");
-                timestampInfo.append("Recording Started: ").append(currentRecordingStartTime != null ? currentRecordingStartTime : "Unknown").append("\n");
-                timestampInfo.append("Recording Stopped: ").append(TimestampUtils.getCurrentUtcTimestamp()).append("\n");
+                timestampInfo.append("Recording Started: ").append(currentRecordingProof.networkTimestamp).append("\n");
+                timestampInfo.append("Recording Stopped: ").append(currentRecordingProof.networkTimestamp).append("\n");
                 timestampInfo.append("File Size: ").append(videoFile.length()).append(" bytes\n");
                 timestampInfo.append("SHA-256 Hash: ").append(videoFileHash).append("\n\n");
             } else {
-                Log.w(TAG, "⚠️ Hybrid verification unavailable, using legacy timestamp verification");
-                timestampInfo.append("=== LEGAL TIMESTAMP VERIFICATION ===\n");
+                Log.e(TAG, "❌ CRITICAL: Recording created without network time verification - this should not happen!");
+                timestampInfo.append("=== RECORDING ERROR - INVALID LEGAL EVIDENCE ===\n");
                 timestampInfo.append("Video File: ").append(videoFile.getName()).append("\n");
-                timestampInfo.append("Recording Started: ").append(currentRecordingStartTime != null ? currentRecordingStartTime : "Unknown").append("\n");
-                timestampInfo.append("Recording Stopped: ").append(TimestampUtils.getCurrentUtcTimestamp()).append("\n");
+                timestampInfo.append("ERROR: This recording was created without network time verification.\n");
+                timestampInfo.append("This violates legal evidence requirements and the recording\n");
+                timestampInfo.append("may not be admissible in court due to timestamp uncertainty.\n");
                 timestampInfo.append("File Size: ").append(videoFile.length()).append(" bytes\n");
                 timestampInfo.append("SHA-256 Hash: ").append(videoFileHash).append("\n\n");
+                
+                timestampInfo.append("=== LEGAL WARNING ===\n");
+                timestampInfo.append("This recording lacks independent time verification.\n");
+                timestampInfo.append("Time source: UNKNOWN (system malfunction)\n");
+                timestampInfo.append("Legal status: QUESTIONABLE\n");
+                timestampInfo.append("Recommendation: Re-record with network connectivity\n\n");
             }
             
             if (currentTimestamp != null && currentTimestamp.success) {
@@ -1401,13 +1434,13 @@ public class SoundMonitorService extends Service {
             } else if (currentTimestamp != null && !currentTimestamp.success) {
                 timestampInfo.append("=== AUTHORITATIVE TIMESTAMP VERIFICATION ===\n");
                 timestampInfo.append("Time Authority: Network service unavailable\n");
-                timestampInfo.append("UTC Time: ").append(TimestampUtils.getCurrentUtcTimestamp()).append("\n");
+                timestampInfo.append("UTC Time: ").append("⚠️ Local time blocked for legal compliance").append("\n");
                 timestampInfo.append("Authoritative Time: Local device time (fallback)\n");
                 timestampInfo.append("Status: FALLBACK (Network failed: ").append(currentTimestamp.error).append(")\n\n");
             } else {
                 timestampInfo.append("=== AUTHORITATIVE TIMESTAMP VERIFICATION ===\n");
                 timestampInfo.append("Time Authority: Local device time\n");
-                timestampInfo.append("UTC Time: ").append(TimestampUtils.getCurrentUtcTimestamp()).append("\n");
+                timestampInfo.append("UTC Time: ").append("⚠️ Local time blocked for legal compliance").append("\n");
                 timestampInfo.append("Authoritative Time: Local device time (service pending)\n");
                 timestampInfo.append("Status: VERIFIED (Local time)\n\n");
             }
