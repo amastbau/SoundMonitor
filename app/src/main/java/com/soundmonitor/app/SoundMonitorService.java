@@ -1013,6 +1013,16 @@ public class SoundMonitorService extends Service {
                 Log.i(TAG, "Set continuous video focus for recording");
             }
             
+            // Set video stabilization if available (reduces frame drops)
+            if (params.isVideoStabilizationSupported()) {
+                params.setVideoStabilization(true);
+                Log.i(TAG, "Enabled video stabilization for smoother recording");
+            }
+            
+            // Set recording hint for better performance
+            params.setRecordingHint(true);
+            Log.i(TAG, "Set recording hint for optimized camera performance");
+            
             camera.setParameters(params);
             
             // Create a surface texture for camera preview
@@ -1040,22 +1050,46 @@ public class SoundMonitorService extends Service {
             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
             mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
             
-            // Set video settings to match camera capabilities
-            if (finalRecordingSize != null) {
-                mediaRecorder.setVideoSize(finalRecordingSize.width, finalRecordingSize.height);
-                Log.i(TAG, "MediaRecorder video size: " + finalRecordingSize.width + "x" + finalRecordingSize.height);
-            } else {
-                mediaRecorder.setVideoSize(1280, 720); // Fallback
-                Log.i(TAG, "Using fallback MediaRecorder video size: 1280x720");
-            }
-            mediaRecorder.setVideoFrameRate(24); // Lower frame rate for more stability
-            mediaRecorder.setVideoEncodingBitRate(1500000); // 1.5Mbps - more stable
+            // Set conservative video settings for stability (fixes freezing issues)
+            mediaRecorder.setVideoSize(1280, 720); // Standard HD - most compatible
+            mediaRecorder.setVideoFrameRate(30); // Standard frame rate
+            mediaRecorder.setVideoEncodingBitRate(2000000); // 2Mbps - sufficient quality
+            
+            // Set max duration and file size to prevent freezing (important!)
+            mediaRecorder.setMaxDuration(600000); // 10 minutes max per segment
+            mediaRecorder.setMaxFileSize(100 * 1024 * 1024); // 100MB max per file
+            
+            Log.i(TAG, "MediaRecorder configured: 1280x720@30fps, 2Mbps");
             
             // Set audio settings
             mediaRecorder.setAudioSamplingRate(44100);
             mediaRecorder.setAudioEncodingBitRate(128000); // 128kbps
             
             mediaRecorder.setOutputFile(currentVideoFile);
+            
+            // Add error listeners to handle recording issues
+            mediaRecorder.setOnErrorListener(new MediaRecorder.OnErrorListener() {
+                @Override
+                public void onError(MediaRecorder mr, int what, int extra) {
+                    Log.e(TAG, "MediaRecorder error - what: " + what + ", extra: " + extra);
+                    // Restart recording on error to prevent freezing
+                    cleanup();
+                    restartMonitoring();
+                }
+            });
+            
+            mediaRecorder.setOnInfoListener(new MediaRecorder.OnInfoListener() {
+                @Override
+                public void onInfo(MediaRecorder mr, int what, int extra) {
+                    if (what == MediaRecorder.MEDIA_RECORDER_INFO_MAX_DURATION_REACHED) {
+                        Log.i(TAG, "Max duration reached, stopping current recording");
+                        stopRecording();
+                    } else if (what == MediaRecorder.MEDIA_RECORDER_INFO_MAX_FILESIZE_REACHED) {
+                        Log.i(TAG, "Max file size reached, stopping current recording");
+                        stopRecording();
+                    }
+                }
+            });
             
             // Add timestamp metadata to the video file
             String timestampMetadata = TimestampUtils.getCurrentUtcTimestamp() + " | " + timeStamp;
