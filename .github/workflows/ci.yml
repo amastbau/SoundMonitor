@@ -1,0 +1,348 @@
+name: SoundMonitor CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+          
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
+    - name: Run Critical Regression Prevention Tests
+      run: ./gradlew testDebugUnitTest --tests "*CriticalRegressionPreventionTest*"
+      
+    - name: Run All Unit Tests
+      run: ./gradlew testDebugUnitTest
+      
+    - name: Upload Test Reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-reports
+        path: app/build/reports/tests/
+        
+    - name: Publish Test Results
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: Unit Test Results
+        path: app/build/test-results/testDebugUnitTest/*.xml
+        reporter: java-junit
+        
+  build:
+    name: Build APK
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+          
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug
+      
+    - name: Build Release APK
+      run: ./gradlew assembleRelease
+      
+    - name: Upload Debug APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-debug
+        path: app/build/outputs/apk/debug/app-debug.apk
+        
+    - name: Upload Release APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-release
+        path: app/build/outputs/apk/release/app-release-unsigned.apk
+        
+  lint:
+    name: Run Lint
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+          
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
+    - name: Run Lint
+      run: ./gradlew lintDebug
+      
+    - name: Upload Lint Reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: lint-reports
+        path: app/build/reports/lint-results-debug.html
+        
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Run CodeQL Analysis
+      uses: github/codeql-action/init@v3
+      with:
+        languages: java
+        
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+          
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
+    - name: Build for CodeQL
+      run: ./gradlew assembleDebug
+      
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      
+  regression-check:
+    name: Critical Regression Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+          
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
+    - name: Check for Local Time Usage (Critical)
+      run: |
+        echo "🔍 Scanning for forbidden local time patterns..."
+        
+        # Check for local device time usage
+        if grep -r "TimestampUtils.getCurrentUtcTimestamp()" app/src/main/java/com/soundmonitor/app/SoundMonitorService.java || \
+           grep -r "TimestampUtils.getCurrentUtcTimestamp()" app/src/main/java/com/soundmonitor/app/HybridTimestampService.java; then
+          echo "❌ CRITICAL: Local device time usage detected!"
+          echo "This violates the zero local time policy for legal evidence."
+          exit 1
+        fi
+        
+        # Check for fallback patterns
+        if grep -r "Local device time" app/src/main/java/ || \
+           grep -r "fallback.*time" app/src/main/java/ || \
+           grep -r "device.*time.*fallback" app/src/main/java/; then
+          echo "❌ CRITICAL: Local time fallback patterns detected!"
+          exit 1
+        fi
+        
+        echo "✅ No forbidden local time patterns found"
+        
+    - name: Check for WorldTimeAPI Usage (Critical)
+      run: |
+        echo "🔍 Scanning for forbidden WorldTimeAPI usage..."
+        
+        if grep -r "worldtimeapi.org" app/src/main/java/ || \
+           grep -r "WorldTimeAPI" app/src/main/java/ || \
+           grep -r "worldclockapi.com" app/src/main/java/; then
+          echo "❌ CRITICAL: WorldTimeAPI usage detected!"
+          echo "WorldTimeAPI was removed due to reliability issues."
+          exit 1
+        fi
+        
+        echo "✅ No forbidden WorldTimeAPI patterns found"
+        
+    - name: Check MediaRecorder Stability Configuration
+      run: |
+        echo "🔍 Checking MediaRecorder stability configuration..."
+        
+        # Check for max duration and file size settings
+        if ! grep -r "setMaxDuration" app/src/main/java/com/soundmonitor/app/SoundMonitorService.java || \
+           ! grep -r "setMaxFileSize" app/src/main/java/com/soundmonitor/app/SoundMonitorService.java; then
+          echo "❌ CRITICAL: MediaRecorder stability settings missing!"
+          echo "This could cause video freezing after one minute."
+          exit 1
+        fi
+        
+        echo "✅ MediaRecorder stability configuration found"
+        
+    - name: Check Session-Based File Organization
+      run: |
+        echo "🔍 Checking session-based file organization..."
+        
+        # Check for session folder creation
+        if ! grep -r "sessionFolder" app/src/main/java/com/soundmonitor/app/SoundMonitorService.java || \
+           ! grep -r "sessionTimestamp" app/src/main/java/com/soundmonitor/app/SoundMonitorService.java; then
+          echo "❌ CRITICAL: Session-based organization missing!"
+          echo "This could cause duplicate file issues."
+          exit 1
+        fi
+        
+        echo "✅ Session-based file organization found"
+        
+    - name: Verify Network Time Providers
+      run: |
+        echo "🔍 Verifying approved network time providers..."
+        
+        # Check for approved providers
+        if ! grep -r "TimeAPI.io" app/src/main/java/com/soundmonitor/app/TimestampService.java || \
+           ! grep -r "IPGeolocation" app/src/main/java/com/soundmonitor/app/TimestampService.java || \
+           ! grep -r "TimezoneDB" app/src/main/java/com/soundmonitor/app/TimestampService.java; then
+          echo "❌ CRITICAL: Approved network time providers missing!"
+          exit 1
+        fi
+        
+        echo "✅ Approved network time providers verified"
+        
+    - name: Run Critical Regression Prevention Tests
+      run: |
+        echo "🧪 Running critical regression prevention tests..."
+        ./gradlew testDebugUnitTest --tests "*CriticalRegressionPreventionTest*"
+        
+        if [ $? -eq 0 ]; then
+          echo "✅ All critical regression prevention tests PASSED"
+        else
+          echo "❌ CRITICAL: Regression prevention tests FAILED"
+          exit 1
+        fi
+        
+  status-check:
+    name: Final Status Check
+    runs-on: ubuntu-latest
+    needs: [test, build, lint, security-scan, regression-check]
+    if: always()
+    
+    steps:
+    - name: Check All Jobs Status
+      run: |
+        echo "📊 CI Pipeline Status Summary:"
+        echo "=============================="
+        
+        if [[ "${{ needs.test.result }}" == "success" ]]; then
+          echo "✅ Tests: PASSED"
+        else
+          echo "❌ Tests: FAILED"
+        fi
+        
+        if [[ "${{ needs.build.result }}" == "success" ]]; then
+          echo "✅ Build: PASSED"
+        else
+          echo "❌ Build: FAILED"
+        fi
+        
+        if [[ "${{ needs.lint.result }}" == "success" ]]; then
+          echo "✅ Lint: PASSED"
+        else
+          echo "❌ Lint: FAILED"
+        fi
+        
+        if [[ "${{ needs.security-scan.result }}" == "success" ]]; then
+          echo "✅ Security: PASSED"
+        else
+          echo "❌ Security: FAILED"
+        fi
+        
+        if [[ "${{ needs.regression-check.result }}" == "success" ]]; then
+          echo "✅ Regression Check: PASSED"
+        else
+          echo "❌ Regression Check: FAILED"
+        fi
+        
+        # Fail if critical checks failed
+        if [[ "${{ needs.test.result }}" != "success" ]] || [[ "${{ needs.regression-check.result }}" != "success" ]]; then
+          echo ""
+          echo "🚨 CRITICAL FAILURES DETECTED!"
+          echo "Pipeline must pass all tests and regression checks."
+          exit 1
+        fi
+        
+        echo ""
+        echo "🎉 All critical checks PASSED!"
+        echo "Safe to merge/deploy."
