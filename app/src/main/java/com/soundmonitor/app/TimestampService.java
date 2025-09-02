@@ -130,32 +130,35 @@ public class TimestampService {
                 Log.w(TAG, "⚠️ GPS location unavailable - will use local timestamp only");
             }
             
-            // Always get local UTC time as primary timestamp
-            String utcTime = TimestampUtils.getCurrentUtcTimestamp();
-            Log.i(TAG, "Local UTC timestamp: " + utcTime);
+            // Get local UTC time as fallback
+            String localUtcTime = TimestampUtils.getCurrentUtcTimestamp();
+            Log.i(TAG, "Local UTC timestamp (fallback): " + localUtcTime);
             
-            // Try to get authoritative time as bonus feature (don't fail if it doesn't work)
+            // Prioritize authoritative network time over local time
+            String primaryTimestamp = localUtcTime; // Start with local time as fallback
             String timeAuthority = "Local device time";
-            String authorativeTime = utcTime; // Default to local time
+            String authorativeTime = localUtcTime; // Keep for legacy compatibility
             
             try {
-                Log.i(TAG, "Attempting to get authoritative time (10 second timeout)...");
+                Log.i(TAG, "Attempting to get authoritative network time (10 second timeout)...");
                 // Use a reasonable timeout for network requests
                 AuthoritativeTimeResult networkTimeResult = getHttpTimeWithTimeoutAndAuthority(10000); // 10 seconds max
                 if (networkTimeResult != null && networkTimeResult.time != null) {
+                    // SUCCESS: Use network time as primary timestamp
+                    primaryTimestamp = networkTimeResult.time;
                     timeAuthority = networkTimeResult.authority;
                     authorativeTime = networkTimeResult.time;
-                    Log.i(TAG, "✅ Got authoritative time from " + timeAuthority + ": " + networkTimeResult.time);
+                    Log.i(TAG, "✅ Using authoritative network time from " + timeAuthority + ": " + networkTimeResult.time);
                 } else {
-                    Log.w(TAG, "⚠️ Network time unavailable, using local time");
+                    Log.w(TAG, "⚠️ Network time unavailable, falling back to local time");
                 }
             } catch (Exception timeException) {
-                Log.w(TAG, "⚠️ Network time failed: " + timeException.getMessage() + ", using local time");
+                Log.w(TAG, "⚠️ Network time failed: " + timeException.getMessage() + ", falling back to local time");
             }
             
-            // Always return success - GPS and local time are sufficient for legal evidence
-            Log.i(TAG, "✅ Timestamp verification completed successfully");
-            return new TimestampResult(utcTime, timeAuthority, hashHex, authorativeTime, latitude, longitude, locationProvider, locationAccuracy, locationAge);
+            // Always return success - we have either network time or local time
+            Log.i(TAG, "✅ Timestamp verification completed successfully (using " + timeAuthority + ")");
+            return new TimestampResult(primaryTimestamp, timeAuthority, hashHex, authorativeTime, latitude, longitude, locationProvider, locationAccuracy, locationAge);
             
         } catch (Exception e) {
             Log.e(TAG, "❌ Critical error in timestamp service: " + e.getMessage(), e);
