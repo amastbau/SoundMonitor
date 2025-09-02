@@ -181,7 +181,6 @@ public class TimestampService {
     private static AuthoritativeTimeResult getHttpTimeWithTimeoutAndAuthority(int timeoutMs) {
         // Quick timeout version with reliable providers - using most reliable APIs first
         TimeProvider[] quickProviders = {
-            new TimeProvider("http://worldtimeapi.org/api/timezone/UTC", "WorldTimeAPI", TimestampService::parseWorldTimeApi),
             new TimeProvider("https://timeapi.io/api/Time/current/zone?timeZone=UTC", "TimeAPI.io", TimestampService::parseTimeApiIo),
             new TimeProvider("http://worldclockapi.com/api/json/utc/now", "WorldClockAPI", TimestampService::parseWorldClockApi),
             new TimeProvider("http://date.jsontest.com/", "JSONTest", TimestampService::parseJsonTest),
@@ -398,24 +397,19 @@ public class TimestampService {
         String parse(String response);
     }
     
-    // Parser for WorldTimeAPI format
-    private static String parseWorldTimeApi(String response) {
-        int datetimeIndex = response.indexOf("\"datetime\":\"");
-        if (datetimeIndex != -1) {
-            int start = datetimeIndex + 12;
-            int end = response.indexOf("\"", start);
-            if (end != -1) {
-                return response.substring(start, end);
-            }
-        }
-        return null;
-    }
-    
     // Parser for NIST format
     private static String parseNistTime(String response) {
         // NIST may have different format, try common patterns
         if (response.contains("\"datetime\"")) {
-            return parseWorldTimeApi(response); // Same format as WorldTime
+            // Parse datetime field directly
+            int datetimeIndex = response.indexOf("\"datetime\":\"");
+            if (datetimeIndex != -1) {
+                int start = datetimeIndex + 12;
+                int end = response.indexOf("\"", start);
+                if (end != -1) {
+                    return response.substring(start, end);
+                }
+            }
         }
         // Look for ISO timestamp pattern
         if (response.contains("T") && response.contains("Z")) {
