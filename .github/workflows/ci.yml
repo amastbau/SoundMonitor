@@ -41,7 +41,7 @@ jobs:
       run: ./gradlew testDebugUnitTest
       
     - name: Upload Test Reports
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: always()
       with:
         name: test-reports
@@ -90,13 +90,13 @@ jobs:
       run: ./gradlew assembleRelease
       
     - name: Upload Debug APK
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: app-debug
         path: app/build/outputs/apk/debug/app-debug.apk
         
     - name: Upload Release APK
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: app-release
         path: app/build/outputs/apk/release/app-release-unsigned.apk
@@ -132,7 +132,7 @@ jobs:
       run: ./gradlew lintDebug
       
     - name: Upload Lint Reports
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: always()
       with:
         name: lint-reports
